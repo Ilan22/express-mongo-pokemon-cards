@@ -14,6 +14,12 @@ app.set("view engine", "ejs");
 // Dossier public pour les fichiers statiques
 app.use(express.static("public"));
 
+app.use(express.urlencoded({ extended: true }));
+
+const methodOverride = require("method-override");
+
+app.use(methodOverride("_method"));
+
 const card = new mongoose.Schema({
   name: { type: String, required: true },
   pv: { type: Number, required: true },
@@ -94,6 +100,7 @@ app.put("/api/cards/:id", async (req, res) => {
 });
 
 // Supprimer une carte
+// Route pour supprimer une carte
 app.delete("/api/cards/:id", async (req, res) => {
   try {
     const card = await CardModel.findByIdAndDelete(req.params.id);
@@ -137,6 +144,15 @@ app.get("/", (req, res) => {
     { name: "Bulbasaur", type: "Grass", image: "/images/bulbasaur.png" },
   ];
   res.render("index", { pokemon }); // Rendu de la vue 'index.ejs'
+});
+
+app.get("/admin", async (req, res) => {
+  try {
+    const cards = await CardModel.find();
+    res.render("admin", { cards });
+  } catch (error) {
+    res.status(500).send("Erreur serveur");
+  }
 });
 
 const PORT = 3000;

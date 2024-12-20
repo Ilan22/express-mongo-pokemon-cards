@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modifier la carte</title>
+  </head>
+  <body>
+    <h1>Modifier <%= card.name %></h1>
+    <form action="/api/cards/<%= card._id %>" method="POST">
+      <input type="hidden" name="_method" value="PUT" />
+
+      <label for="name">Nom:</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        value="<%= card.name %>"
+        required
+      />
+
+      <label for="pv">PV:</label>
+      <input type="number" id="pv" name="pv" value="<%= card.pv %>" required />
+
+      <label for="type">Type:</label>
+      <input
+        type="text"
+        id="type"
+        name="type"
+        value="<%= card.type %>"
+        required
+      />
+
+      <label for="faiblesse">Faiblesse:</label>
+      <input
+        type="text"
+        id="faiblesse"
+        name="faiblesse"
+        value="<%= card.faiblesse %>"
+        required
+      />
+
+      <label for="attack_name">Nom de l'attaque:</label>
+      <input
+        type="text"
+        id="attack_name"
+        name="attack_name"
+        value="<%= card.attack_name %>"
+        required
+      />
+
+      <label for="attack_damage">Dégâts de l'attaque:</label>
+      <input
+        type="number"
+        id="attack_damage"
+        name="attack_damage"
+        value="<%= card.attack_damage %>"
+        required
+      />
+
+      <label for="attack_cost">Coût de l'attaque:</label>
+      <input
+        type="number"
+        id="attack_cost"
+        name="attack_cost"
+        value="<%= card.attack_cost %>"
+        required
+      />
+
+      <label for="retreat_cost">Coût de retraite:</label>
+      <input
+        type="number"
+        id="retreat_cost"
+        name="retreat_cost"
+        value="<%= card.retreat_cost %>"
+        required
+      />
+
+      <label for="rarity">Rareté:</label>
+      <input
+        type="number"
+        id="rarity"
+        name="rarity"
+        value="<%= card.rarity %>"
+        required
+      />
+
+      <button type="submit">Modifier</button>
+    </form>
+  </body>
+</html>
