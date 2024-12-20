@@ -1,20 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pokémon</title>
-    <link rel="stylesheet" href="/styles.css" />
-  </head>
-  <body>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokémon</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+  <header>
     <h1>Mes cartes Pokémon</h1>
-    <div class="pokemon-cards">
-      <% pokemon.forEach(poke => { %>
-      <div class="card">
-        <h2><%= poke.name %></h2>
-        <p>Type: <%= poke.type %></p>
+    <div class="user-info">
+      <% if (user) { %>
+        <p>Bienvenue, <%= user.name %>
+        </p>
+        <% if (user.role===1) { %>
+          <span class="admin-badge">Admin</span>
+          <% } %>
+            <button onclick="logout()">Déconnexion</button>
+            <% } %>
+    </div>
+  </header>
+
+  <div class="pokemon-cards">
+    <% pokemon.forEach(poke=> { %>
+      <div class="card <%= poke.type %>">
+        <h2>
+          <%= poke.name %>
+        </h2>
+        <p>Type: <%= poke.type %>
+        </p>
+        <p>PV: <%= poke.pv %>
+        </p>
+        <p>Faiblesse: <%= poke.faiblesse %>
+        </p>
+        <p>Attaque: <%= poke.attack_name %> (<%= poke.attack_damage %> dégâts)
+        </p>
+        <% if (user && user.role===1) { %>
+          <div class="admin-controls">
+            <button onclick="editCard('<%= poke._id %>')">Modifier</button>
+            <button onclick="deleteCard('<%= poke._id %>')">Supprimer</button>
+          </div>
+          <% } %>
       </div>
       <% }) %>
-    </div>
-  </body>
+  </div>
+
+  <div class="booster-section">
+    <button id="booster-button" onclick="handleBoosterClick()">Ouvrir un Booster</button>
+    <div id="booster-cards" style="display: flex; gap: 10px;justify-content: center;"></div>
+  </div>
+
+  <script>
+    function logout() {
+      localStorage.removeItem('token');
+      window.location.href = '/login';
+    }
+
+    let boosterCards = [];
+    let currentCardIndex = 0;
+    let isOpeningBooster = false;
+
+    async function handleBoosterClick() {
+      const button = document.getElementById('booster-button');
+
+      if (!isOpeningBooster) {
+        // Open a new booster
+        try {
+          const response = await fetch('/api/booster');
+          const data = await response.json();
+
+          if (response.ok) {
+            boosterCards = data.cards;
+            currentCardIndex = 0;
+            isOpeningBooster = true;
+
+            // Reset booster display
+            const boosterDiv = document.getElementById('booster-cards');
+            boosterDiv.innerHTML = '';
+            button.textContent = 'Afficher la prochaine carte';
+            displayNextCard();
+          } else {
+            alert(data.message || 'Erreur lors de l\'ouverture du booster.');
+          }
+        } catch (error) {
+          console.error('Erreur:', error);
+          alert('Impossible d\'ouvrir le booster.');
+        }
+      } else {
+        // Display the next card
+        displayNextCard();
+      }
+    }
+
+    function displayNextCard() {
+      const boosterDiv = document.getElementById('booster-cards');
+      const button = document.getElementById('booster-button');
+
+      if (currentCardIndex < boosterCards.length) {
+        const card = boosterCards[currentCardIndex];
+
+        // Append the current card to the booster section
+        const cardDiv = document.createElement('div');
+        cardDiv.classList.add('card', card.type);
+        cardDiv.innerHTML = `
+      <h2>${card.name}</h2>
+      <p>Type: ${card.type}</p>
+      <p>PV: ${card.pv}</p>
+      <p>Faiblesse: ${card.faiblesse}</p>
+      <p>Attaque: ${card.attack_name} (${card.attack_damage} dégâts)</p>
+    `;
+        boosterDiv.appendChild(cardDiv);
+
+        // Move to the next card
+        currentCardIndex++;
+      } else {
+        // All cards displayed
+        button.textContent = 'Ouvrir un Booster';
+        isOpeningBooster = false;
+        alert('Toutes les cartes du booster ont été affichées.');
+
+        // Rafraîchir la page pour afficher les nouvelles cartes
+        window.location.reload();
+      }
+    }
+
+    function logout() {
+      localStorage.removeItem('token');
+      window.location.href = '/login';
+    }
+  </script>
+</body>
+
 </html>
+
+<style>
+  .pokemon-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .pokemon-cards .card {
+    flex: 1 0 calc(20% - 10px); /* 5 cards per row */
+    box-sizing: border-box;
+  }
+
+  .Normal{
+    background: #A9A979;
+  }
+  .Feu{
+    background: #F08030;
+  }
+  .Eau{
+    background: #6890F0;
+  }
+  .Plante{
+    background: #78C850;
+  }
+  .Électrique{
+    background: #F8D030;
+  }
+  .Glace{
+    background: #98D8D8;
+  }
+  .Combat{
+    background: #C03028;
+  }
+  .Poison{
+    background: #A040A0;
+  }
+  .Sol{
+    background: #E0C068;
+  }
+  .Vol{
+    background: #A890F0;
+  }
+  .Psy{
+    background: #F85888;
+  }
+  .Insecte{
+    background: #A8B820;
+  }
+  .Roche{
+    background: #B8A038;
+  }
+  .Spectre{
+    background: #705898;
+  }
+  .Dragon{
+    background: #7038F8;
+  }
+  .Ténèbres{
+    background: #705848;
+  }
+  .Acier{
+    background: #B8B8D0;
+  }
+</style>
