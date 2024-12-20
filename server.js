@@ -26,12 +26,21 @@ const card = new mongoose.Schema({
   rarity: { type: Number, required: true },
 });
 
-const Card = mongoose.model("card", card);
+const CardModel = mongoose.model("card", card);
+
+const user = new mongoose.Schema({
+  name: { type: String, required: true },
+  email: { type: String, required: true },
+  password: { type: String, required: true },
+  role: { type: Number, required: true },
+});
+
+const UserModel = mongoose.model("card", card);
 
 // Récupérer toutes les cartes
 app.get("/api/cards", async (req, res) => {
   try {
-    const cards = await Card.find();
+    const cards = await CardModel.find();
     res.json(cards);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -41,7 +50,7 @@ app.get("/api/cards", async (req, res) => {
 // Récupérer une carte par ID
 app.get("/api/cards/:id", async (req, res) => {
   try {
-    const card = await Card.findById(req.params.id);
+    const card = await CardModel.findById(req.params.id);
     if (card) {
       res.json(card);
     } else {
@@ -54,7 +63,7 @@ app.get("/api/cards/:id", async (req, res) => {
 
 // Créer une nouvelle carte
 app.post("/api/cards", async (req, res) => {
-  const newCard = new Card(req.body);
+  const newCard = new CardModel(req.body);
   try {
     const savedCard = await newCard.save();
     res.status(201).json(savedCard);
@@ -66,10 +75,14 @@ app.post("/api/cards", async (req, res) => {
 // Modifier une carte existante
 app.put("/api/cards/:id", async (req, res) => {
   try {
-    const updatedCard = await Card.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-      runValidators: true,
-    });
+    const updatedCard = await CardModel.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      {
+        new: true,
+        runValidators: true,
+      }
+    );
     if (updatedCard) {
       res.json(updatedCard);
     } else {
@@ -83,7 +96,7 @@ app.put("/api/cards/:id", async (req, res) => {
 // Supprimer une carte
 app.delete("/api/cards/:id", async (req, res) => {
   try {
-    const card = await Card.findByIdAndDelete(req.params.id);
+    const card = await CardModel.findByIdAndDelete(req.params.id);
     if (card) {
       res.json({ message: "Carte supprimée avec succès" });
     } else {
@@ -97,7 +110,7 @@ app.delete("/api/cards/:id", async (req, res) => {
 // Ouvrir un booster
 app.get("/api/booster", async (req, res) => {
   try {
-    const cardCount = await Card.countDocuments();
+    const cardCount = await CardModel.countDocuments();
 
     if (cardCount < 5) {
       return res.status(400).json({
@@ -106,7 +119,7 @@ app.get("/api/booster", async (req, res) => {
       });
     }
 
-    const randomCards = await Card.aggregate([{ $sample: { size: 5 } }]);
+    const randomCards = await CardModel.aggregate([{ $sample: { size: 5 } }]);
 
     res.json({
       cards: randomCards,
