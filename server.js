@@ -35,6 +35,7 @@ const user = new mongoose.Schema({
   email: { type: String, required: true },
   password: { type: String, required: true },
   role: { type: Number, required: true },
+  cards: [{ type: mongoose.Schema.Types.ObjectId, ref: "card" }],
 });
 
 const UserModel = mongoose.model("user", user);
@@ -246,7 +247,7 @@ app.get("/api/user/profile", authenticateToken, async (req, res) => {
 
 app.get("/", authenticateToken, async (req, res) => {
   try {
-    const pokemon = await CardModel.find().select("name type image");
+    const pokemon = await CardModel.find();
     res.render("index", {
       pokemon,
       user: { name: req.user.name, role: req.user.role },
