@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin - Gestion des cartes Pokémon</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <h1>Administration des cartes Pokémon</h1>
+
+    <!-- Formulaire de création -->
+    <h2>Créer une nouvelle carte</h2>
+    <form id="createCardForm">
+      <label for="name">Nom:</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="pv">PV:</label>
+      <input type="number" id="pv" name="pv" required />
+
+      <label for="type">Type:</label>
+      <input type="text" id="type" name="type" required />
+
+      <label for="faiblesse">Faiblesse:</label>
+      <input type="text" id="faiblesse" name="faiblesse" required />
+
+      <label for="attack_name">Nom de l'attaque:</label>
+      <input type="text" id="attack_name" name="attack_name" required />
+
+      <label for="attack_damage">Dégâts de l'attaque:</label>
+      <input type="number" id="attack_damage" name="attack_damage" required />
+
+      <label for="attack_cost">Coût de l'attaque:</label>
+      <input type="number" id="attack_cost" name="attack_cost" required />
+
+      <label for="retreat_cost">Coût de retraite:</label>
+      <input type="number" id="retreat_cost" name="retreat_cost" required />
+
+      <label for="rarity">Rareté:</label>
+      <input type="number" id="rarity" name="rarity" required />
+
+      <button type="submit">Créer</button>
+    </form>
+
+    <!-- Tableau des cartes existantes -->
+    <h2>Liste des cartes</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>PV</th>
+          <th>Type</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% cards.forEach(card => { %>
+        <tr>
+          <td><%= card.name %></td>
+          <td><%= card.pv %></td>
+          <td><%= card.type %></td>
+          <td>
+            <a href="/admin/edit/<%= card._id %>">Modifier</a>
+            <form
+              class="delete-form"
+              action="/api/cards/<%= card._id %>"
+              method="POST"
+              style="display: inline"
+            >
+              <button
+                type="submit"
+                class="delete-button"
+                onclick="return confirm('Confirmer la suppression ?')"
+              >
+                Supprimer
+              </button>
+            </form>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <script src="/js/admin.js"></script>
+  </body>
+</html>
