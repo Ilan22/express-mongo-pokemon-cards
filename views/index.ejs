@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -17,4 +17,36 @@
       <% }) %>
     </div>
   </body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Mes cartes Pokémon</h1>
+        <div class="user-info">
+            <% if (user) { %>
+                <p>Bienvenue, <%= user.name %></p>
+                <% if (user.role === 1) { %>
+                    <span class="admin-badge">Admin</span>
+                <% } %>
+                <button onclick="logout()">Déconnexion</button>
+            <% } %>
+        </div>
+    </header>
+
+        <script>
+        function logout() {
+            localStorage.removeItem('token');
+            window.location.href = '/login';
+        }
+    </script>
+</body>
 </html>
