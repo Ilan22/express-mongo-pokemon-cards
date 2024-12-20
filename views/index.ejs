@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokémon</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <h1>Mes cartes Pokémon</h1>
+    <div class="pokemon-cards">
+      <% pokemon.forEach(poke => { %>
+      <div class="card">
+        <h2><%= poke.name %></h2>
+        <p>Type: <%= poke.type %></p>
+      </div>
+      <% }) %>
+    </div>
+  </body>
+</html>

@@ -8,6 +8,11 @@ mongoose
 
 const app = express();
 app.use(express.json());
+// Configurer le moteur de template EJS
+app.set("view engine", "ejs");
+
+// Dossier public pour les fichiers statiques
+app.use(express.static("public"));
 
 const card = new mongoose.Schema({
   name: { type: String, required: true },
@@ -109,6 +114,16 @@ app.get("/api/booster", async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
+});
+
+// views
+app.get("/", (req, res) => {
+  const pokemon = [
+    { name: "Pikachu", type: "Electric", image: "/images/pikachu.png" },
+    { name: "Charmander", type: "Fire", image: "/images/charmander.png" },
+    { name: "Bulbasaur", type: "Grass", image: "/images/bulbasaur.png" },
+  ];
+  res.render("index", { pokemon }); // Rendu de la vue 'index.ejs'
 });
 
 const PORT = 3000;
