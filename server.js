@@ -205,7 +205,7 @@ app.delete("/api/cards/:id", async (req, res) => {
 });
 
 // Ouvrir un booster
-app.get("/api/booster", async (req, res) => {
+app.get("/api/booster", authenticateToken, async (req, res) => {
   try {
     const cardCount = await CardModel.countDocuments();
 
@@ -216,7 +216,18 @@ app.get("/api/booster", async (req, res) => {
       });
     }
 
+    const user = await UserModel.findById(req.user.id);
+    const userCardIds = user.cards.map((card) => card._id.toString());
     const randomCards = await CardModel.aggregate([{ $sample: { size: 5 } }]);
+
+    // Filtrer les cartes déjà possédées
+    const newCards = randomCards.filter(
+      (card) => !userCardIds.includes(card._id.toString())
+    );
+
+    // Mettre à jour l'utilisateur connecté avec les nouvelles cartes
+    user.cards.push(...newCards.map((card) => card._id));
+    await user.save();
 
     res.json({
       cards: randomCards,
@@ -225,16 +236,6 @@ app.get("/api/booster", async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
-
-// views
-// app.get("/", (req, res) => {
-//   const pokemon = [
-//     { name: "Pikachu", type: "Electric", image: "/images/pikachu.png" },
-//     { name: "Charmander", type: "Fire", image: "/images/charmander.png" },
-//     { name: "Bulbasaur", type: "Grass", image: "/images/bulbasaur.png" },
-//   ];
-//   res.render("index", { pokemon }); // Rendu de la vue 'index.ejs'
-// });
 
 app.get("/api/user/profile", authenticateToken, async (req, res) => {
   try {
@@ -245,11 +246,13 @@ app.get("/api/user/profile", authenticateToken, async (req, res) => {
   }
 });
 
+// views
+
 app.get("/", authenticateToken, async (req, res) => {
   try {
-    const pokemon = await CardModel.find();
+    const user = await UserModel.findById(req.user.id).populate("cards");
     res.render("index", {
-      pokemon,
+      pokemon: user.cards,
       user: { name: req.user.name, role: req.user.role },
     });
   } catch (error) {
