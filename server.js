@@ -79,6 +79,7 @@ app.post("/api/cards", async (req, res) => {
 });
 
 // Modifier une carte existante
+// Modifier une carte existante
 app.put("/api/cards/:id", async (req, res) => {
   try {
     const updatedCard = await CardModel.findByIdAndUpdate(
@@ -90,7 +91,7 @@ app.put("/api/cards/:id", async (req, res) => {
       }
     );
     if (updatedCard) {
-      res.json(updatedCard);
+      res.redirect("/admin"); // Redirige vers la page d'admin après la modification
     } else {
       res.status(404).json({ message: "Carte non trouvée" });
     }
@@ -150,6 +151,20 @@ app.get("/admin", async (req, res) => {
   try {
     const cards = await CardModel.find();
     res.render("admin", { cards });
+  } catch (error) {
+    res.status(500).send("Erreur serveur");
+  }
+});
+
+// Route pour afficher le formulaire de modification d'une carte
+app.get("/admin/edit/:id", async (req, res) => {
+  try {
+    const card = await CardModel.findById(req.params.id);
+    if (card) {
+      res.render("editCard", { card });
+    } else {
+      res.status(404).send("Carte non trouvée");
+    }
   } catch (error) {
     res.status(500).send("Erreur serveur");
   }

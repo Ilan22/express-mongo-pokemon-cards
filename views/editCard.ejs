@@ -3,13 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Modifier la carte</title>
+    <title>Modifier la carte Pokémon</title>
+    <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <h1>Modifier <%= card.name %></h1>
-    <form action="/api/cards/<%= card._id %>" method="POST">
-      <input type="hidden" name="_method" value="PUT" />
+    <h1>Modifier la carte : <%= card.name %></h1>
 
+    <!-- Formulaire de modification -->
+    <form
+      id="editCardForm"
+      action="/api/cards/<%= card._id %>?_method=PUT"
+      method="POST"
+    >
       <label for="name">Nom:</label>
       <input
         type="text"
@@ -85,7 +90,9 @@
         required
       />
 
-      <button type="submit">Modifier</button>
+      <button type="submit">Modifier la carte</button>
     </form>
+
+    <script src="/js/admin.js"></script>
   </body>
 </html>
