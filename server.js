@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
 mongoose
-  .connect("mongodb://127.0.0.1:27017/tgcp")
+  .connect("mongodb://127.0.0.1:27017/tcgp")
   .then(() => console.log("MongoDB connecté"))
   .catch((err) => console.error("Erreur de connexion à MongoDB:", err));
 
@@ -22,26 +22,30 @@ const methodOverride = require("method-override");
 
 app.use(methodOverride("_method"));
 
-const card = new mongoose.Schema({
-  name: { type: String, required: true },
-  pv: { type: Number, required: true },
-  type: { type: String, required: true },
-  faiblesse: { type: String, required: true },
-  attack_name: { type: String, required: true },
-  attack_damage: { type: Number, required: true },
-  attack_cost: { type: Number, required: true },
-  retreat_cost: { type: Number, required: true },
-  rarity: { type: Number, required: true },
+const pokemon = new mongoose.Schema({
+  name: {type: String, required: true},
+  hp: {type: Number, required: true},
+  image: {type: String, required: true},
+  type: {type: String, required: true},
+  attack: {
+      name: {type: String, required: true},
+      description: {type: String, required: true},
+      power: {type: Number, required: true},
+  },
+  rarity: {
+      level: {type: Number, required: true},
+      label: {type: String, required: true},
+  },
 });
 
-const CardModel = mongoose.model("card", card);
+const PokemonModel = mongoose.model("pokemon", pokemon);
 
 const user = new mongoose.Schema({
   name: { type: String, required: true },
   email: { type: String, required: true },
   password: { type: String, required: true },
   role: { type: Number, required: true },
-  cards: [{ type: mongoose.Schema.Types.ObjectId, ref: "card" }],
+  pokemons: [{ type: mongoose.Schema.Types.ObjectId, ref: "pokemon" }],
 });
 
 const UserModel = mongoose.model("user", user);
@@ -57,13 +61,13 @@ const authenticateToken = (req, res, next) => {
   const token = req.cookies.token;
 
   if (!token) {
-    return res.redirect("/login");
+    return res.redirect("/authentication");
   }
 
   jwt.verify(token, JWT_SECRET, (err, user) => {
     if (err) {
       res.clearCookie("token");
-      return res.redirect("/login");
+      return res.redirect("/authentication");
     }
     req.user = user;
     next();
@@ -137,21 +141,21 @@ app.post("/api/login", async (req, res) => {
 
 app.get("/api/logout", (req, res) => {
   res.clearCookie("token");
-  res.redirect("/login");
+  res.redirect("/authentication");
 });
 
-// Récupérer toutes les cartes
-app.get("/api/cards", async (req, res) => {
+// Rcupérer toutes les cartes
+app.get("/api/pokemons", async (req, res) => {
   try {
-    const cards = await CardModel.find();
-    res.json(cards);
+    const pokemons = await CardModel.find();
+    res.json(pokemons);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 });
 
 // Récupérer une carte par ID
-app.get("/api/cards/:id", async (req, res) => {
+app.get("/api/pokemons/:id", async (req, res) => {
   try {
     const card = await CardModel.findById(req.params.id);
     if (card) {
@@ -165,7 +169,7 @@ app.get("/api/cards/:id", async (req, res) => {
 });
 
 // Créer une nouvelle carte
-app.post("/api/cards", async (req, res) => {
+app.post("/api/pokemons", async (req, res) => {
   const newCard = new CardModel(req.body);
   try {
     const savedCard = await newCard.save();
@@ -176,8 +180,7 @@ app.post("/api/cards", async (req, res) => {
 });
 
 // Modifier une carte existante
-// Modifier une carte existante
-app.put("/api/cards/:id", async (req, res) => {
+app.put("/api/pokemons/:id", async (req, res) => {
   try {
     const updatedCard = await CardModel.findByIdAndUpdate(
       req.params.id,
@@ -197,9 +200,8 @@ app.put("/api/cards/:id", async (req, res) => {
   }
 });
 
-// Supprimer une carte
 // Route pour supprimer une carte
-app.delete("/api/cards/:id", async (req, res) => {
+app.delete("/api/pokemons/:id", async (req, res) => {
   try {
     const card = await CardModel.findByIdAndDelete(req.params.id);
     if (card) {
@@ -215,31 +217,32 @@ app.delete("/api/cards/:id", async (req, res) => {
 // Ouvrir un booster
 app.get("/api/booster", authenticateToken, async (req, res) => {
   try {
-    const cardCount = await CardModel.countDocuments();
+    const cardCount = await PokemonModel.countDocuments();
 
     if (cardCount < 5) {
       return res.status(400).json({
-        message:
-          "Pas assez de cartes dans la base de données pour ouvrir un booster",
+        message: "Pas assez de cartes dans la base de données pour ouvrir un booster",
       });
     }
 
     const user = await UserModel.findById(req.user.id);
-    const userCardIds = user.cards.map((card) => card._id.toString());
-    const randomCards = await CardModel.aggregate([{ $sample: { size: 5 } }]);
+    const userPokemonIds = user.pokemons.map((pokemon) => pokemon._id.toString());
+    const randomPokemons = await PokemonModel.aggregate([{ $sample: { size: 5 } }]);
 
-    // Filtrer les cartes déjà possédées
-    const newCards = randomCards.filter(
-      (card) => !userCardIds.includes(card._id.toString())
-    );
+    // Marquer les nouvelles cartes
+    const pokemonsWithNewStatus = randomPokemons.map(pokemon => ({
+      ...pokemon,
+      isNew: !userPokemonIds.includes(pokemon._id.toString())
+    }));
+    
+    // Filtrer les cartes pour la mise à jour de la collection
+    const newPokemons = pokemonsWithNewStatus.filter(pokemon => pokemon.isNew);
 
     // Mettre à jour l'utilisateur connecté avec les nouvelles cartes
-    user.cards.push(...newCards.map((card) => card._id));
+    user.pokemons.push(...newPokemons.map((pokemon) => pokemon._id));
     await user.save();
 
-    res.json({
-      cards: randomCards,
-    });
+    res.json({randomPokemons: pokemonsWithNewStatus});
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -258,28 +261,37 @@ app.get("/api/user/profile", authenticateToken, async (req, res) => {
 
 app.get("/", authenticateToken, async (req, res) => {
   try {
-    const user = await UserModel.findById(req.user.id).populate("cards");
+    // Récupérer l'utilisateur avec ses cartes
+    const userWithpokemons = await UserModel.findById(req.user.id).populate('pokemons');
+    // Récupérer tous les pokémons
+    const allPokemons = await PokemonModel.find();
+    
+    // Créer un tableau avec tous les pokémons, en marquant ceux possédés
+    const pokemons = allPokemons.map(pokemon => {
+      const isOwned = userWithpokemons.pokemons.some(card => card._id.toString() === pokemon._id.toString());
+      return {
+        ...pokemon.toObject(),
+        isOwned
+      };
+    });
+
     res.render("index", {
-      pokemon: user.cards,
-      user: { name: req.user.name, role: req.user.role },
+      pokemons: pokemons,
+      user: req.user,
     });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 });
 
-app.get("/login", (req, res) => {
-  res.render("login");
-});
-
-app.get("/register", (req, res) => {
-  res.render("register");
+app.get("/authentication", (req, res) => {
+  res.render("authentication");
 });
 
 app.get("/admin", async (req, res) => {
   try {
-    const cards = await CardModel.find();
-    res.render("admin", { cards });
+    const pokemons = await CardModel.find();
+    res.render("admin", { pokemons });
   } catch (error) {
     res.status(500).send("Erreur serveur");
   }

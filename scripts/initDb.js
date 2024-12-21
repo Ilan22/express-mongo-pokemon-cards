@@ -1,167 +1,65 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
+const fs = require('fs').promises;
+const path = require('path');
 
-// Connexion à MongoDB
-mongoose
-  .connect("mongodb://127.0.0.1:27017/tgcp")
-  .then(() => console.log("MongoDB connecté pour l'initialisation"))
-  .catch((err) => console.error("Erreur de connexion à MongoDB:", err));
+// URL de connexion MongoDB avec options
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/tcgp';
+const mongooseOptions = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+};
 
-// Définition du schéma
-const cardSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  pv: { type: Number, required: true },
-  type: { type: String, required: true },
-  faiblesse: { type: String, required: true },
-  attack_name: { type: String, required: true },
-  attack_damage: { type: Number, required: true },
-  attack_cost: { type: Number, required: true },
-  retreat_cost: { type: Number, required: true },
-  rarity: { type: Number, required: true },
-});
+// Définition du schéma Pokemon
+const PokemonSchema = new mongoose.Schema({
+  // Le schéma est flexible pour accepter toutes les propriétés du JSON
+}, { strict: false });
 
-const Card = mongoose.model("card", cardSchema);
+const Pokemon = mongoose.model('Pokemon', PokemonSchema);
 
-// Données des cartes par défaut
-const defaultCards = [
-  {
-    name: "Pikachu",
-    pv: 60,
-    type: "Électrique",
-    faiblesse: "Combat",
-    attack_name: "Éclair",
-    attack_damage: 20,
-    attack_cost: 2,
-    retreat_cost: 1,
-    rarity: 1,
-  },
-  {
-    name: "Dracaufeu",
-    pv: 120,
-    type: "Feu",
-    faiblesse: "Eau",
-    attack_name: "Danseflamme",
-    attack_damage: 100,
-    attack_cost: 4,
-    retreat_cost: 3,
-    rarity: 3,
-  },
-  {
-    name: "Bulbizarre",
-    pv: 40,
-    type: "Plante",
-    faiblesse: "Feu",
-    attack_name: "Vol-Vie",
-    attack_damage: 20,
-    attack_cost: 2,
-    retreat_cost: 1,
-    rarity: 1,
-  },
-  {
-    name: "Léviator",
-    pv: 100,
-    type: "Eau",
-    faiblesse: "Électrique",
-    attack_name: "Hydrocanon",
-    attack_damage: 80,
-    attack_cost: 3,
-    retreat_cost: 2,
-    rarity: 2,
-  },
-  {
-    name: "Mackogneur",
-    pv: 90,
-    type: "Combat",
-    faiblesse: "Psy",
-    attack_name: "Frappe Atlas",
-    attack_damage: 60,
-    attack_cost: 3,
-    retreat_cost: 2,
-    rarity: 2,
-  },
-  {
-    name: "Ectoplasma",
-    pv: 80,
-    type: "Psy",
-    faiblesse: "Ténèbres",
-    attack_name: "Ball’Ombre",
-    attack_damage: 70,
-    attack_cost: 3,
-    retreat_cost: 1,
-    rarity: 2,
-  },
-  {
-    name: "Ronflex",
-    pv: 110,
-    type: "Normal",
-    faiblesse: "Combat",
-    attack_name: "Plaquage",
-    attack_damage: 50,
-    attack_cost: 2,
-    retreat_cost: 4,
-    rarity: 2,
-  },
-  {
-    name: "Dracolosse",
-    pv: 100,
-    type: "Dragon",
-    faiblesse: "Glace",
-    attack_name: "Draco-Rage",
-    attack_damage: 90,
-    attack_cost: 4,
-    retreat_cost: 2,
-    rarity: 3,
-  },
-  {
-    name: "Mewtwo",
-    pv: 110,
-    type: "Psy",
-    faiblesse: "Ténèbres",
-    attack_name: "Psyko",
-    attack_damage: 100,
-    attack_cost: 4,
-    retreat_cost: 2,
-    rarity: 3,
-  },
-  {
-    name: "Mew",
-    pv: 70,
-    type: "Psy",
-    faiblesse: "Ténèbres",
-    attack_name: "Pouvoir Antique",
-    attack_damage: 40,
-    attack_cost: 2,
-    retreat_cost: 1,
-    rarity: 3,
-  },
-];
+// Fonction pour convertir les $oid en ObjectId
+function convertObjectIds(obj) {
+  if (obj === null || typeof obj !== 'object') return obj;
 
-// Fonction pour initialiser la base de données
-async function initializeDatabase() {
+  if (obj.$oid) {
+    return new mongoose.Types.ObjectId(obj.$oid);
+  }
+
+  for (const key in obj) {
+    obj[key] = convertObjectIds(obj[key]);
+  }
+  return obj;
+}
+
+async function importData() {
   try {
-    // Supprimer toutes les cartes existantes
-    await Card.deleteMany({});
-    console.log("Base de données nettoyée");
+    // Connexion à MongoDB avec options
+    await mongoose.connect(MONGODB_URI, mongooseOptions);
+    console.log('Connecté à MongoDB');
 
-    // Insérer les nouvelles cartes
-    await Card.insertMany(defaultCards);
-    console.log("Cartes par défaut ajoutées avec succès");
+    // Lecture du fichier JSON
+    const jsonPath = path.join(__dirname, '../data/tcgp.pokemons.json');
+    const jsonData = await fs.readFile(jsonPath, 'utf-8');
+    let pokemons = JSON.parse(jsonData);
 
-    // Afficher les cartes insérées
-    const cards = await Card.find();
-    console.log(
-      `${cards.length} cartes sont maintenant dans la base de données`
-    );
+    // Conversion des $oid en ObjectId
+    pokemons = pokemons.map(pokemon => convertObjectIds(pokemon));
 
-    // Fermer la connexion
-    mongoose.connection.close();
+    // Suppression des données existantes
+    await Pokemon.deleteMany({});
+    console.log('Collection nettoyée');
+
+    // Import des nouvelles données
+    await Pokemon.insertMany(pokemons, { lean: true });
+    console.log('Données importées avec succès');
+
   } catch (error) {
-    console.error(
-      "Erreur lors de l'initialisation de la base de données:",
-      error
-    );
-    mongoose.connection.close();
+    console.error('Erreur lors de l\'import:', error);
+    process.exit(1);
+  } finally {
+    await mongoose.connection.close();
+    console.log('Connexion fermée');
   }
 }
 
-// Exécuter l'initialisation
-initializeDatabase();
+// Exécution de la fonction d'import
+importData();
