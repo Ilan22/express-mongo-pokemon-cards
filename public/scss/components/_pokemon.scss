@@ -1,0 +1,63 @@
+.pokemon-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.pokemon-cards .card {
+  flex: 1 0 calc(20% - 10px); /* 5 cards per row */
+  box-sizing: border-box;
+}
+
+.Normal {
+  background: #a9a979;
+}
+.Feu {
+  background: #f08030;
+}
+.Eau {
+  background: #6890f0;
+}
+.Plante {
+  background: #78c850;
+}
+.Électrique {
+  background: #f8d030;
+}
+.Glace {
+  background: #98d8d8;
+}
+.Combat {
+  background: #c03028;
+}
+.Poison {
+  background: #a040a0;
+}
+.Sol {
+  background: #e0c068;
+}
+.Vol {
+  background: #a890f0;
+}
+.Psy {
+  background: #f85888;
+}
+.Insecte {
+  background: #a8b820;
+}
+.Roche {
+  background: #b8a038;
+}
+.Spectre {
+  background: #705898;
+}
+.Dragon {
+  background: #7038f8;
+}
+.Ténèbres {
+  background: #705848;
+}
+.Acier {
+  background: #b8b8d0;
+}

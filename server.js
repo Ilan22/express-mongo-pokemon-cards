@@ -297,6 +297,10 @@ app.get("/admin", async (req, res) => {
   }
 });
 
+app.get("/createCard", (req, res) => {
+  res.render("createCard");
+});
+
 // Route pour afficher le formulaire de modification d'une carte
 app.get("/admin/edit/:id", async (req, res) => {
   try {
