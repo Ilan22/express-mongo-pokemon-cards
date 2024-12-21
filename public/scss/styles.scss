@@ -1,0 +1,42 @@
+@use "components/variables";
+@use "components/navbar";
+@use "components/pokemon";
+@use "components/admin";
+@use "components/admin-editcard";
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Roboto", sans-serif; /* Typographie moderne */
+  font-weight: bold;
+  color: #3b4cca; /* Bleu Pokémon */
+  text-transform: uppercase; /* Titres en majuscules */
+  letter-spacing: 1.2px;
+  margin: 0;
+}
+
+h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 2rem;
+  line-height: 1.3;
+}
+
+h3 {
+  font-size: 1.75rem;
+  line-height: 1.4;
+}
+
+h4 {
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
