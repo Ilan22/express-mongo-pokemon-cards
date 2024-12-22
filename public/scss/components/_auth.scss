@@ -196,11 +196,11 @@ $desktop-breakpoint: 1024px;
 @media (min-width: $tablet-breakpoint) {
   .auth {
     justify-content: flex-end;
-    padding-right: 5%;
+    padding-right: 10%;
   }
 
   .container {
-    margin-right: 5%;
+    margin-right: 10%;
     transform: translateX(0);
   }
 }

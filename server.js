@@ -296,7 +296,8 @@ app.get("/", authenticateToken, async (req, res) => {
 });
 
 app.get("/authentication", (req, res) => {
-  res.render("authentication");
+  const randomNumber = Math.floor(Math.random() * 8) + 1; // Nombre entre 1 et 8
+  res.render("authentication", { randomNumber });
 });
 
 app.get("/admin", authenticateToken, async (req, res) => {
