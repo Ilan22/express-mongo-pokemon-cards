@@ -1,432 +1,76 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pokémon Cards</title>
-    <style>
-        *{
-            font-family: 'Pokemon Solid', sans-serif;
-        }
-        .header {
-            background: #DAA520;
-            color: white;
-            padding: 15px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-        .header-user {
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #333;
-        }
-        .logout-btn {
-            background: #fff;
-            color: #DAA520;
-            padding: 8px 20px;
-            border: 2px solid #DAA520;
-            border-radius: 8px;
-            cursor: pointer;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-        .logout-btn:hover {
-            background: #DAA520;
-            color: white;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-        .pokemon-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .pokemon-card {
-            width: calc(25% - 20px);
-            min-width: 200px;
-            padding: 35px 8px 8px;
-            border-radius: 12px;
-            box-shadow: 2px 3px 10px rgba(0,0,0,0.3);
-            text-align: center;
-            color: black;
-            position: relative;
-            border: 8px solid #DAA520;
-            background-color: #f8f8f8;
-            height: 350px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .pokemon-card::before {
-            content: '';
-            position: absolute;
-            top: 8px;
-            left: 8px;
-            right: 8px;
-            bottom: 8px;
-            border-radius: 6px;
-            border: 2px solid rgba(0,0,0,0.1);
-            pointer-events: none;
-        }
-
-        .pokemon-card img {
-            width: 150px;
-            height: 150px;
-            object-fit: contain;
-            margin: 5px auto;
-            border: 3px solid #e0e0e0;
-            border-radius: 4px;
-            background: #ffffff;
-            display: block;
-            flex-shrink: 0;
-        }
-
-        .pokemon-card h3 {
-            margin: 5px 0;
-            font-size: 1.2em;
-            color: #333;
-        }
-
-        .pokemon-info {
-            text-align: left;
-            padding: 5px;
-            margin: 5px;
-            background-color: rgba(255, 255, 255, 0.3);
-            border-radius: 4px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .attack-info {
-            margin: 5px 0;
-            padding: 8px;
-            background-color: rgba(255, 255, 255, 0.3);
-            border-radius: 4px;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .attack-name-desc {
-            flex-grow: 1;
-        }
-
-        .attack-name-desc strong {
-            font-size: 1em;
-        }
-
-        .attack-name-desc .description {
-            font-size: 0.9em;
-            color: #444;
-            margin-left: 4px;
-        }
-
-        .attack-power {
-            margin-left: 10px;
-            white-space: nowrap;
-        }
-
-        .rarity-info {
-            margin: 5px 0;
-            padding: 5px;
-            font-size: 0.9em;
-            color: #666;
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
-        }
-
-        .pokemon-info p {
-            margin: 3px 0;
-            font-size: 0.9em;
-        }
-
-        .pokemon-info p:nth-child(2) {
-            font-weight: bold;
-            color: #444;
-        }
-
-        .pokemon-info p:first-child {
-            color: black;
-            font-weight: bold;
-        }
-
-        .Normal{
-    background: #A9A979;
-  }
-  .Feu{
-    background: #F08030;
-  }
-  .Eau{
-    background: #6890F0;
-  }
-  .Plante{
-    background: #78C850;
-  }
-  .Électrik{
-    background: #F8D030;
-  }
-  .Glace{
-    background: #98D8D8;
-  }
-  .Combat{
-    background: #C03028;
-  }
-  .Poison{
-    background: #A040A0;
-  }
-  .Sol{
-    background: #E0C068;
-  }
-  .Fée{
-    background: #EFA1AF;
-  }
-  .Psy{
-    background: #F85888;
-  }
-  .Insecte{
-    background: #A8B820;
-  }
-  .Roche{
-    background: #B8A038;
-  }
-  .Spectre{
-    background: #705898;
-  }
-  .Dragon{
-    background: #7038F8;
-  }
-
-  .hp-display {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    color: #790000;
-    font-weight: bold;
-    font-size: 1.1em;
-  }
-
-  .pokemon-name {
-    position: absolute;
-    top: 10px;
-    left: 15px;
-    font-weight: bold;
-    font-size: 1.1em;
-    color: #333;
-  }
-
-  .empty-card {
-    background: #f0f0f0 !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 350px;
-    opacity: 0.7;
-  }
-
-  .empty-card-content {
-    text-align: center;
-    color: #666;
-    padding: 20px;
-  }
-
-  .question-mark {
-    font-size: 48px;
-    margin-bottom: 10px;
-    color: #DAA520;
-    font-weight: bold;
-  }
-
-  .empty-card:hover {
-    opacity: 0.9;
-    transition: opacity 0.3s ease;
-  }
-
-  .header-actions {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-  }
-
-  .booster-btn {
-    background: #FFD700;
-    color: #333;
-    padding: 8px 20px;
-    border: 2px solid #DAA520;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: all 0.3s ease;
-  }
-
-  .booster-btn:hover {
-    background: #DAA520;
-    color: white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  }
-
-  .modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.7);
-    z-index: 1000;
-  }
-
-  .modal-content {
-    background-color: #fefefe;
-    margin: 5% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 90%;
-    max-width: 1200px;
-    border-radius: 12px;
-    position: relative;
-  }
-
-  .close-modal {
-    position: absolute;
-    right: 20px;
-    top: 10px;
-    font-size: 28px;
-    cursor: pointer;
-  }
-
-  .booster-cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
-  }
-
-  .modal-open {
-    overflow: hidden;
-  }
-
-  .modal-content {
-    overflow-y: auto;
-    max-height: 90vh;
-  }
-
-  .new-badge {
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    background: #ff4444;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 15px;
-    font-size: 0.8em;
-    font-weight: bold;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    transform: rotate(15deg);
-    z-index: 2;
-  }
-
-  @keyframes newCardAnimation {
-    0% {
-        transform: scale(0.8) translateY(20px);
-        opacity: 0;
-    }
-    40% {
-        transform: scale(1.2) translateY(-10px);
-    }
-    60% {
-        transform: scale(1.2) translateY(-10px);
-    }
-    100% {
-        transform: scale(1) translateY(0);
-        opacity: 1;
-    }
-  }
-
-  .new-card-animation {
-    animation: newCardAnimation 1.2s ease-out forwards;
-  }
-
-  .new-badge {
-    animation: pulseAnimation 2s infinite;
-  }
-
-  @keyframes pulseAnimation {
-    0% { transform: scale(1) rotate(15deg); }
-    50% { transform: scale(1.1) rotate(15deg); }
-    100% { transform: scale(1) rotate(15deg); }
-  }
-    </style>
-    <!-- Vos styles de types existants -->
-</head>
-<body>
-    <div class="header">
-        <div class="header-user">
-            Bienvenue, <%= user.name %>
-        </div>
-        <div class="header-actions">
-            <button id="openBoosterBtn" class="booster-btn">Ouvrir un Booster</button>
-            <a href="/api/logout" class="logout-btn">Déconnexion</a>
-        </div>
-    </div>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <%- include('partials/header') %>
     <div class="pokemon-container">
-        <% pokemons.forEach(pokemon => { %>
-            <div class="pokemon-card <%= pokemon.isOwned ? pokemon.type : 'empty-card' %>">
-                <% if (pokemon.isOwned) { %>
-                <div class="pokemon-name"><%= pokemon.name %></div>
-                <div class="hp-display"><%= pokemon.hp %> HP</div>
-                <img src="<%= pokemon.image %>" alt="<%= pokemon.name %>">
-                <div class="pokemon-info">
-                    <div class="attack-info">
-                        <div class="attack-name-desc">
-                            <strong><%= pokemon.attack.name %></strong>
-                            <span class="description"><%= pokemon.attack.description %></span>
-                        </div>
-                        <div class="attack-power">
-                            <%= pokemon.attack.power %>
-                        </div>
-                    </div>
-                    <div class="rarity-info">
-                        <p><%= pokemon.rarity.label.charAt(0).toUpperCase() + pokemon.rarity.label.slice(1) %></p>
-                    </div>
-                </div>
-                <% } else { %>
-                <div class="empty-card-content">
-                    <div class="question-mark">?</div>
-                    <p>Carte non possédée</p>
-                </div>
-                <% } %>
+      <% pokemons.forEach(pokemon => { %>
+      <div
+        class="pokemon-card <%= pokemon.isOwned ? pokemon.type : 'empty-card' %>"
+      >
+        <% if (pokemon.isOwned) { %>
+        <div class="pokemon-name"><%= pokemon.name %></div>
+        <div class="hp-display"><%= pokemon.hp %> HP</div>
+        <img src="<%= pokemon.image %>" alt="<%= pokemon.name %>" />
+        <div class="pokemon-info">
+          <div class="attack-info">
+            <div class="attack-name-desc">
+              <strong><%= pokemon.attack.name %></strong>
+              <span class="description"><%= pokemon.attack.description %></span>
             </div>
-        <% }); %>
+            <div class="attack-power"><%= pokemon.attack.power %></div>
+          </div>
+          <div class="rarity-info">
+            <p>
+              <%= pokemon.rarity.label.charAt(0).toUpperCase() +
+              pokemon.rarity.label.slice(1) %>
+            </p>
+          </div>
+        </div>
+        <% } else { %>
+        <div class="empty-card-content">
+          <div class="question-mark">?</div>
+          <p>Carte non possédée</p>
+        </div>
+        <% } %>
+      </div>
+      <% }); %>
     </div>
     <div id="boosterModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2>Vos nouvelles cartes !</h2>
-            <div class="booster-cards-container"></div>
-        </div>
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Vos nouvelles cartes !</h2>
+        <div class="booster-cards-container"></div>
+      </div>
     </div>
     <script>
-    document.getElementById('openBoosterBtn').addEventListener('click', async () => {
-        try {
-            const response = await fetch('/api/booster');
+      document
+        .getElementById("openBoosterBtn")
+        .addEventListener("click", async () => {
+          try {
+            const response = await fetch("/api/booster");
             const data = await response.json();
-            
-            const boosterContainer = document.querySelector('.booster-cards-container');
-            boosterContainer.innerHTML = '';
-            
+
+            const boosterContainer = document.querySelector(
+              ".booster-cards-container"
+            );
+            boosterContainer.innerHTML = "";
+
             data.randomPokemons.forEach((pokemon, index) => {
-                const card = `
-                    <div class="pokemon-card ${pokemon.type}" style="opacity: 0;" id="card-${index}">
-                        ${pokemon.isNew ? '<div class="new-badge">NOUVEAU !</div>' : ''}
+              const card = `
+                    <div class="pokemon-card ${
+                      pokemon.type
+                    }" style="opacity: 0;" id="card-${index}">
+                        ${
+                          pokemon.isNew
+                            ? '<div class="new-badge">NOUVEAU !</div>'
+                            : ""
+                        }
                         <div class="pokemon-name">${pokemon.name}</div>
                         <div class="hp-display">${pokemon.hp} HP</div>
                         <img src="${pokemon.image}" alt="${pokemon.name}">
@@ -434,50 +78,55 @@
                             <div class="attack-info">
                                 <div class="attack-name-desc">
                                     <strong>${pokemon.attack.name}</strong>
-                                    <span class="description">${pokemon.attack.description}</span>
+                                    <span class="description">${
+                                      pokemon.attack.description
+                                    }</span>
                                 </div>
                                 <div class="attack-power">
                                     ${pokemon.attack.power}
                                 </div>
                             </div>
                             <div class="rarity-info">
-                                <p>${pokemon.rarity.label.charAt(0).toUpperCase() + pokemon.rarity.label.slice(1)}</p>
+                                <p>${
+                                  pokemon.rarity.label.charAt(0).toUpperCase() +
+                                  pokemon.rarity.label.slice(1)
+                                }</p>
                             </div>
                         </div>
                     </div>
                 `;
-                boosterContainer.innerHTML += card;
+              boosterContainer.innerHTML += card;
             });
 
-            document.getElementById('boosterModal').style.display = 'block';
-            document.body.classList.add('modal-open');
-            
-            for(let i = 0; i < data.randomPokemons.length; i++) {
-                const card = document.getElementById(`card-${i}`);
-                const isNew = data.randomPokemons[i].isNew;
-                
-                await new Promise(resolve => setTimeout(resolve, 500));
-                
-                if (isNew) {
-                    card.style.opacity = '1';
-                    card.classList.add('new-card-animation');
-                    await new Promise(resolve => setTimeout(resolve, 1000));
-                } else {
-                    card.style.transition = 'all 0.5s ease';
-                    card.style.opacity = '1';
-                    card.style.transform = 'scale(1)';
-                }
-            }
-        } catch (error) {
-            console.error('Erreur lors de l\'ouverture du booster:', error);
-        }
-    });
+            document.getElementById("boosterModal").style.display = "block";
+            document.body.classList.add("modal-open");
 
-    document.querySelector('.close-modal').addEventListener('click', () => {
-        document.getElementById('boosterModal').style.display = 'none';
-        document.body.classList.remove('modal-open');
+            for (let i = 0; i < data.randomPokemons.length; i++) {
+              const card = document.getElementById(`card-${i}`);
+              const isNew = data.randomPokemons[i].isNew;
+
+              await new Promise((resolve) => setTimeout(resolve, 500));
+
+              if (isNew) {
+                card.style.opacity = "1";
+                card.classList.add("new-card-animation");
+                await new Promise((resolve) => setTimeout(resolve, 1000));
+              } else {
+                card.style.transition = "all 0.5s ease";
+                card.style.opacity = "1";
+                card.style.transform = "scale(1)";
+              }
+            }
+          } catch (error) {
+            console.error("Erreur lors de l'ouverture du booster:", error);
+          }
+        });
+
+      document.querySelector(".close-modal").addEventListener("click", () => {
+        document.getElementById("boosterModal").style.display = "none";
+        document.body.classList.remove("modal-open");
         location.reload();
-    });
+      });
     </script>
-</body>
+  </body>
 </html>

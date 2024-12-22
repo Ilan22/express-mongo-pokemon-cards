@@ -3,8 +3,17 @@
 @use "components/pokemon";
 @use "components/admin";
 @use "components/admin-editcard";
+@use "components/index";
+
+@use "components/header";
+
+// Global Styles
+* {
+  font-family: "Pokemon Solid", sans-serif;
+}
 
 body {
+  background-color: var(--background-color);
   margin: 0;
   padding: 0;
 }

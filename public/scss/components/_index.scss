@@ -1,0 +1,80 @@
+// Modal
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+
+  .modal-content {
+    background-color: var(--white-color);
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 1200px;
+    border-radius: 12px;
+    position: relative;
+    overflow-y: auto;
+    max-height: 90vh;
+  }
+
+  .close-modal {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 28px;
+    cursor: pointer;
+  }
+}
+
+// New badge animation
+.new-badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: #ff4444;
+  color: var(--white-color);
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 0.8em;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transform: rotate(15deg);
+  z-index: 2;
+
+  animation: pulseAnimation 2s infinite;
+}
+
+// Keyframes
+@keyframes pulseAnimation {
+  0% {
+    transform: scale(1) rotate(15deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(15deg);
+  }
+  100% {
+    transform: scale(1) rotate(15deg);
+  }
+}
+
+@keyframes newCardAnimation {
+  0% {
+    transform: scale(0.8) translateY(20px);
+    opacity: 0;
+  }
+  40% {
+    transform: scale(1.2) translateY(-10px);
+  }
+  60% {
+    transform: scale(1.2) translateY(-10px);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,19 @@
+<div class="header">
+  <div class="header-user">Bienvenue, <%= user.name %></div>
+  <div class="header-actions">
+    <div class="dropdown">
+      <button class="dropdown-btn">Menu</button>
+      <div class="dropdown-content">
+        <!-- <a href="/profile">Voir le profil</a> -->
+        <a href="/">Voir mes cartes</a>
+        <a id="openBoosterBtn">Ouvrir un Booster</a>
+      </div>
+    </div>
+
+    <% if (user.role === 0) { %>
+    <a href="/admin" class="logout-btn">Administration</a>
+    <% } %>
+
+    <a href="/api/logout" class="logout-btn">Déconnexion</a>
+  </div>
+</div>

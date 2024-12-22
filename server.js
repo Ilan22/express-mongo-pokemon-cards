@@ -23,18 +23,18 @@ const methodOverride = require("method-override");
 app.use(methodOverride("_method"));
 
 const pokemon = new mongoose.Schema({
-  name: {type: String, required: true},
-  hp: {type: Number, required: true},
-  image: {type: String, required: true},
-  type: {type: String, required: true},
+  name: { type: String, required: true },
+  hp: { type: Number, required: true },
+  image: { type: String, required: true },
+  type: { type: String, required: true },
   attack: {
-      name: {type: String, required: true},
-      description: {type: String, required: true},
-      power: {type: Number, required: true},
+    name: { type: String, required: true },
+    description: { type: String, required: true },
+    power: { type: Number, required: true },
   },
   rarity: {
-      level: {type: Number, required: true},
-      label: {type: String, required: true},
+    level: { type: Number, required: true },
+    label: { type: String, required: true },
   },
 });
 
@@ -147,7 +147,7 @@ app.get("/api/logout", (req, res) => {
 // Rcupérer toutes les cartes
 app.get("/api/pokemons", async (req, res) => {
   try {
-    const pokemons = await CardModel.find();
+    const pokemons = await PokemonModel.find();
     res.json(pokemons);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -157,7 +157,7 @@ app.get("/api/pokemons", async (req, res) => {
 // Récupérer une carte par ID
 app.get("/api/pokemons/:id", async (req, res) => {
   try {
-    const card = await CardModel.findById(req.params.id);
+    const card = await PokemonModel.findById(req.params.id);
     if (card) {
       res.json(card);
     } else {
@@ -170,7 +170,7 @@ app.get("/api/pokemons/:id", async (req, res) => {
 
 // Créer une nouvelle carte
 app.post("/api/pokemons", async (req, res) => {
-  const newCard = new CardModel(req.body);
+  const newCard = new PokemonModel(req.body);
   try {
     const savedCard = await newCard.save();
     res.status(201).json(savedCard);
@@ -182,7 +182,7 @@ app.post("/api/pokemons", async (req, res) => {
 // Modifier une carte existante
 app.put("/api/pokemons/:id", async (req, res) => {
   try {
-    const updatedCard = await CardModel.findByIdAndUpdate(
+    const updatedCard = await PokemonModel.findByIdAndUpdate(
       req.params.id,
       req.body,
       {
@@ -203,7 +203,7 @@ app.put("/api/pokemons/:id", async (req, res) => {
 // Route pour supprimer une carte
 app.delete("/api/pokemons/:id", async (req, res) => {
   try {
-    const card = await CardModel.findByIdAndDelete(req.params.id);
+    const card = await PokemonModel.findByIdAndDelete(req.params.id);
     if (card) {
       res.json({ message: "Carte supprimée avec succès" });
     } else {
@@ -221,28 +221,35 @@ app.get("/api/booster", authenticateToken, async (req, res) => {
 
     if (cardCount < 5) {
       return res.status(400).json({
-        message: "Pas assez de cartes dans la base de données pour ouvrir un booster",
+        message:
+          "Pas assez de cartes dans la base de données pour ouvrir un booster",
       });
     }
 
     const user = await UserModel.findById(req.user.id);
-    const userPokemonIds = user.pokemons.map((pokemon) => pokemon._id.toString());
-    const randomPokemons = await PokemonModel.aggregate([{ $sample: { size: 5 } }]);
+    const userPokemonIds = user.pokemons.map((pokemon) =>
+      pokemon._id.toString()
+    );
+    const randomPokemons = await PokemonModel.aggregate([
+      { $sample: { size: 5 } },
+    ]);
 
     // Marquer les nouvelles cartes
-    const pokemonsWithNewStatus = randomPokemons.map(pokemon => ({
+    const pokemonsWithNewStatus = randomPokemons.map((pokemon) => ({
       ...pokemon,
-      isNew: !userPokemonIds.includes(pokemon._id.toString())
+      isNew: !userPokemonIds.includes(pokemon._id.toString()),
     }));
-    
+
     // Filtrer les cartes pour la mise à jour de la collection
-    const newPokemons = pokemonsWithNewStatus.filter(pokemon => pokemon.isNew);
+    const newPokemons = pokemonsWithNewStatus.filter(
+      (pokemon) => pokemon.isNew
+    );
 
     // Mettre à jour l'utilisateur connecté avec les nouvelles cartes
     user.pokemons.push(...newPokemons.map((pokemon) => pokemon._id));
     await user.save();
 
-    res.json({randomPokemons: pokemonsWithNewStatus});
+    res.json({ randomPokemons: pokemonsWithNewStatus });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -262,16 +269,20 @@ app.get("/api/user/profile", authenticateToken, async (req, res) => {
 app.get("/", authenticateToken, async (req, res) => {
   try {
     // Récupérer l'utilisateur avec ses cartes
-    const userWithpokemons = await UserModel.findById(req.user.id).populate('pokemons');
+    const userWithpokemons = await UserModel.findById(req.user.id).populate(
+      "pokemons"
+    );
     // Récupérer tous les pokémons
     const allPokemons = await PokemonModel.find();
-    
+
     // Créer un tableau avec tous les pokémons, en marquant ceux possédés
-    const pokemons = allPokemons.map(pokemon => {
-      const isOwned = userWithpokemons.pokemons.some(card => card._id.toString() === pokemon._id.toString());
+    const pokemons = allPokemons.map((pokemon) => {
+      const isOwned = userWithpokemons.pokemons.some(
+        (card) => card._id.toString() === pokemon._id.toString()
+      );
       return {
         ...pokemon.toObject(),
-        isOwned
+        isOwned,
       };
     });
 
@@ -288,23 +299,24 @@ app.get("/authentication", (req, res) => {
   res.render("authentication");
 });
 
-app.get("/admin", async (req, res) => {
+app.get("/admin", authenticateToken, async (req, res) => {
   try {
-    const pokemons = await CardModel.find();
-    res.render("admin", { pokemons });
+    const pokemons = await PokemonModel.find();
+    console.log(req.user);
+    res.render("admin", { pokemons, user: req.user });
   } catch (error) {
     res.status(500).send("Erreur serveur");
   }
 });
 
-app.get("/createCard", (req, res) => {
-  res.render("createCard");
+app.get("/createCard", authenticateToken, (req, res) => {
+  res.render("createCard", { user: req.user });
 });
 
 // Route pour afficher le formulaire de modification d'une carte
 app.get("/admin/edit/:id", async (req, res) => {
   try {
-    const card = await CardModel.findById(req.params.id);
+    const card = await PokemonModel.findById(req.params.id);
     if (card) {
       res.render("editCard", { card });
     } else {

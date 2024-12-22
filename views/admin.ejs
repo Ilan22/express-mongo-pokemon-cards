@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin - Gestion des cartes Pokémon</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <%- include('partials/header') %>
+    <h1>Administration des cartes Pokémon</h1>
+
+    <section class="section-list-pokemon">
+      <div class="container-header-list-pokemon">
+        <h2>Liste des cartes</h2>
+        <a href="/createCard">Ajouter une nouvelle carte +</a>
+      </div>
+      <div class="cards-container">
+        <% pokemons.forEach(pokemon => { %>
+        <div class="pokemon-card">
+          <div class="pokemon-name"><%= pokemon.name %></div>
+          <div class="hp-display"><%= pokemon.hp %> HP</div>
+          <img src="<%= pokemon.image %>" alt="<%= pokemon.name %>" />
+          <div class="pokemon-info">
+            <div class="card-actions">
+              <a href="/admin/edit/<%= pokemon._id %>" class="edit-button"
+                >Modifier</a
+              >
+              <form
+                class="delete-form"
+                action="/api/cards/<%= pokemon._id %>"
+                method="POST"
+              >
+                <button
+                  type="submit"
+                  class="delete-button"
+                  onclick="return confirm('Confirmer la suppression ?')"
+                >
+                  Supprimer
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <% }) %>
+      </div>
+    </section>
+
+    <script src="/js/admin.js"></script>
+  </body>
+</html>

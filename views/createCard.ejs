@@ -9,7 +9,6 @@
   <body>
     <h1>Administration des cartes Pokémon</h1>
 
-<<<<<<<< HEAD:views/createCard.ejs
     <!-- Formulaire de création -->
     <h2>Créer une nouvelle carte</h2>
     <form id="createCardForm">
@@ -42,44 +41,6 @@
 
       <button type="submit">Créer</button>
     </form>
-========
-    <section class="section-list-pokemon">
-      <div class="container-header-list-pokemon">
-        <h2>Liste des cartes</h2>
-        <a href="/createCard">Ajouter une nouvelle carte +</a>
-      </div>
-      <div class="cards-container">
-        <% cards.forEach(card => { %>
-        <div class="pokemon-card">
-          <div class="card-header">
-            <h3><%= card.name %></h3>
-            <p><strong>PV:</strong> <%= card.pv %></p>
-            <p><strong>Type:</strong> <%= card.type %></p>
-          </div>
-          <div class="card-actions">
-            <a href="/admin/edit/<%= card._id %>" class="edit-button"
-              >Modifier</a
-            >
-            <form
-              class="delete-form"
-              action="/api/cards/<%= card._id %>"
-              method="POST"
-            >
-              <button
-                type="submit"
-                class="delete-button"
-                onclick="return confirm('Confirmer la suppression ?')"
-              >
-                Supprimer
-              </button>
-            </form>
-          </div>
-        </div>
-        <% }) %>
-      </div>
-    </section>
-
->>>>>>>> 0726cad635cc83caa78282fd2d34f1dd3efcad1b:views/admin.ejs
     <script src="/js/admin.js"></script>
   </body>
 </html>

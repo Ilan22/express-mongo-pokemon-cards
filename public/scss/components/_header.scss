@@ -1,0 +1,94 @@
+/* Header */
+.header {
+  background: var(--primary-color);
+  color: var(
+    --white-color,
+    #fff
+  ); /* Fallback si la variable n'est pas définie */
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+  .header-user {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--text-color, #333);
+  }
+
+  .header-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+
+    /* Dropdown Menu */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+
+      .dropdown-btn {
+        background: white;
+        color: var(--primary-color);
+        padding: 8px 20px;
+        border: 2px solid var(--primary-color);
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: var(--primary-color);
+          color: var(--white-color, #fff);
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: var(--background-color, #f9f9f9);
+        min-width: 160px;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+        z-index: 1;
+
+        a {
+          color: var(--text-color, #333);
+          padding: 10px 15px;
+          text-decoration: none;
+          display: block;
+          transition: background 0.3s ease;
+
+          &:hover {
+            background-color: var(--secondary-color);
+            color: var(--white-color, #fff);
+          }
+        }
+      }
+
+      &:hover .dropdown-content {
+        display: block;
+      }
+    }
+
+    .logout-btn {
+      background: var(--white-color, #fff);
+      color: var(--primary-color);
+      padding: 8px 20px;
+      border: 2px solid var(--primary-color);
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: var(--primary-color);
+        color: var(--white-color, #fff);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+}
