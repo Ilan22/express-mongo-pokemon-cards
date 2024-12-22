@@ -1,0 +1,58 @@
+// Formulaire à 2 colonnes
+form {
+  max-width: 900px;
+  margin: 30px auto;
+  border-radius: 15px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .container-row {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      position: relative;
+      padding: 10px;
+    }
+  }
+  .btn-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .pokeball-icon {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    background: url("/images/pokeball.png") no-repeat center center;
+    background-size: cover;
+  }
+
+  button {
+    background: var(--secondary-color);
+    color: var(--background-color);
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    grid-column: span 2;
+    max-width: fit-content;
+
+    &:hover {
+      background: var(--accent-color);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+  }
+}

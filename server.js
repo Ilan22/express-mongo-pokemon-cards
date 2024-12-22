@@ -302,7 +302,7 @@ app.get("/authentication", (req, res) => {
 app.get("/admin", authenticateToken, async (req, res) => {
   try {
     const pokemons = await PokemonModel.find();
-    console.log(req.user);
+    console.log(pokemons[0]);
     res.render("admin", { pokemons, user: req.user });
   } catch (error) {
     res.status(500).send("Erreur serveur");

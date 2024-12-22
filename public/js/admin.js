@@ -1,28 +1,54 @@
 document
-  .querySelector("#createCardForm")
-  .addEventListener("submit", async (event) => {
-    event.preventDefault(); // Empêche le comportement par défaut du formulaire
+  .getElementById("createCardForm")
+  .addEventListener("submit", (event) => {
+    event.preventDefault();
 
-    // Récupère les données du formulaire
-    const formData = new FormData(event.target);
-    const data = Object.fromEntries(formData); // Transforme les données du formulaire en un objet
+    const name = document.getElementById("name").value;
+    const hp = parseInt(document.getElementById("hp").value, 10);
+    const image = document.getElementById("image").value;
+    const type = document.getElementById("type").value;
 
-    // Envoie la requête POST avec les données en JSON
-    const response = await fetch("/api/cards", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json", // Assurez-vous que le serveur attend bien du JSON
+    const attackName = document.getElementById("attack_name").value;
+    const attackPower = parseInt(
+      document.getElementById("attack_power").value,
+      10
+    );
+    const attackDescription =
+      document.getElementById("attack_description").value;
+
+    const rarityLevel = parseInt(document.getElementById("rarity").value, 10);
+    const rarityLabels = [
+      "Très commun",
+      "Commun",
+      "Peu commun",
+      "Rare",
+      "Très rare",
+    ];
+    const rarityLabel = rarityLabels[rarityLevel];
+
+    // Objet à envoyer
+    const cardData = {
+      attack: {
+        name: attackName,
+        power: attackPower,
+        description: attackDescription,
       },
-      body: JSON.stringify(data), // Transforme l'objet en JSON
-    });
+      rarity: {
+        level: rarityLevel,
+        label: rarityLabel,
+      },
+      name,
+      hp,
+      image,
+      type,
+    };
 
-    if (response.ok) {
-      alert("Carte créée avec succès !");
-      location.reload(); // Recharge la page pour afficher la nouvelle carte
-    } else {
-      alert("Erreur lors de la création de la carte.");
-    }
+    console.log(cardData); // À remplacer par un envoi via fetch ou autre méthode
+    alert(
+      "Carte créée avec succès ! Consultez la console pour vérifier les données."
+    );
   });
+
 // Attachez un événement de soumission à chaque formulaire de suppression
 document.querySelectorAll(".delete-form").forEach((form) => {
   form.addEventListener("submit", async (event) => {
