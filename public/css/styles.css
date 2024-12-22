@@ -25,30 +25,21 @@
 }
 
 .pokemon-card {
-  width: calc(25% - 20px);
-  min-width: 200px;
-  padding: 35px 8px 8px;
+  width: 250px;
   border-radius: 12px;
-  box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.3);
-  text-align: center;
+  box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.1);
+  padding: 8px;
   color: var(--black-color);
   position: relative;
   border: 8px solid var(--primary-color);
   background-color: var(--light-color);
-  height: 350px;
-  display: flex;
-  flex-direction: column;
 }
-.pokemon-card::before {
-  content: "";
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  right: 8px;
-  bottom: 8px;
-  border-radius: 6px;
-  border: 2px solid rgba(0, 0, 0, 0.1);
-  pointer-events: none;
+.pokemon-card .pokemon-card-header {
+  display: flex;
+  justify-content: space-between;
+}
+.pokemon-card .pokemon-card-header .hp-display span {
+  font-size: 10px;
 }
 .pokemon-card img {
   width: 150px;
@@ -60,11 +51,6 @@
   background: var(--white-color);
   display: block;
   flex-shrink: 0;
-}
-.pokemon-card h3 {
-  margin: 5px 0;
-  font-size: 1.2em;
-  color: var(--black-color);
 }
 .pokemon-card .pokemon-info {
   text-align: left;
@@ -86,17 +72,20 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  display: flex;
+  flex-direction: column;
 }
-.pokemon-card .pokemon-info .attack-info .attack-name-desc {
-  flex-grow: 1;
+.pokemon-card .pokemon-info .attack-info .attack-info-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
-.pokemon-card .pokemon-info .attack-info .attack-name-desc strong {
+.pokemon-card .pokemon-info .attack-info strong {
   font-size: 1em;
 }
-.pokemon-card .pokemon-info .attack-info .attack-name-desc .description {
-  font-size: 0.9em;
-  color: var(--dark-gray);
-  margin-left: 4px;
+.pokemon-card .pokemon-info .attack-info .attack-info-desc {
+  font-size: 12px;
+  color: gray;
 }
 .pokemon-card .pokemon-info .attack-info .attack-power {
   margin-left: 10px;
@@ -108,18 +97,6 @@
   font-size: 0.9em;
   color: #666;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-}
-.pokemon-card .pokemon-info p {
-  margin: 3px 0;
-  font-size: 0.9em;
-}
-.pokemon-card .pokemon-info p:nth-child(2) {
-  font-weight: bold;
-  color: var(--dark-gray);
-}
-.pokemon-card .pokemon-info p:first-child {
-  color: var(--black-color);
-  font-weight: bold;
 }
 .pokemon-card .empty-card {
   background: var(--light-color) !important;
@@ -146,63 +123,63 @@
 }
 
 .Normal {
-  background: #a9a979;
+  background: #a9a979; /* Gris clair avec une teinte verte */
 }
 
 .Feu {
-  background: #f08030;
+  background: #f08030; /* Orange pour représenter le feu */
 }
 
 .Eau {
-  background: var(--blue-color);
+  background: #6890f0; /* Bleu pour représenter l'eau */
 }
 
 .Plante {
-  background: var(--green-color);
+  background: #78c850; /* Vert clair pour représenter la nature */
 }
 
 .Électrik {
-  background: var(--yellow-color);
+  background: #f8d030; /* Jaune vif pour représenter l'électricité */
 }
 
 .Glace {
-  background: #98d8d8;
+  background: #98d8d8; /* Bleu glacier pour représenter la glace */
 }
 
 .Combat {
-  background: #c03028;
+  background: #c03028; /* Rouge foncé pour représenter l'énergie du combat */
 }
 
 .Poison {
-  background: #a040a0;
+  background: #a040a0; /* Violet pour représenter le poison */
 }
 
 .Sol {
-  background: #e0c068;
+  background: #e0c068; /* Beige pour représenter la terre */
 }
 
 .Fée {
-  background: #efa1af;
+  background: #efa1af; /* Rose pastel pour représenter la magie des fées */
 }
 
 .Psy {
-  background: #f85888;
+  background: #f85888; /* Rose intense pour représenter le psychisme */
 }
 
 .Insecte {
-  background: #a8b820;
+  background: #a8b820; /* Vert olive pour représenter les insectes */
 }
 
 .Roche {
-  background: #b8a038;
+  background: #b8a038; /* Marron clair pour représenter les rochers */
 }
 
 .Spectre {
-  background: #705898;
+  background: #705898; /* Violet foncé pour représenter les spectres */
 }
 
 .Dragon {
-  background: #7038f8;
+  background: #7038f8; /* Violet intense pour représenter les dragons */
 }
 
 /* Styles généraux */

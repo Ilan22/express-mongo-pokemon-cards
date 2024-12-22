@@ -9,37 +9,15 @@
   <body>
     <%- include('partials/header') %>
     <div class="pokemon-container">
-      <% pokemons.forEach(pokemon => { %>
-      <div
-        class="pokemon-card <%= pokemon.isOwned ? pokemon.type : 'empty-card' %>"
-      >
-        <% if (pokemon.isOwned) { %>
-        <div class="pokemon-name"><%= pokemon.name %></div>
-        <div class="hp-display"><%= pokemon.hp %> HP</div>
-        <img src="<%= pokemon.image %>" alt="<%= pokemon.name %>" />
-        <div class="pokemon-info">
-          <div class="attack-info">
-            <div class="attack-name-desc">
-              <strong><%= pokemon.attack.name %></strong>
-              <span class="description"><%= pokemon.attack.description %></span>
-            </div>
-            <div class="attack-power"><%= pokemon.attack.power %></div>
-          </div>
-          <div class="rarity-info">
-            <p>
-              <%= pokemon.rarity.label.charAt(0).toUpperCase() +
-              pokemon.rarity.label.slice(1) %>
-            </p>
-          </div>
-        </div>
-        <% } else { %>
+      <% pokemons.forEach(pokemon => { %> <% if (pokemon.isOwned) { %> <%-
+      include('partials/pokeCard', { pokemon }) %> <% } else { %>
+      <div class="pokemon-card empty-card">
         <div class="empty-card-content">
           <div class="question-mark">?</div>
           <p>Carte non possédée</p>
         </div>
-        <% } %>
       </div>
-      <% }); %>
+      <% } %> <% }); %>
     </div>
     <div id="boosterModal" class="modal">
       <div class="modal-content">
