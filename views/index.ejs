@@ -8,16 +8,41 @@
   </head>
   <body>
     <%- include('partials/header') %>
+    <div class="top-bar">
+      <div class="search-bar">
+        <input type="text" placeholder="Rechercher un Pokémon..." />
+        <button class="search-button">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div class="container-switch">
+        <img src="/assets/pokedex.jpg" alt="pokedex" class="pokedex-icon" />
+        <div class="switch">
+          <input type="checkbox" id="toggleSwitch" class="switch-input" />
+          <label for="toggleSwitch" class="switch-label">
+            <span class="switch-button"></span>
+          </label>
+        </div>
+        <!-- <%= pokemons.filter(pokemon => pokemon.isOwned).length %> / <%=
+          pokemons.length %> -->
+      </div>
+    </div>
     <div class="pokemon-container">
       <% pokemons.forEach(pokemon => { %> <% if (pokemon.isOwned) { %> <%-
-      include('partials/pokeCard', { pokemon }) %> <% } else { %>
-      <div class="pokemon-card empty-card">
-        <div class="empty-card-content">
-          <div class="question-mark">?</div>
-          <p>Carte non possédée</p>
-        </div>
-      </div>
-      <% } %> <% }); %>
+      include('partials/pokeCard', { pokemon }) %> <% } else { %> <%-
+      include('partials/empty-pokeCard', { pokemon }) %> <% } %> <% }); %>
     </div>
     <div id="boosterModal" class="modal">
       <div class="modal-content">
@@ -41,38 +66,42 @@
 
             data.randomPokemons.forEach((pokemon, index) => {
               const card = `
-                    <div class="pokemon-card ${
-                      pokemon.type
-                    }" style="opacity: 0;" id="card-${index}">
-                        ${
-                          pokemon.isNew
-                            ? '<div class="new-badge">NOUVEAU !</div>'
-                            : ""
-                        }
-                        <div class="pokemon-name">${pokemon.name}</div>
-                        <div class="hp-display">${pokemon.hp} HP</div>
-                        <img src="${pokemon.image}" alt="${pokemon.name}">
-                        <div class="pokemon-info">
-                            <div class="attack-info">
-                                <div class="attack-name-desc">
-                                    <strong>${pokemon.attack.name}</strong>
-                                    <span class="description">${
-                                      pokemon.attack.description
-                                    }</span>
-                                </div>
-                                <div class="attack-power">
-                                    ${pokemon.attack.power}
-                                </div>
-                            </div>
-                            <div class="rarity-info">
-                                <p>${
-                                  pokemon.rarity.label.charAt(0).toUpperCase() +
-                                  pokemon.rarity.label.slice(1)
-                                }</p>
-                            </div>
-                        </div>
-                    </div>
-                `;
+                          <div class="pokemon-card ${
+                            pokemon.type
+                          }" style="opacity: 0;" id="card-${index}">
+                              ${
+                                pokemon.isNew
+                                  ? '<div class="new-badge">NOUVEAU !</div>'
+                                  : ""
+                              }
+                              <div class="pokemon-name">${pokemon.name}</div>
+                              <div class="hp-display">${pokemon.hp} HP</div>
+                              <img src="${pokemon.image}" alt="${pokemon.name}">
+                              <div class="pokemon-info">
+                                  <div class="attack-info">
+                                      <div class="attack-name-desc">
+                                          <strong>${
+                                            pokemon.attack.name
+                                          }</strong>
+                                          <span class="description">${
+                                            pokemon.attack.description
+                                          }</span>
+                                      </div>
+                                      <div class="attack-power">
+                                          ${pokemon.attack.power}
+                                      </div>
+                                  </div>
+                                  <div class="rarity-info">
+                                      <p>${
+                                        pokemon.rarity.label
+                                          .charAt(0)
+                                          .toUpperCase() +
+                                        pokemon.rarity.label.slice(1)
+                                      }</p>
+                                  </div>
+                              </div>
+                          </div>
+                      `;
               boosterContainer.innerHTML += card;
             });
 
@@ -105,6 +134,52 @@
         document.body.classList.remove("modal-open");
         location.reload();
       });
+
+      document
+        .getElementById("toggleSwitch")
+        .addEventListener("change", function () {
+          const showOwnedOnly = this.checked;
+          const allCards = document.querySelectorAll(
+            ".pokemon-container .empty-card"
+          );
+
+          allCards.forEach((card) => {
+            const isOwned = card.classList.contains("owned");
+            if (showOwnedOnly && !isOwned) {
+              card.classList.add("hidden");
+            } else {
+              card.classList.remove("hidden");
+            }
+          });
+        });
+
+      let searchTimeout;
+
+      document
+        .querySelector(".search-bar input")
+        .addEventListener("input", function () {
+          clearTimeout(searchTimeout); // Réinitialise le délai précédent
+
+          searchTimeout = setTimeout(() => {
+            const query = this.value.toLowerCase(); // Requête utilisateur en minuscule
+            const allCards = document.querySelectorAll(
+              ".pokemon-container .pokemon-card, .pokemon-container .empty-card"
+            );
+
+            allCards.forEach((card) => {
+              const cardNameElement = card.querySelector(".pokemon-name");
+              const cardName = cardNameElement
+                ? cardNameElement.textContent.toLowerCase()
+                : "";
+
+              if (cardName.includes(query)) {
+                card.classList.remove("hidden-search"); // Affiche la carte si elle correspond
+              } else {
+                card.classList.add("hidden-search"); // Masque la carte si elle ne correspond pas
+              }
+            });
+          }, 2000); // Délai de 3 secondes
+        });
     </script>
   </body>
 </html>
