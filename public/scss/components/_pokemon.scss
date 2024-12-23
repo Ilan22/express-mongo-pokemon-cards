@@ -8,7 +8,7 @@
   max-width: 1200px;
   margin: 0 auto;
 
-  img {
+  .img-pokemon {
     width: 150px;
     height: 150px;
     object-fit: contain;
@@ -34,9 +34,22 @@
       display: flex;
       justify-content: space-between;
 
-      .hp-display {
-        span {
-          font-size: 10px;
+      .header-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 4px;
+
+        .hp-display {
+          span {
+            font-size: 10px;
+          }
+        }
+
+        .img-type {
+          width: 15px;
+          height: 15px;
+          background-color: transparent;
         }
       }
     }

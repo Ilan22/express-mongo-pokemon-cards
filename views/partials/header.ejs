@@ -1,19 +1,24 @@
 <div class="header">
-  <div class="header-user">Bienvenue, <%= user.name %></div>
+  <div class="wrapper-header">
+    <div class="header-logo">
+      <img src="/assets/pokedex.jpg" alt="Pokémon" />
+    </div>
+    <div class="header-user">
+      <span>Bienvenue, <%= user.name %></span>
+    </div>
+  </div>
+
   <div class="header-actions">
+    <% if (user.role === 0) { %>
+    <a href="/admin" class="btn admin-btn">Administration</a>
+    <% } %>
     <div class="dropdown">
       <button class="dropdown-btn">Menu</button>
       <div class="dropdown-content">
-        <!-- <a href="/profile">Voir le profil</a> -->
-        <a href="/">Voir mes cartes</a>
+        <a href="/">Mes cartes</a>
         <a id="openBoosterBtn">Ouvrir un Booster</a>
+        <a href="/api/logout" class="logout-btn">Déconnexion</a>
       </div>
     </div>
-
-    <% if (user.role === 0) { %>
-    <a href="/admin" class="logout-btn">Administration</a>
-    <% } %>
-
-    <a href="/api/logout" class="logout-btn">Déconnexion</a>
   </div>
 </div>

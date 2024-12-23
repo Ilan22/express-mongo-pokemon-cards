@@ -23,7 +23,7 @@
   max-width: 1200px;
   margin: 0 auto;
 }
-.pokemon-container img {
+.pokemon-container .img-pokemon {
   width: 150px;
   height: 150px;
   object-fit: contain;
@@ -47,8 +47,19 @@
   display: flex;
   justify-content: space-between;
 }
-.pokemon-container .pokemon-card .pokemon-card-header .hp-display span {
+.pokemon-container .pokemon-card .pokemon-card-header .header-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+}
+.pokemon-container .pokemon-card .pokemon-card-header .header-wrapper .hp-display span {
   font-size: 10px;
+}
+.pokemon-container .pokemon-card .pokemon-card-header .header-wrapper .img-type {
+  width: 15px;
+  height: 15px;
+  background-color: transparent;
 }
 .pokemon-container .pokemon-card .pokemon-info {
   text-align: left;
@@ -172,35 +183,8 @@
   background: #7038f8; /* Violet intense pour représenter les dragons */
 }
 
-/* Styles généraux */
-body {
-  font-family: "Roboto", sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f6f8fa;
-  color: #333;
-}
-
-button,
-a {
-  font-family: "Roboto", sans-serif;
-}
-
 /* Section de la liste des Pokémon */
-.section-list-pokemon {
-  padding: 20px;
-  margin: 20px auto;
-  max-width: 1200px;
-  /* Container des cards */
-  /* Styles des cards */
-}
-.section-list-pokemon .container-header-list-pokemon {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-.section-list-pokemon .container-header-list-pokemon a {
+.section-list-pokemon a {
   font-size: 1.2rem;
   padding: 8px 12px;
   color: white;
@@ -210,69 +194,98 @@ a {
   border: 1px solid green;
   transition: all 300ms ease-in-out;
 }
-.section-list-pokemon .container-header-list-pokemon a:hover {
+.section-list-pokemon a:hover {
   background: transparent;
   color: green;
 }
-.section-list-pokemon .cards-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+.section-list-pokemon .pokemon-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
-}
-.section-list-pokemon .pokemon-card {
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 1200px;
+  margin: 0 auto;
 }
-.section-list-pokemon .pokemon-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+.section-list-pokemon .pokemon-container .img-pokemon {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  margin: 5px auto;
+  border-radius: 4px;
+  background: var(--white-color);
+  display: block;
+  flex-shrink: 0;
+  background-color: white;
 }
-.section-list-pokemon .pokemon-card .card-header {
-  margin-bottom: 15px;
+.section-list-pokemon .pokemon-container .pokemon-card {
+  width: 250px;
+  border-radius: 12px;
+  box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.1);
+  padding: 8px;
+  color: var(--black-color);
+  position: relative;
+  border: 8px solid var(--primary-color);
 }
-.section-list-pokemon .pokemon-card .card-header h3 {
-  font-size: 1.5rem;
-  color: #3b4cca; /* Bleu Pokémon */
-  margin-bottom: 10px;
-}
-.section-list-pokemon .pokemon-card .card-header p {
-  font-size: 1rem;
-  color: #555;
-  margin-bottom: 5px;
-}
-.section-list-pokemon .pokemon-card .card-header p strong {
-  color: #333;
-}
-.section-list-pokemon .pokemon-card .card-actions {
+.section-list-pokemon .pokemon-container .pokemon-card .pokemon-card-header {
   display: flex;
   justify-content: space-between;
+}
+.section-list-pokemon .pokemon-container .pokemon-card .pokemon-card-header .header-wrapper {
+  display: flex;
+  flex-direction: row;
   align-items: center;
+  gap: 4px;
 }
-.section-list-pokemon .pokemon-card .card-actions .edit-button {
-  padding: 8px 12px;
-  background-color: #3b4cca;
+.section-list-pokemon .pokemon-container .pokemon-card .pokemon-card-header .header-wrapper .hp-display span {
+  font-size: 10px;
+}
+.section-list-pokemon .pokemon-container .pokemon-card .pokemon-card-header .header-wrapper .img-type {
+  width: 15px;
+  height: 15px;
+  background-color: transparent;
+}
+.section-list-pokemon .pokemon-container .pokemon-card .card-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+}
+.section-list-pokemon .pokemon-container .pokemon-card .card-actions .edit-button {
+  background-color: var(--secondary-color);
   color: white;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-.section-list-pokemon .pokemon-card .card-actions .edit-button:hover {
-  background-color: darkblue;
-}
-.section-list-pokemon .pokemon-card .card-actions .delete-button {
   padding: 8px 12px;
-  background-color: #ff5959;
-  color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
-.section-list-pokemon .pokemon-card .card-actions .delete-button:hover {
-  background-color: darkred;
+.section-list-pokemon .pokemon-container .pokemon-card .card-actions .edit-button:hover {
+  background-color: var(--secondary-color);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+.section-list-pokemon .pokemon-container .pokemon-card .card-actions .delete-button {
+  background-color: var(--accent-color);
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.section-list-pokemon .pokemon-container .pokemon-card .card-actions .delete-button:hover {
+  background-color: var(--accent-color);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+.section-list-pokemon .pokemon-container .pokemon-card .card-actions .delete-form {
+  display: inline;
+  margin: 0;
 }
 
 /* Responsivité */
@@ -448,7 +461,7 @@ a {
     margin-top: 20px;
   }
 }
-form {
+.create-card form {
   max-width: 900px;
   margin: 30px auto;
   border-radius: 15px;
@@ -457,23 +470,23 @@ form {
   flex-direction: column;
   gap: 20px;
 }
-form .container-row {
+.create-card form .container-row {
   display: flex;
   flex-direction: row;
   gap: 40px;
 }
-form .container-row div {
+.create-card form .container-row div {
   display: flex;
   flex-direction: column;
   width: 50%;
   position: relative;
   padding: 10px;
 }
-form .btn-container {
+.create-card form .btn-container {
   display: flex;
   justify-content: center;
 }
-form .pokeball-icon {
+.create-card form .pokeball-icon {
   position: absolute;
   top: -30px;
   left: 50%;
@@ -483,7 +496,7 @@ form .pokeball-icon {
   background: url("/images/pokeball.png") no-repeat center center;
   background-size: cover;
 }
-form button {
+.create-card form button {
   background: var(--secondary-color);
   color: var(--background-color);
   border: none;
@@ -496,7 +509,7 @@ form button {
   grid-column: span 2;
   max-width: fit-content;
 }
-form button:hover {
+.create-card form button:hover {
   background: var(--accent-color);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -506,6 +519,7 @@ form button:hover {
   justify-content: center;
   align-items: center;
   gap: 30px;
+  margin-top: 10px;
 }
 .top-bar .pokedex-icon {
   width: 30px;
@@ -833,37 +847,60 @@ form button:hover {
     margin-right: 10%;
   }
 }
-/* Header */
 .header {
-  background: var(--primary-color);
-  color: var(--white-color, #fff); /* Fallback si la variable n'est pas définie */
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  color: var(--white-color, #fff);
   padding: 15px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  /* Actions du header */
 }
-.header .header-user {
-  font-size: 1.2em;
+.header .wrapper-header {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+.header .wrapper-header .header-logo img {
+  height: 50px;
+  object-fit: contain;
+}
+.header .wrapper-header .header-user {
+  font-size: 1.2rem;
   font-weight: bold;
-  color: var(--text-color, #333);
+  color: var(--white-color, #fff);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 .header .header-actions {
   display: flex;
-  gap: 15px;
   align-items: center;
-  /* Dropdown Menu */
+  gap: 15px;
+  /* Bouton d'administration */
+  /* Menu déroulant */
+}
+.header .header-actions .admin-btn {
+  background: var(--accent-color);
+  color: var(--white-color);
+  padding: 8px 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+.header .header-actions .admin-btn:hover {
+  background: var(--accent-color);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 .header .header-actions .dropdown {
   position: relative;
-  display: inline-block;
 }
 .header .header-actions .dropdown .dropdown-btn {
-  background: white;
-  color: var(--primary-color);
-  padding: 8px 20px;
-  border: 2px solid var(--primary-color);
+  background: var(--white-color, #fff);
+  color: var(--secondary-color);
+  padding: 8px 15px;
+  border: none;
   border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
@@ -872,16 +909,18 @@ form button:hover {
 .header .header-actions .dropdown .dropdown-btn:hover {
   background: var(--primary-color);
   color: var(--white-color, #fff);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 .header .header-actions .dropdown .dropdown-content {
   display: none;
   position: absolute;
-  background-color: var(--background-color, #f9f9f9);
+  background-color: var(--background-color);
   min-width: 160px;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   z-index: 1;
+  top: 45px;
+  right: 0;
 }
 .header .header-actions .dropdown .dropdown-content a {
   color: var(--text-color, #333);
@@ -891,27 +930,22 @@ form button:hover {
   transition: background 0.3s ease;
 }
 .header .header-actions .dropdown .dropdown-content a:hover {
-  background-color: var(--secondary-color);
+  background-color: var(--primary-color);
   color: var(--white-color, #fff);
 }
-.header .header-actions .dropdown:hover .dropdown-content {
+.header .header-actions .dropdown:hover .dropdown-content,
+.header .header-actions .dropdown .dropdown-content:hover {
   display: block;
 }
-.header .header-actions .logout-btn {
-  background: var(--white-color, #fff);
-  color: var(--primary-color);
-  padding: 8px 20px;
-  border: 2px solid var(--primary-color);
-  border-radius: 8px;
-  cursor: pointer;
-  text-decoration: none;
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
-.header .header-actions .logout-btn:hover {
-  background: var(--primary-color);
-  color: var(--white-color, #fff);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+.header .header-actions .dropdown::before:hover {
+  content: "";
+  position: absolute;
+  top: 31px;
+  right: 0;
+  height: 14px;
+  width: 100%;
+  background: transparent;
+  z-index: 0;
 }
 
 * {

@@ -8,40 +8,67 @@
   </head>
   <body>
     <%- include('partials/header') %>
-    <h1>Administration des cartes Pokémon</h1>
-
     <section class="section-list-pokemon">
-      <div class="container-header-list-pokemon">
-        <h2>Liste des cartes</h2>
+      <div class="top-bar">
+        <div class="search-bar">
+          <input type="text" placeholder="Rechercher un Pokémon..." />
+          <button class="search-button">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </button>
+        </div>
         <a href="/createCard">Ajouter une nouvelle carte +</a>
       </div>
-      <div class="cards-container">
+      <div class="pokemon-container">
         <% pokemons.forEach(pokemon => { %>
-        <div class="pokemon-card">
-          <div class="pokemon-name"><%= pokemon.name %></div>
-          <div class="hp-display"><%= pokemon.hp %> HP</div>
-          <img src="<%= pokemon.image %>" alt="<%= pokemon.name %>" />
-          <div class="pokemon-info">
-            <div class="card-actions">
-              <a href="/admin/edit/<%= pokemon._id %>" class="edit-button"
-                >Modifier</a
-              >
-              <form
-                class="delete-form"
-                action="/api/cards/<%= pokemon._id %>"
-                method="POST"
-              >
-                <button
-                  type="submit"
-                  class="delete-button"
-                  onclick="return confirm('Confirmer la suppression ?')"
-                >
-                  Supprimer
-                </button>
-              </form>
+        <div class="pokemon-card <%= pokemon.type %>">
+          <div class="pokemon-card-header">
+            <div class="pokemon-name"><%= pokemon.name %></div>
+            <div class="header-wrapper">
+              <div class="hp-display"><span>PV </span><%= pokemon.hp %></div>
+              <img
+                class="img-type"
+                src="/assets/type_<%= pokemon.type %>.png"
+                alt="<%= pokemon.name %>"
+              />
             </div>
           </div>
+          <img
+            class="img-pokemon"
+            src="<%= pokemon.image %>"
+            alt="<%= pokemon.name %>"
+          />
+
+          <div class="card-actions">
+            <a href="/admin/edit/<%= pokemon._id %>" class="edit-button"
+              >Modifier</a
+            >
+            <form
+              class="delete-form"
+              action="/api/cards/<%= pokemon._id %>"
+              method="POST"
+            >
+              <button
+                type="submit"
+                class="delete-button"
+                onclick="return confirm('Confirmer la suppression ?')"
+              >
+                Supprimer
+              </button>
+            </form>
+          </div>
         </div>
+
         <% }) %>
       </div>
     </section>

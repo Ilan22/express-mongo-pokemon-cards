@@ -1,9 +1,20 @@
 <div class="pokemon-card <%= pokemon.type %>">
   <div class="pokemon-card-header">
     <div class="pokemon-name"><%= pokemon.name %></div>
-    <div class="hp-display"><span>PV </span><%= pokemon.hp %></div>
+    <div class="header-wrapper">
+      <div class="hp-display"><span>PV </span><%= pokemon.hp %></div>
+      <img
+        class="img-type"
+        src="/assets/type_<%= pokemon.type %>.png"
+        alt="<%= pokemon.name %>"
+      />
+    </div>
   </div>
-  <img src="<%= pokemon.image %>" alt="<%= pokemon.name %>" />
+  <img
+    class="img-pokemon"
+    src="<%= pokemon.image %>"
+    alt="<%= pokemon.name %>"
+  />
 
   <div class="pokemon-info">
     <div class="attack-info">

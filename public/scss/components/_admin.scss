@@ -1,115 +1,123 @@
-/* Styles généraux */
-body {
-  font-family: "Roboto", sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f6f8fa;
-  color: #333;
-}
-
-button,
-a {
-  font-family: "Roboto", sans-serif;
-}
-
 /* Section de la liste des Pokémon */
 .section-list-pokemon {
-  padding: 20px;
-  margin: 20px auto;
-  max-width: 1200px;
-
-  .container-header-list-pokemon {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-
-    a {
-      font-size: 1.2rem;
-      padding: 8px 12px;
-      color: white;
-      background: green;
-      border-radius: 5px;
-      text-decoration: none;
-      border: 1px solid green;
-      transition: all 300ms ease-in-out;
-
-      &:hover {
-        background: transparent;
-        color: green;
-      }
-    }
-  }
-
-  /* Container des cards */
-  .cards-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-  }
-
-  /* Styles des cards */
-  .pokemon-card {
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  a {
+    font-size: 1.2rem;
+    padding: 8px 12px;
+    color: white;
+    background: green;
+    border-radius: 5px;
+    text-decoration: none;
+    border: 1px solid green;
+    transition: all 300ms ease-in-out;
 
     &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+      background: transparent;
+      color: green;
+    }
+  }
+
+  .pokemon-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .img-pokemon {
+      width: 150px;
+      height: 150px;
+      object-fit: contain;
+      margin: 5px auto;
+      border-radius: 4px;
+      background: var(--white-color);
+      display: block;
+      flex-shrink: 0;
+      background-color: white;
     }
 
-    .card-header {
-      margin-bottom: 15px;
+    // Pokémon Card
+    .pokemon-card {
+      width: 250px;
+      // height: 300px;
+      border-radius: 12px;
+      box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.1);
+      padding: 8px;
+      color: var(--black-color);
+      position: relative;
+      border: 8px solid var(--primary-color);
 
-      h3 {
-        font-size: 1.5rem;
-        color: #3b4cca; /* Bleu Pokémon */
-        margin-bottom: 10px;
-      }
+      .pokemon-card-header {
+        display: flex;
+        justify-content: space-between;
 
-      p {
-        font-size: 1rem;
-        color: #555;
-        margin-bottom: 5px;
+        .header-wrapper {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 4px;
 
-        strong {
-          color: #333;
-        }
-      }
-    }
+          .hp-display {
+            span {
+              font-size: 10px;
+            }
+          }
 
-    .card-actions {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      .edit-button {
-        padding: 8px 12px;
-        background-color: #3b4cca;
-        color: white;
-        border-radius: 5px;
-        text-decoration: none;
-        transition: background-color 0.3s ease;
-
-        &:hover {
-          background-color: darkblue;
+          .img-type {
+            width: 15px;
+            height: 15px;
+            background-color: transparent;
+          }
         }
       }
 
-      .delete-button {
-        padding: 8px 12px;
-        background-color: #ff5959;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
+      .card-actions {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        justify-content: center;
+        margin-top: 40px;
 
-        &:hover {
-          background-color: darkred;
+        .edit-button {
+          background-color: var(--secondary-color);
+          color: white;
+          padding: 8px 12px;
+          border: none;
+          border-radius: 6px;
+          text-decoration: none;
+          font-size: 1rem;
+          font-weight: bold;
+          cursor: pointer;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background-color: var(--secondary-color);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+          }
+        }
+
+        .delete-button {
+          background-color: var(--accent-color);
+          color: white;
+          padding: 8px 12px;
+          border: none;
+          border-radius: 6px;
+          font-size: 1rem;
+          font-weight: bold;
+          cursor: pointer;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background-color: var(--accent-color);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+          }
+        }
+
+        // Formulaire pour supprimer
+        .delete-form {
+          display: inline;
+          margin: 0;
         }
       }
     }
