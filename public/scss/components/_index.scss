@@ -17,54 +17,6 @@
   display: none !important;
 }
 
-.search-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 400px;
-  border: 2px solid #ccc;
-  border-radius: 25px;
-  overflow: hidden;
-  background-color: #fff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-
-  input {
-    flex: 1;
-    border: none;
-    font-size: 1rem;
-    color: #333;
-    outline: none;
-    padding-left: 10px;
-
-    &::placeholder {
-      color: #aaa;
-    }
-  }
-
-  .search-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--primary-color);
-    border: none;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    color: #fff;
-    height: 100%;
-
-    svg {
-      width: 20px;
-      height: 20px;
-    }
-
-    &:hover {
-      background-color: #0056b3;
-    }
-  }
-}
-
 .container-switch {
   .switch {
     display: inline-flex;

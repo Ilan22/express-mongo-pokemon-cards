@@ -10,15 +10,10 @@
 
   <div class="header-actions">
     <% if (user.role === 0) { %>
-    <a href="/admin" class="btn admin-btn">Administration</a>
+    <a href="/admin" class="btn btn-nav">Administration</a>
     <% } %>
-    <div class="dropdown">
-      <button class="dropdown-btn">Menu</button>
-      <div class="dropdown-content">
-        <a href="/">Mes cartes</a>
-        <a id="openBoosterBtn">Ouvrir un Booster</a>
-        <a href="/api/logout" class="logout-btn">Déconnexion</a>
-      </div>
-    </div>
+    <a href="/" class="btn btn-nav">Mes cartes</a>
+    <a id="openBoosterBtn" class="btn btn-nav">Ouvrir un Booster</a>
+    <a href="/api/logout" class="btn btn-nav">Déconnexion</a>
   </div>
 </div>

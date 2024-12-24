@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 :root {
   --primary-color: #ffcb05; /* Jaune Pikachu */
   --secondary-color: #3b4cca; /* Bleu Pokémon */
@@ -184,20 +185,6 @@
 }
 
 /* Section de la liste des Pokémon */
-.section-list-pokemon a {
-  font-size: 1.2rem;
-  padding: 8px 12px;
-  color: white;
-  background: green;
-  border-radius: 5px;
-  text-decoration: none;
-  border: 1px solid green;
-  transition: all 300ms ease-in-out;
-}
-.section-list-pokemon a:hover {
-  background: transparent;
-  color: green;
-}
 .section-list-pokemon .pokemon-container {
   display: flex;
   flex-wrap: wrap;
@@ -219,7 +206,7 @@
   background-color: white;
 }
 .section-list-pokemon .pokemon-container .pokemon-card {
-  width: 250px;
+  width: 300px;
   border-radius: 12px;
   box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.1);
   padding: 8px;
@@ -251,37 +238,6 @@
   align-items: center;
   justify-content: center;
   margin-top: 40px;
-}
-.section-list-pokemon .pokemon-container .pokemon-card .card-actions .edit-button {
-  background-color: var(--secondary-color);
-  color: white;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 6px;
-  text-decoration: none;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.section-list-pokemon .pokemon-container .pokemon-card .card-actions .edit-button:hover {
-  background-color: var(--secondary-color);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-.section-list-pokemon .pokemon-container .pokemon-card .card-actions .delete-button {
-  background-color: var(--accent-color);
-  color: white;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 6px;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.section-list-pokemon .pokemon-container .pokemon-card .card-actions .delete-button:hover {
-  background-color: var(--accent-color);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 .section-list-pokemon .pokemon-container .pokemon-card .card-actions .delete-form {
   display: inline;
@@ -461,57 +417,74 @@
     margin-top: 20px;
   }
 }
-.create-card form {
-  max-width: 900px;
-  margin: 30px auto;
-  border-radius: 15px;
-  padding: 30px;
+.create-card {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-}
-.create-card form .container-row {
-  display: flex;
-  flex-direction: row;
+  align-items: center;
   gap: 40px;
 }
-.create-card form .container-row div {
+.create-card .card {
+  max-width: 80%;
+  padding: 40px;
+}
+.create-card .card h3 {
+  padding-bottom: 20px;
+}
+
+.stepper-container {
   display: flex;
   flex-direction: column;
-  width: 50%;
-  position: relative;
-  padding: 10px;
+  width: 100%;
 }
-.create-card form .btn-container {
+
+.step {
+  display: none;
+}
+
+.step.active {
+  display: block;
+}
+
+h3 {
+  margin-bottom: 20px;
+}
+
+.btn-container {
+  margin-top: 20px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
-.create-card form .pokeball-icon {
-  position: absolute;
-  top: -30px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 60px;
-  background: url("/images/pokeball.png") no-repeat center center;
-  background-size: cover;
+
+.stepper-nav {
+  display: flex;
+  justify-content: space-between;
 }
-.create-card form button {
-  background: var(--secondary-color);
-  color: var(--background-color);
-  border: none;
-  padding: 12px 20px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  grid-column: span 2;
-  max-width: fit-content;
+
+.stepper-nav button {
+  width: 48%;
 }
-.create-card form button:hover {
-  background: var(--accent-color);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+.stepper-nav .btn:last-child {
+  background-color: #28a745;
+}
+
+.stepper-nav .btn:last-child:hover {
+  background-color: #218838;
+}
+
+.stepper-nav .btn:disabled {
+  background-color: #6c757d;
+}
+
+#submitBtn {
+  background-color: #28a745;
+  display: none;
+  width: 100%;
+  margin-top: 20px;
+}
+
+#submitBtn:hover {
+  background-color: #218838;
 }
 
 .top-bar {
@@ -531,49 +504,6 @@
 
 .hidden-search {
   display: none !important;
-}
-
-.search-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 400px;
-  border: 2px solid #ccc;
-  border-radius: 25px;
-  overflow: hidden;
-  background-color: #fff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-.search-bar input {
-  flex: 1;
-  border: none;
-  font-size: 1rem;
-  color: #333;
-  outline: none;
-  padding-left: 10px;
-}
-.search-bar input::placeholder {
-  color: #aaa;
-}
-.search-bar .search-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--primary-color);
-  border: none;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  color: #fff;
-  height: 100%;
-}
-.search-bar .search-button svg {
-  width: 20px;
-  height: 20px;
-}
-.search-bar .search-button:hover {
-  background-color: #0056b3;
 }
 
 .container-switch {
@@ -850,12 +780,11 @@
 .header {
   background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
   color: var(--white-color, #fff);
-  padding: 15px 30px;
+  padding: 10px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  /* Actions du header */
 }
 .header .wrapper-header {
   display: flex;
@@ -877,75 +806,191 @@
   display: flex;
   align-items: center;
   gap: 15px;
-  /* Bouton d'administration */
-  /* Menu déroulant */
 }
-.header .header-actions .admin-btn {
-  background: var(--accent-color);
-  color: var(--white-color);
-  padding: 8px 15px;
+
+select {
+  width: 100%;
+  padding: 12px 15px;
+  background: #ffffff;
+  border: 3px solid #4caf50;
+  color: #333333;
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 12px;
   border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: all 0.3s ease;
+  box-shadow: inset 0 0 0 2px #ffffff, 0 4px #388e3c;
+  transition: all 0.2s ease;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, #4caf50 50%), linear-gradient(135deg, #4caf50 50%, transparent 50%);
+  background-position: calc(100% - 20px) calc(50% + 2px), calc(100% - 15px) calc(50% + 2px);
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  padding-right: 30px;
 }
-.header .header-actions .admin-btn:hover {
-  background: var(--accent-color);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+select:hover {
+  transform: translateY(-2px);
+  box-shadow: inset 0 0 0 2px #ffffff, 0 6px #388e3c;
 }
-.header .header-actions .dropdown {
+select:focus {
+  transform: translateY(-2px);
+  box-shadow: inset 0 0 0 2px #ffffff, 0 6px #388e3c;
+  border-color: #66bb6a;
+}
+select:active {
+  transform: translateY(2px);
+  box-shadow: inset 0 0 0 2px #ffffff, 0 2px #388e3c;
+}
+select option {
+  font-family: "Press Start 2P", sans-serif;
+  padding: 10px;
+  background: #ffffff;
+  color: #333333;
+}
+
+@-moz-document url-prefix() {
+  select {
+    color: #333333;
+    text-shadow: none;
+  }
+}
+select::-ms-expand {
+  display: none;
+}
+
+select:disabled {
+  background-color: #f5f5f5;
+  border-color: #cccccc;
+  color: #888888;
+  cursor: not-allowed;
+  box-shadow: inset 0 0 0 2px #ffffff, 0 4px #cccccc;
+}
+
+label {
+  display: block;
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 12px;
+  color: #4caf50;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px #81c784;
+}
+
+input {
+  width: 100%;
+  margin-bottom: 30px;
+  padding: 12px 15px;
+  background: #ffffff;
+  border: 3px solid #4caf50;
+  color: #333333;
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 12px;
+  border-radius: 8px;
+  box-shadow: inset 0 0 0 2px #ffffff, 0 4px #388e3c;
+  transition: all 0.2s ease;
+  outline: none;
+}
+input::placeholder {
+  color: #a5d6a7;
+  opacity: 0.8;
+}
+input:focus {
+  transform: translateY(-2px);
+  box-shadow: inset 0 0 0 2px #ffffff, 0 6px #388e3c;
+  border-color: #66bb6a;
+}
+input:active {
+  transform: translateY(2px);
+  box-shadow: inset 0 0 0 2px #ffffff, 0 2px #388e3c;
+}
+
+input:invalid {
+  border-color: #ff5252;
+  box-shadow: inset 0 0 0 2px #ffffff, 0 4px #d32f2f;
+}
+input:invalid:focus {
+  box-shadow: inset 0 0 0 2px #ffffff, 0 6px #d32f2f;
+}
+
+@keyframes pixelate {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.error-message {
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 10px;
+  color: #ff5252;
+  background: rgba(255, 82, 82, 0.1);
+  padding: 8px;
+  margin-top: 5px;
+  border: 2px solid #ff5252;
+  border-radius: 4px;
+  display: none;
+  animation: pixelate 0.3s ease;
+}
+
+.required::after {
+  content: "*";
+  color: #ff5252;
+  margin-left: 4px;
+  font-family: "Press Start 2P", sans-serif;
+}
+
+@keyframes selectPulse {
+  0% {
+    border-color: #4caf50;
+  }
+  50% {
+    border-color: #66bb6a;
+  }
+  100% {
+    border-color: #4caf50;
+  }
+}
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 0px;
   position: relative;
 }
-.header .header-actions .dropdown .dropdown-btn {
-  background: var(--white-color, #fff);
-  color: var(--secondary-color);
-  padding: 8px 15px;
+.search-bar input {
+  margin: 0;
+}
+.search-bar .search-button {
+  background-color: transparent;
+  position: absolute;
+  z-index: 1000;
+  right: 0;
   border: none;
-  border-radius: 8px;
+  padding: 0.5rem 1rem;
   cursor: pointer;
-  font-weight: bold;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s;
+  color: black;
+  height: 100%;
 }
-.header .header-actions .dropdown .dropdown-btn:hover {
-  background: var(--primary-color);
-  color: var(--white-color, #fff);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+.search-bar .search-button svg {
+  width: 20px;
+  height: 20px;
 }
-.header .header-actions .dropdown .dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: var(--background-color);
-  min-width: 160px;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
-  z-index: 1;
-  top: 45px;
-  right: 0;
-}
-.header .header-actions .dropdown .dropdown-content a {
-  color: var(--text-color, #333);
-  padding: 10px 15px;
-  text-decoration: none;
-  display: block;
-  transition: background 0.3s ease;
-}
-.header .header-actions .dropdown .dropdown-content a:hover {
-  background-color: var(--primary-color);
-  color: var(--white-color, #fff);
-}
-.header .header-actions .dropdown:hover .dropdown-content,
-.header .header-actions .dropdown .dropdown-content:hover {
-  display: block;
-}
-.header .header-actions .dropdown::before:hover {
-  content: "";
-  position: absolute;
-  top: 31px;
-  right: 0;
-  height: 14px;
-  width: 100%;
-  background: transparent;
-  z-index: 0;
+
+body {
+  font-family: "Press Start 2P", sans-serif;
+  background-image: url("/assets/bg-pokemon-art-1.jpg"); /* Chemin correct pour l'image */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
 * {
@@ -962,12 +1007,13 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: "Roboto", sans-serif; /* Typographie moderne */
+  font-family: "Press Start 2P", sans-serif; /* Assurez-vous de charger cette police */
+  color: #4caf50; /* Vert naturel */
+  text-shadow: 2px 2px #81c784; /* Effet ombre douce */
   font-weight: bold;
-  color: #3b4cca; /* Bleu Pokémon */
-  text-transform: uppercase; /* Titres en majuscules */
-  letter-spacing: 1.2px;
+  letter-spacing: 1.1px;
   margin: 0;
+  text-align: center;
 }
 
 h1 {
@@ -992,6 +1038,74 @@ h4 {
 
 .card {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+/* Bouton de style Pokéball */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #ff5252;
+  border: 2px solid #ffffff;
+  color: #fff;
+  font-size: 10px;
+  font-family: "Press Start 2P", sans-serif;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50px;
+  box-shadow: 0px 4px #d32f2f;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+/* Hover effect */
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 6px #c62828;
+}
+
+/* Bouton actif */
+.btn:active {
+  transform: translateY(2px);
+  box-shadow: 0px 2px #b71c1c;
+}
+
+.btn-nav {
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  box-shadow: 0px 4px #323232;
+}
+.btn-nav:active {
+  box-shadow: 0px 2px #323232;
+}
+.btn-nav:hover {
+  box-shadow: 0px 6px #323232;
+}
+
+.btn-supp {
+  background: #fd9d9d;
+  border: 2px solid #ffffff;
+  color: #fff;
+  box-shadow: 0px 4px #d77878;
+}
+.btn-supp:active {
+  box-shadow: 0px 2px #d77878;
+}
+.btn-supp:hover {
+  box-shadow: 0px 6px #d77878;
+}
+
+.btn-modifier {
+  background: #3d4dc7;
+  border: 2px solid #ffffff;
+  color: #fff;
+  box-shadow: 0px 4px #555280;
+}
+.btn-modifier:active {
+  box-shadow: 0px 2px #555280;
+}
+.btn-modifier:hover {
+  box-shadow: 0px 6px #555280;
 }
 
 /*# sourceMappingURL=styles.css.map */

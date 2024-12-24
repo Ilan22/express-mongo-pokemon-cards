@@ -13,19 +13,23 @@
       <h2>Créer une nouvelle carte Pokémon</h2>
 
       <form id="createCardForm" class="card">
-        <div class="container-row">
-          <div>
+        <div class="stepper-container">
+          <div class="step step-1 active">
+            <h3>Étape 1 : Informations de la carte</h3>
             <label for="name">Nom :</label>
             <input type="text" id="name" name="name" required />
 
             <label for="hp">PV :</label>
             <input type="number" id="hp" name="hp" required />
 
-            <label for="type">Type :</label>
-            <input type="text" id="type" name="type" required />
-
             <label for="image">Image URL :</label>
             <input type="url" id="image" name="image" required />
+          </div>
+
+          <div class="step step-2">
+            <h3>Étape 2 : Type et Rareté</h3>
+            <label for="type">Type :</label>
+            <input type="text" id="type" name="type" required />
 
             <label for="rarity_level">Rareté :</label>
             <select id="rarity_level" name="rarity_level" required>
@@ -37,12 +41,12 @@
             </select>
           </div>
 
-          <div>
-            <span>Attaque :</span>
-            <label for="attack_name">Nom:</label>
+          <div class="step step-3">
+            <h3>Étape 3 : Attaque</h3>
+            <label for="attack_name">Nom de l'attaque :</label>
             <input type="text" id="attack_name" name="attack_name" required />
 
-            <label for="attack_power">Puissance:</label>
+            <label for="attack_power">Puissance :</label>
             <input
               type="number"
               id="attack_power"
@@ -50,16 +54,72 @@
               required
             />
 
-            <label for="description">Description:</label>
-            <input id="description" name="description" required />
+            <label for="description">Description de l'attaque :</label>
+            <input type="text" id="description" name="description" required />
+          </div>
+
+          <!-- Buttons -->
+          <div class="btn-container stepper-nav">
+            <button type="button" id="prevBtn" class="btn" disabled>
+              Précédent
+            </button>
+            <button type="button" id="nextBtn" class="btn">Suivant</button>
           </div>
         </div>
+
         <div class="btn-container">
-          <button type="submit">Créer la carte</button>
+          <button
+            class="btn"
+            type="submit"
+            id="submitBtn"
+            style="display: none"
+          >
+            Créer la carte
+          </button>
         </div>
       </form>
     </section>
 
     <script src="/js/admin.js"></script>
+    <script>
+      let currentStep = 0;
+      const steps = document.querySelectorAll(".step");
+      const nextBtn = document.getElementById("nextBtn");
+      const prevBtn = document.getElementById("prevBtn");
+      const submitBtn = document.getElementById("submitBtn");
+
+      function showStep(stepIndex) {
+        // Hide all steps
+        steps.forEach((step, index) => {
+          step.classList.remove("active");
+        });
+
+        // Show current step
+        steps[stepIndex].classList.add("active");
+
+        // Enable or disable buttons
+        prevBtn.disabled = stepIndex === 0;
+        nextBtn.textContent =
+          stepIndex === steps.length - 1 ? "Terminer" : "Suivant";
+        submitBtn.style.display =
+          stepIndex === steps.length - 1 ? "inline-block" : "none";
+      }
+
+      nextBtn.addEventListener("click", () => {
+        if (currentStep < steps.length - 1) {
+          currentStep++;
+          showStep(currentStep);
+        }
+      });
+
+      prevBtn.addEventListener("click", () => {
+        if (currentStep > 0) {
+          currentStep--;
+          showStep(currentStep);
+        }
+      });
+
+      showStep(currentStep);
+    </script>
   </body>
 </html>

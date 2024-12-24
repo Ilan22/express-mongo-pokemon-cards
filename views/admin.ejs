@@ -11,8 +11,12 @@
     <section class="section-list-pokemon">
       <div class="top-bar">
         <div class="search-bar">
-          <input type="text" placeholder="Rechercher un Pokémon..." />
-          <button class="search-button">
+          <input
+            type="text"
+            placeholder="Rechercher un Pokémon..."
+            aria-label="Rechercher un Pokémon"
+          />
+          <button class="search-button" aria-label="Rechercher">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -27,8 +31,11 @@
             </svg>
           </button>
         </div>
-        <a href="/createCard">Ajouter une nouvelle carte +</a>
+        <a href="/createCard" class="btn add-card-btn"
+          >Ajouter une nouvelle carte +</a
+        >
       </div>
+
       <div class="pokemon-container">
         <% pokemons.forEach(pokemon => { %>
         <div class="pokemon-card <%= pokemon.type %>">
@@ -50,7 +57,7 @@
           />
 
           <div class="card-actions">
-            <a href="/admin/edit/<%= pokemon._id %>" class="edit-button"
+            <a href="/admin/edit/<%= pokemon._id %>" class="btn btn-modifier"
               >Modifier</a
             >
             <form
@@ -60,7 +67,7 @@
             >
               <button
                 type="submit"
-                class="delete-button"
+                class="btn btn-supp"
                 onclick="return confirm('Confirmer la suppression ?')"
               >
                 Supprimer
@@ -72,6 +79,35 @@
         <% }) %>
       </div>
     </section>
+    <script>
+      let searchTimeout;
+
+      document
+        .querySelector(".search-bar input")
+        .addEventListener("input", function () {
+          clearTimeout(searchTimeout); // Réinitialise le délai précédent
+
+          searchTimeout = setTimeout(() => {
+            const query = this.value.toLowerCase(); // Requête utilisateur en minuscule
+            const allCards = document.querySelectorAll(
+              ".pokemon-container .pokemon-card, .pokemon-container .empty-card"
+            );
+
+            allCards.forEach((card) => {
+              const cardNameElement = card.querySelector(".pokemon-name");
+              const cardName = cardNameElement
+                ? cardNameElement.textContent.toLowerCase()
+                : "";
+
+              if (cardName.includes(query)) {
+                card.classList.remove("hidden-search"); // Affiche la carte si elle correspond
+              } else {
+                card.classList.add("hidden-search"); // Masque la carte si elle ne correspond pas
+              }
+            });
+          }, 1000);
+        });
+    </script>
 
     <script src="/js/admin.js"></script>
   </body>

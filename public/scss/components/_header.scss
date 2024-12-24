@@ -5,7 +5,7 @@
     var(--secondary-color)
   );
   color: var(--white-color, #fff);
-  padding: 15px 30px;
+  padding: 10px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,92 +32,9 @@
     }
   }
 
-  /* Actions du header */
   .header-actions {
     display: flex;
     align-items: center;
     gap: 15px;
-
-    /* Bouton d'administration */
-    .admin-btn {
-      background: var(--accent-color);
-      color: var(--white-color);
-      padding: 8px 15px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: all 0.3s ease;
-
-      &:hover {
-        background: var(--accent-color);
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-      }
-    }
-
-    /* Menu déroulant */
-    .dropdown {
-      position: relative;
-
-      .dropdown-btn {
-        background: var(--white-color, #fff);
-        color: var(--secondary-color);
-        padding: 8px 15px;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        font-weight: bold;
-        transition: all 0.3s ease;
-
-        &:hover {
-          background: var(--primary-color);
-          color: var(--white-color, #fff);
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-        }
-      }
-
-      .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: var(--background-color);
-        min-width: 160px;
-        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-        border-radius: 8px;
-        z-index: 1;
-
-        // Décalage entre le bouton et le menu
-        top: 45px;
-        right: 0;
-
-        a {
-          color: var(--text-color, #333);
-          padding: 10px 15px;
-          text-decoration: none;
-          display: block;
-          transition: background 0.3s ease;
-
-          &:hover {
-            background-color: var(--primary-color);
-            color: var(--white-color, #fff);
-          }
-        }
-      }
-
-      // Étendre la zone active avec un ::before
-      &:hover .dropdown-content,
-      .dropdown-content:hover {
-        display: block;
-      }
-
-      &::before:hover {
-        content: "";
-        position: absolute;
-        top: 31px;
-        right: 0;
-        height: 14px;
-        width: 100%;
-        background: transparent;
-        z-index: 0;
-      }
-    }
   }
 }
