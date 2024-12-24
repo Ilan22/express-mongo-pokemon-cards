@@ -619,6 +619,27 @@ h3 {
     opacity: 1;
   }
 }
+/* Style de la scrollbar */
+::-webkit-scrollbar {
+  width: 10px; /* Largeur de la scrollbar */
+  height: 10px; /* Hauteur pour scrollbar horizontale (facultatif) */
+}
+
+::-webkit-scrollbar-track {
+  background: #f9f9f9; /* Fond neutre pour le track */
+  border-radius: 5px; /* Coins arrondis */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #323232; /* Couleur sombre comme les bordures de vos boutons */
+  border-radius: 5px; /* Coins arrondis similaires aux boutons */
+  border: 2px solid #f9f9f9; /* Un espace pour rappeler les bordures des inputs */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555555; /* Une couleur un peu plus claire pour l'interaction, comme vos boutons au hover */
+}
+
 .auth {
   margin: 0;
   padding: 0;
@@ -778,18 +799,19 @@ h3 {
   }
 }
 .header {
-  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-  color: var(--white-color, #fff);
+  background-color: #1f1f1f; /* Couleur unie sombre */
+  color: #fff;
   padding: 10px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombre subtile */
+  /* Ajout d'une bordure en bas pour séparer visuellement */
+  border-bottom: 3px solid #ff5252;
 }
 .header .wrapper-header {
   display: flex;
-  flex-direction: row;
-  gap: 10px;
+  gap: 15px;
   align-items: center;
 }
 .header .wrapper-header .header-logo img {
@@ -797,10 +819,9 @@ h3 {
   object-fit: contain;
 }
 .header .wrapper-header .header-user {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: bold;
-  color: var(--white-color, #fff);
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  color: #fff;
 }
 .header .header-actions {
   display: flex;
