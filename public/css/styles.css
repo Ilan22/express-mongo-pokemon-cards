@@ -313,73 +313,75 @@
   box-shadow: 0 2px #388e3c;
 }
 
-.create-card {
+.section-create-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.section-create-card .create-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 40px;
+  background-color: white;
+  width: 80%;
+  margin-top: 20px;
+  padding: 48px 32px;
+  border-radius: 12px;
 }
-.create-card .card {
+.section-create-card .create-card .card {
   max-width: 80%;
   padding: 40px;
 }
-.create-card .card h3 {
-  padding-bottom: 20px;
+.section-create-card .create-card .card h2,
+.section-create-card .create-card .card h3 {
+  padding-bottom: 200px;
+  color: black;
+  border: 2px solid black;
+  box-shadow: 0px 4px #323232;
 }
-
-.stepper-container {
+.section-create-card .stepper-container {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
-
-.step {
-  display: none;
-}
-
-.step.active {
-  display: block;
-}
-
-h3 {
+.section-create-card .stepper-container .form-group {
   margin-bottom: 20px;
 }
-
-.btn-container {
+.section-create-card .step {
+  display: none;
+}
+.section-create-card .step.active {
+  display: block;
+}
+.section-create-card .btn-container {
   margin-top: 20px;
   display: flex;
   justify-content: space-between;
 }
-
-.stepper-nav {
+.section-create-card .stepper-nav {
   display: flex;
   justify-content: space-between;
 }
-
-.stepper-nav button {
+.section-create-card .stepper-nav button {
   width: 48%;
 }
-
-.stepper-nav .btn:last-child {
+.section-create-card .stepper-nav .btn:last-child {
   background-color: #28a745;
 }
-
-.stepper-nav .btn:last-child:hover {
+.section-create-card .stepper-nav .btn:last-child:hover {
   background-color: #218838;
 }
-
-.stepper-nav .btn:disabled {
+.section-create-card .stepper-nav .btn:disabled {
   background-color: #6c757d;
 }
-
-#submitBtn {
+.section-create-card #submitBtn {
   background-color: #28a745;
   display: none;
   width: 100%;
   margin-top: 20px;
 }
-
-#submitBtn:hover {
+.section-create-card #submitBtn:hover {
   background-color: #218838;
 }
 
@@ -850,7 +852,6 @@ input:invalid:focus {
   margin-top: 5px;
   border: 2px solid #ff5252;
   border-radius: 4px;
-  display: none;
   animation: pixelate 0.3s ease;
 }
 

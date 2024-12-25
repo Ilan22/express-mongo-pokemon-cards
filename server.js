@@ -46,12 +46,12 @@ const rarities = [
   { level: 2, label: "Peu Commun" },
   { level: 3, label: "Rare" },
   { level: 4, label: "Très Rare" },
-];
+]; // 4348462
 
 const pokemon = new mongoose.Schema({
   name: { type: String, required: true },
   hp: { type: Number, required: true },
-  image: { type: String, required: true },
+  image: { type: String, default: "/assets/pokeballe.png" },
   type: { type: String, required: true },
   attack: {
     name: { type: String, required: true },
@@ -344,6 +344,7 @@ app.get("/admin/edit/:id", authenticateToken, async (req, res) => {
   try {
     const card = await PokemonModel.findById(req.params.id);
     if (card) {
+      console.log(card);
       res.render("editCard", {
         card,
         user: req.user,
@@ -355,6 +356,43 @@ app.get("/admin/edit/:id", authenticateToken, async (req, res) => {
     }
   } catch (error) {
     res.status(500).send("Erreur serveur");
+  }
+});
+
+app.post("/api/pokemons", async (req, res) => {
+  try {
+    const { name, hp, image, type, attack, rarity } = req.body;
+
+    // Validation des données
+    if (!name || !hp || !type || !attack || !rarity) {
+      return res.status(400).json({ message: "Tous les champs sont requis." });
+    }
+
+    // Si l'image n'est pas fournie, attribuer la valeur par défaut
+    const pokemonImage = image || "/assets/pokeballe.png";
+
+    console.log(name, hp, pokemonImage, type, attack, rarity);
+
+    const newCard = new PokemonModel({
+      name,
+      hp,
+      image: pokemonImage, // Utilisation de l'image fournie ou de l'image par défaut
+      type,
+      attack: {
+        name: attack.name,
+        description: attack.description,
+        power: attack.power,
+      },
+      rarity: {
+        level: rarity.level,
+        label: rarity.label,
+      },
+    });
+
+    const savedCard = await newCard.save();
+    res.status(201).json(savedCard);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
   }
 });
 

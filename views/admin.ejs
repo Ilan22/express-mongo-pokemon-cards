@@ -38,7 +38,10 @@
 
       <div class="pokemon-container">
         <% pokemons.forEach(pokemon => { %>
-        <div class="pokemon-card <%= pokemon.type %>">
+        <div
+          class="pokemon-card <%= pokemon.type %>"
+          id="pokemon-card-<%= pokemon._id %>"
+        >
           <div class="pokemon-card-header">
             <div class="pokemon-name"><%= pokemon.name %></div>
             <div class="header-wrapper">
@@ -62,8 +65,10 @@
             >
             <form
               class="delete-form"
-              action="/api/cards/<%= pokemon._id %>"
+              id="delete-form-<%= pokemon._id %>"
+              action="/api/pokemons/<%= pokemon._id %>?_method=DELETE"
               method="POST"
+              onsubmit="event.preventDefault(); deletePokemon('<%= pokemon._id %>');"
             >
               <button
                 type="submit"
@@ -100,6 +105,7 @@
                 : "";
 
               if (cardName.includes(query)) {
+                console.log(card);
                 card.classList.remove("hidden-search"); // Affiche la carte si elle correspond
               } else {
                 card.classList.add("hidden-search"); // Masque la carte si elle ne correspond pas
@@ -107,6 +113,36 @@
             });
           }, 1000);
         });
+
+      function deletePokemon(pokemonId) {
+        // Crée une requête AJAX pour supprimer la carte
+        fetch(`/api/pokemons/${pokemonId}`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            // Vérifiez si la suppression a réussi
+            if (data.message === "Carte supprimée avec succès") {
+              // Supprimez l'élément de la page sans recharger
+              const cardElement = document.getElementById(
+                `pokemon-card-${pokemonId}`
+              );
+              if (cardElement) {
+                cardElement.remove(); // Retirer la carte de l'affichage
+              }
+              alert("Carte supprimée avec succès");
+            } else {
+              alert("Erreur lors de la suppression de la carte");
+            }
+          })
+          .catch((error) => {
+            console.error("Erreur:", error);
+            alert("Une erreur est survenue");
+          });
+      }
     </script>
 
     <script src="/js/admin.js"></script>
