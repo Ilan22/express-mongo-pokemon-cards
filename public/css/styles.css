@@ -259,164 +259,60 @@
     font-size: 0.9rem;
   }
 }
-/* Conteneur principal */
 .edit-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-start;
-  max-width: 1200px;
-  margin: 30px auto;
-  gap: 20px;
+  gap: 40px;
+  padding: 20px;
 }
 .edit-container .edit-form {
-  background: var(--background-color);
-  padding: 25px 30px;
+  width: 80%;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border: 3px solid #4caf50;
   border-radius: 12px;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-  border: 1px solid var(--form-border-color);
-  flex-grow: 1;
+  box-shadow: 0 4px #388e3c;
 }
 .edit-container .edit-form h2 {
-  font-size: 1.8rem;
-  margin-bottom: 25px;
-  color: var(--secondary-color);
-  text-align: center;
+  margin-bottom: 30px;
+}
+.edit-container .edit-form .row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+}
+.edit-container .edit-form .row .form-group {
+  width: 50%;
 }
 .edit-container .edit-form .form-group {
   margin-bottom: 20px;
 }
-.edit-container .edit-form .form-group label {
-  display: block;
-  font-size: 1rem;
-  margin-bottom: 8px;
-  color: var(--text-color);
-  font-weight: 600;
-  letter-spacing: 0.5px;
-}
-.edit-container .edit-form .form-group input {
-  width: 100%;
-  padding: 12px 15px;
-  font-size: 1rem;
-  border: 1px solid var(--form-border-color);
-  border-radius: 8px;
-  background-color: var(--background-color);
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-.edit-container .edit-form .form-group input:focus {
-  outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 8px rgba(255, 203, 5, 0.5);
-}
-.edit-container .edit-form .form-group input::placeholder {
-  color: var(--form-placeholder-color);
-  font-style: italic;
-}
 .edit-container .edit-form .submit-button {
   display: block;
   width: 100%;
-  padding: 12px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: white;
-  background-color: var(--primary-color);
-  border: none;
+  padding: 12px 15px;
+  background-color: #4caf50;
+  border: 3px solid #ffffff;
+  color: #ffffff;
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 12px;
   border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px #388e3c;
+  transition: transform 0.2s, box-shadow 0.2s;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 .edit-container .edit-form .submit-button:hover {
-  background-color: var(--secondary-color);
-  transform: scale(1.02);
+  transform: translateY(-2px);
+  box-shadow: 0 6px #388e3c;
 }
 .edit-container .edit-form .submit-button:active {
-  transform: scale(1);
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-.edit-container .pokemon-card {
-  flex: 1;
-  max-width: 450px;
-  background: white;
-  border-radius: 15px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-  overflow: hidden;
-  border: 2px solid var(--card-border-color);
-  transition: transform 0.3s ease;
-}
-.edit-container .pokemon-card:hover {
-  transform: scale(1.02);
-}
-.edit-container .pokemon-card .card-header {
-  padding: 20px;
-  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-  color: white;
-  text-align: center;
-  position: relative;
-}
-.edit-container .pokemon-card .card-header h2 {
-  font-size: 2rem;
-  margin: 0;
-}
-.edit-container .pokemon-card .card-header .card-type {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 6px 12px;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  color: var(--secondary-color);
-  font-weight: bold;
-  text-transform: uppercase;
-}
-.edit-container .pokemon-card .card-header .card-hp {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 6px 12px;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  color: var(--accent-color);
-  font-weight: bold;
-  text-transform: uppercase;
-}
-.edit-container .pokemon-card .card-image {
-  height: 220px;
-  background: var(--background-color);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.edit-container .pokemon-card .card-image img {
-  max-height: 100%;
-  max-width: 100%;
-  transition: transform 0.3s ease;
-}
-.edit-container .pokemon-card .card-image img:hover {
-  transform: scale(1.05);
-}
-.edit-container .pokemon-card .card-body {
-  padding: 20px;
-  font-size: 1rem;
-  color: var(--text-color);
-}
-.edit-container .pokemon-card .card-body p {
-  margin: 12px 0;
-}
-.edit-container .pokemon-card .card-body p strong {
-  color: var(--secondary-color);
+  transform: translateY(2px);
+  box-shadow: 0 2px #388e3c;
 }
 
-/* Responsivité */
-@media (max-width: 768px) {
-  .edit-container {
-    flex-direction: column;
-  }
-  .edit-container .pokemon-card {
-    margin-top: 20px;
-  }
-}
 .create-card {
   display: flex;
   flex-direction: column;
@@ -530,7 +426,7 @@ h3 {
 }
 .container-switch .switch-button {
   position: absolute;
-  top: 1px;
+  top: -3px;
   left: 2px;
   width: 17px;
   height: 17px;
@@ -696,7 +592,7 @@ h3 {
   font-weight: bold;
 }
 .auth .tabs .tab:hover:not(.active) {
-  background: rgb(227.25, 227.25, 227.25);
+  background: #f0f0f0;
 }
 .auth .form-group {
   margin-bottom: 15px;
@@ -900,7 +796,7 @@ label {
 
 input {
   width: 100%;
-  margin-bottom: 30px;
+  box-sizing: border-box;
   padding: 12px 15px;
   background: #ffffff;
   border: 3px solid #4caf50;
@@ -1005,6 +901,67 @@ input:invalid:focus {
   height: 20px;
 }
 
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+.radio-group .radio-label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  background: #ffffff;
+  border: 3px solid #4caf50;
+  border-radius: 8px;
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 12px;
+  color: #333333;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 2px #ffffff, 0 4px #388e3c;
+  transition: all 0.2s ease;
+}
+.radio-group .radio-label:hover {
+  transform: translateY(-2px);
+  box-shadow: inset 0 0 0 2px #ffffff, 0 6px #388e3c;
+}
+.radio-group .radio-input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.radio-group .radio-input:checked + .radio-label {
+  background: #4caf50;
+  color: #ffffff;
+  border-color: #66bb6a;
+  box-shadow: inset 0 0 0 2px #ffffff, 0 6px #388e3c;
+  animation: pixelate 0.3s ease;
+}
+.radio-group .radio-input:focus + .radio-label {
+  border-color: #66bb6a;
+  box-shadow: inset 0 0 0 2px #ffffff, 0 6px #66bb6a;
+}
+.radio-group .radio-input:active + .radio-label {
+  transform: translateY(2px);
+  box-shadow: inset 0 0 0 2px #ffffff, 0 2px #388e3c;
+}
+
+.radio-group-title {
+  width: 100%;
+}
+
+@keyframes pixelate {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 body {
   font-family: "Press Start 2P", sans-serif;
   background-image: url("/assets/bg-pokemon-art-1.jpg"); /* Chemin correct pour l'image */

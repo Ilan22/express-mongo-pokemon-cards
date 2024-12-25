@@ -74,7 +74,7 @@ $desktop-breakpoint: 1024px;
       }
 
       &:hover:not(.active) {
-        background: darken($background-light, 5%);
+        background: $background-light;
       }
     }
   }

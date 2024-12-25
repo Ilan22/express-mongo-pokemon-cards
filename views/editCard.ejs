@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="/css/styles.css" />
   </head>
   <body>
+    <%- include('partials/header') %>
+
     <div class="edit-container">
       <!-- Formulaire -->
       <div class="edit-form">
@@ -16,53 +18,47 @@
           action="/api/cards/<%= card._id %>?_method=PUT"
           method="POST"
         >
-          <div class="form-group">
-            <label for="name">Nom:</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value="<%= card.name %>"
-              required
-            />
+          <div class="row">
+            <div class="form-group">
+              <label for="name">Nom:</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value="<%= card.name %>"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="pv">PV:</label>
+              <input
+                type="number"
+                id="pv"
+                name="pv"
+                value="<%= card.hp %>"
+                required
+              />
+            </div>
           </div>
-          <div class="form-group">
-            <label for="pv">PV:</label>
-            <input
-              type="number"
-              id="pv"
-              name="pv"
-              value="<%= card.pv %>"
-              required
-            />
+          <div class="radio-group">
+            <label class="radio-group-title">Type de Pokémon :</label>
+            <% typesPokemons.forEach((type) => { %> <input type="radio"
+            id="type-<%= type.toLowerCase() %>" name="type" value="<%= type %>"
+            class="radio-input <%= card.type === type ? 'checked' : '' %>" <%=
+            card.type === type ? 'checked' : '' %> required />
+            <label for="type-<%= type.toLowerCase() %>" class="radio-label"
+              ><%= type %></label
+            >
+            <% }); %>
           </div>
-          <div class="form-group">
-            <label for="type">Type:</label>
-            <input
-              type="text"
-              id="type"
-              name="type"
-              value="<%= card.type %>"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="faiblesse">Faiblesse:</label>
-            <input
-              type="text"
-              id="faiblesse"
-              name="faiblesse"
-              value="<%= card.faiblesse %>"
-              required
-            />
-          </div>
+
           <div class="form-group">
             <label for="attack_name">Nom de l'attaque:</label>
             <input
               type="text"
               id="attack_name"
               name="attack_name"
-              value="<%= card.attack_name %>"
+              value="<%= card.attack.name %>"
               required
             />
           </div>
@@ -72,40 +68,34 @@
               type="number"
               id="attack_damage"
               name="attack_damage"
-              value="<%= card.attack_damage %>"
+              value="<%= card.attack.power %>"
               required
             />
           </div>
           <div class="form-group">
-            <label for="attack_cost">Coût de l'attaque:</label>
+            <label for="attack_description">Description de l'attaque:</label>
             <input
-              type="number"
-              id="attack_cost"
-              name="attack_cost"
-              value="<%= card.attack_cost %>"
+              type="text"
+              id="attack_description"
+              name="attack_description"
+              value="<%= card.attack.description %>"
               required
             />
           </div>
           <div class="form-group">
-            <label for="retreat_cost">Coût de retraite:</label>
-            <input
-              type="number"
-              id="retreat_cost"
-              name="retreat_cost"
-              value="<%= card.retreat_cost %>"
-              required
-            />
+            <label for="rarity_level">Rareté :</label>
+            <select id="rarity_level" name="rarity_level" required>
+              <% rarities.forEach((rarity) => { %> <% if (card.rarity.level ===
+              rarity.level) { %>
+              <option value="<%= rarity.level %>" selected>
+                <%= rarity.label %>
+              </option>
+              <% } else { %>²
+              <option value="<%= rarity.level %>"><%= rarity.label %></option>
+              <% } %> <% }); %>
+            </select>
           </div>
-          <div class="form-group">
-            <label for="rarity">Rareté:</label>
-            <input
-              type="number"
-              id="rarity"
-              name="rarity"
-              value="<%= card.rarity %>"
-              required
-            />
-          </div>
+
           <button type="submit" class="submit-button">
             Enregistrer les modifications
           </button>
@@ -113,7 +103,7 @@
       </div>
 
       <!-- Affichage de la carte Pokémon -->
-      <div class="pokemon-card">
+      <!-- <div class="pokemon-card">
         <div class="card-header">
           <h2><%= card.name %></h2>
           <span class="card-type"><%= card.type %></span>
@@ -131,7 +121,7 @@
           <p><strong>Coût de retraite:</strong> <%= card.retreat_cost %></p>
           <p><strong>Rareté:</strong> <%= card.rarity %>/5</p>
         </div>
-      </div>
+      </div> -->
     </div>
 
     <script src="/js/admin.js"></script>

@@ -89,8 +89,9 @@ label {
 }
 
 input {
+  //   margin-bottom: 30px;
   width: 100%;
-  margin-bottom: 30px;
+  box-sizing: border-box;
   padding: 12px 15px;
   background: #ffffff;
   border: 3px solid #4caf50;
@@ -209,5 +210,77 @@ input:invalid {
       width: 20px;
       height: 20px;
     }
+  }
+}
+
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+
+  .radio-label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    background: #ffffff;
+    border: 3px solid #4caf50;
+    border-radius: 8px;
+    font-family: "Press Start 2P", sans-serif;
+    font-size: 12px;
+    color: #333333;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 2px #ffffff, 0 4px #388e3c;
+    transition: all 0.2s ease;
+
+    // Interaction hover
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: inset 0 0 0 2px #ffffff, 0 6px #388e3c;
+    }
+  }
+
+  .radio-input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+
+    &:checked + .radio-label {
+      background: #4caf50;
+      color: #ffffff;
+      border-color: #66bb6a;
+      box-shadow: inset 0 0 0 2px #ffffff, 0 6px #388e3c;
+
+      // Animation au clic
+      animation: pixelate 0.3s ease;
+    }
+
+    &:focus + .radio-label {
+      border-color: #66bb6a;
+      box-shadow: inset 0 0 0 2px #ffffff, 0 6px #66bb6a;
+    }
+
+    &:active + .radio-label {
+      transform: translateY(2px);
+      box-shadow: inset 0 0 0 2px #ffffff, 0 2px #388e3c;
+    }
+  }
+}
+
+.radio-group-title {
+  width: 100%;
+}
+
+// Animation pour le focus (optionnelle, pour le style pixel rétro)
+@keyframes pixelate {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
   }
 }

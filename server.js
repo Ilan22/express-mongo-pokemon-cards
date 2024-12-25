@@ -22,6 +22,32 @@ const methodOverride = require("method-override");
 
 app.use(methodOverride("_method"));
 
+const types_pokemons = [
+  "Normal",
+  "Plante",
+  "Feu",
+  "Eau",
+  "Insecte",
+  "Poison",
+  "Vol",
+  "Électrik",
+  "Sol",
+  "Combat",
+  "Psy",
+  "Roche",
+  "Glace",
+  "Spectre",
+  "Dragon",
+];
+
+const rarities = [
+  { level: 0, label: "Très Commun" },
+  { level: 1, label: "Commun" },
+  { level: 2, label: "Peu Commun" },
+  { level: 3, label: "Rare" },
+  { level: 4, label: "Très Rare" },
+];
+
 const pokemon = new mongoose.Schema({
   name: { type: String, required: true },
   hp: { type: Number, required: true },
@@ -303,7 +329,6 @@ app.get("/authentication", (req, res) => {
 app.get("/admin", authenticateToken, async (req, res) => {
   try {
     const pokemons = await PokemonModel.find();
-    console.log(pokemons[0]);
     res.render("admin", { pokemons, user: req.user });
   } catch (error) {
     res.status(500).send("Erreur serveur");
@@ -311,15 +336,20 @@ app.get("/admin", authenticateToken, async (req, res) => {
 });
 
 app.get("/createCard", authenticateToken, (req, res) => {
-  res.render("createCard", { user: req.user });
+  res.render("createCard", { user: req.user, typesPokemons: types_pokemons });
 });
 
 // Route pour afficher le formulaire de modification d'une carte
-app.get("/admin/edit/:id", async (req, res) => {
+app.get("/admin/edit/:id", authenticateToken, async (req, res) => {
   try {
     const card = await PokemonModel.findById(req.params.id);
     if (card) {
-      res.render("editCard", { card });
+      res.render("editCard", {
+        card,
+        user: req.user,
+        typesPokemons: types_pokemons,
+        rarities,
+      });
     } else {
       res.status(404).send("Carte non trouvée");
     }
