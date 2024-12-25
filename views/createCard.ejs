@@ -11,30 +11,30 @@
 
     <section class="section-create-card">
       <div class="card create-card">
-        <h2>Créer une nouvelle carte Pokémon</h2>
+        <h2>Créer une nouvelle carte</h2>
 
         <form id="createCardForm" method="POST" action="/api/pokemons">
           <div class="stepper-container">
             <div class="step step-1 active">
-              <h3>Étape 1 : Informations de la carte</h3>
+              <div class="step-title">Étape 1 : Informations de la carte</div>
               <div class="form-group">
-                <label for="name">Nom :</label>
+                <label for="name">Nom :*</label>
                 <input type="text" id="name" name="name" required />
               </div>
               <div class="form-group">
-                <label for="hp">PV :</label>
+                <label for="hp">PV :*</label>
                 <input type="number" id="hp" name="hp" required />
               </div>
               <div class="form-group">
                 <label for="image">Image URL :</label>
-                <input type="url" id="image" name="image" />
+                <input type="text" id="image" name="image" />
               </div>
             </div>
 
             <div class="step step-2">
-              <h3>Étape 2 : Type et Rareté</h3>
+              <div class="step-title">Étape 2 : Type et Rareté</div>
               <div class="radio-group">
-                <label class="radio-group-title">Type de Pokémon :</label>
+                <label class="radio-group-title">Type de Pokémon :*</label>
                 <% typesPokemons.forEach((type) => { %>
                 <input
                   type="radio"
@@ -51,7 +51,7 @@
               </div>
 
               <div class="form-group">
-                <label for="rarity_level">Rareté :</label>
+                <label for="rarity_level">Rareté :*</label>
                 <select id="rarity_level" name="rarity_level" required>
                   <option value="0">Très Commun</option>
                   <option value="1">Commun</option>
@@ -64,9 +64,9 @@
             </div>
 
             <div class="step step-3">
-              <h3>Étape 3 : Attaque</h3>
+              <div class="step-title">Étape 3 : Attaque</div>
               <div class="form-group">
-                <label for="attack_name">Nom de l'attaque :</label>
+                <label for="attack_name">Nom de l'attaque :*</label>
                 <input
                   type="text"
                   id="attack_name"
@@ -75,7 +75,7 @@
                 />
               </div>
               <div class="form-group">
-                <label for="attack_power">Puissance :</label>
+                <label for="attack_power">Puissance :*</label>
                 <input
                   type="number"
                   id="attack_power"
@@ -85,7 +85,7 @@
               </div>
               <div class="form-group">
                 <label for="attack_description"
-                  >Description de l'attaque :</label
+                  >Description de l'attaque :*</label
                 >
                 <input
                   type="text"
@@ -102,18 +102,15 @@
                 Précédent
               </button>
               <button type="button" id="nextBtn" class="btn">Suivant</button>
+              <button
+                class="btn"
+                type="submit"
+                id="submitBtn"
+                style="display: none"
+              >
+                Créer la carte
+              </button>
             </div>
-          </div>
-
-          <div class="btn-container">
-            <button
-              class="btn"
-              type="submit"
-              id="submitBtn"
-              style="display: none"
-            >
-              Créer la carte
-            </button>
           </div>
         </form>
       </div>
@@ -164,11 +161,18 @@
 
         steps[stepIndex].classList.add("active");
 
+        // Activer ou désactiver le bouton "Précédent"
         prevBtn.disabled = stepIndex === 0;
-        nextBtn.textContent =
-          stepIndex === steps.length - 1 ? "Terminer" : "Suivant";
-        submitBtn.style.display =
-          stepIndex === steps.length - 1 ? "inline-block" : "none";
+
+        // Mettre à jour le bouton "Suivant" ou "Créer la carte"
+        if (stepIndex === steps.length - 1) {
+          nextBtn.style.display = "none"; // Cacher le bouton "Suivant"
+          submitBtn.style.display = "inline-block"; // Afficher le bouton "Créer la carte"
+        } else {
+          nextBtn.style.display = "inline-block"; // Afficher le bouton "Suivant"
+          nextBtn.textContent = "Suivant";
+          submitBtn.style.display = "none"; // Cacher le bouton "Créer la carte"
+        }
       }
 
       nextBtn.addEventListener("click", () => {
@@ -225,21 +229,25 @@
           delete cardData.rarity_level;
           delete cardData.rarity_label;
 
+          // Si l'image n'est pas définie, utiliser l'image par défaut
+          if (!formData.has("image")) {
+            cardData.image = "/assets/pokeballe.png"; // Image par défaut si aucune image n'est fournie
+          }
+
           try {
             const response = await fetch("/api/pokemons", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
               },
-              body: JSON.stringify(cardData),
+              body: JSON.stringify(cardData), // Envoi des données JSON au serveur
             });
 
             if (response.ok) {
               const result = await response.json();
+              alert("Carte créée avec succès !");
               currentStep = 0;
               showStep(currentStep);
-              alert("Carte créée avec succès !");
-              console.log("Nouvelle carte :", result);
 
               // Réinitialiser le formulaire
               event.target.reset();

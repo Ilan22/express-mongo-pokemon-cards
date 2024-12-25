@@ -333,12 +333,8 @@
   max-width: 80%;
   padding: 40px;
 }
-.section-create-card .create-card .card h2,
-.section-create-card .create-card .card h3 {
-  padding-bottom: 200px;
-  color: black;
-  border: 2px solid black;
-  box-shadow: 0px 4px #323232;
+.section-create-card .create-card form {
+  width: 100%;
 }
 .section-create-card .stepper-container {
   display: flex;
@@ -347,6 +343,16 @@
 }
 .section-create-card .stepper-container .form-group {
   margin-bottom: 20px;
+}
+.section-create-card .stepper-container .step-title {
+  font-family: "Press Start 2P", sans-serif; /* Assurez-vous de charger cette police */
+  font-weight: bold;
+  letter-spacing: 1.1px;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #4caf50; /* Vert naturel */
+  text-shadow: 2px 2px #81c784; /* Effet ombre douce */
+  margin-bottom: 30px;
 }
 .section-create-card .step {
   display: none;
@@ -374,15 +380,6 @@
 }
 .section-create-card .stepper-nav .btn:disabled {
   background-color: #6c757d;
-}
-.section-create-card #submitBtn {
-  background-color: #28a745;
-  display: none;
-  width: 100%;
-  margin-top: 20px;
-}
-.section-create-card #submitBtn:hover {
-  background-color: #218838;
 }
 
 .top-bar {
@@ -987,8 +984,8 @@ h2,
 h3,
 h4 {
   font-family: "Press Start 2P", sans-serif; /* Assurez-vous de charger cette police */
-  color: #4caf50; /* Vert naturel */
-  text-shadow: 2px 2px #81c784; /* Effet ombre douce */
+  color: black;
+  text-shadow: 2px 2px #888888;
   font-weight: bold;
   letter-spacing: 1.1px;
   margin: 0;
@@ -1008,6 +1005,8 @@ h2 {
 h3 {
   font-size: 1.75rem;
   line-height: 1.4;
+  color: #4caf50; /* Vert naturel */
+  text-shadow: 2px 2px #81c784; /* Effet ombre douce */
 }
 
 h4 {

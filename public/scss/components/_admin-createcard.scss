@@ -16,14 +16,10 @@
     .card {
       max-width: 80%;
       padding: 40px;
+    }
 
-      h2,
-      h3 {
-        padding-bottom: 200px;
-        color: black;
-        border: 2px solid black;
-        box-shadow: 0px 4px #323232;
-      }
+    form {
+      width: 100%;
     }
   }
 
@@ -35,6 +31,17 @@
 
     .form-group {
       margin-bottom: 20px;
+    }
+
+    .step-title {
+      font-family: "Press Start 2P", sans-serif; /* Assurez-vous de charger cette police */
+      font-weight: bold;
+      letter-spacing: 1.1px;
+      font-size: 1rem;
+      line-height: 1.4;
+      color: #4caf50; /* Vert naturel */
+      text-shadow: 2px 2px #81c784; /* Effet ombre douce */
+      margin-bottom: 30px;
     }
   }
 
@@ -71,16 +78,5 @@
 
   .stepper-nav .btn:disabled {
     background-color: #6c757d;
-  }
-
-  #submitBtn {
-    background-color: #28a745;
-    display: none;
-    width: 100%;
-    margin-top: 20px;
-  }
-
-  #submitBtn:hover {
-    background-color: #218838;
   }
 }

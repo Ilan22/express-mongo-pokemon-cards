@@ -51,7 +51,7 @@ const rarities = [
 const pokemon = new mongoose.Schema({
   name: { type: String, required: true },
   hp: { type: Number, required: true },
-  image: { type: String, default: "/assets/pokeballe.png" },
+  image: { type: String, require: false },
   type: { type: String, required: true },
   attack: {
     name: { type: String, required: true },
@@ -194,35 +194,82 @@ app.get("/api/pokemons/:id", async (req, res) => {
   }
 });
 
-// Créer une nouvelle carte
+// créer une nouvelle carte
 app.post("/api/pokemons", async (req, res) => {
-  const newCard = new PokemonModel(req.body);
   try {
+    const { name, hp, type, attack, rarity, image } = req.body;
+
+    // Si l'image n'est pas fournie, utiliser l'image par défaut
+    const pokemonImage = image || "/assets/pokeball.png"; // Image par défaut si aucune image n'est fournie
+
+    // Validation des données
+    if (!name || !hp || !type || !attack || !rarity) {
+      return res.status(400).json({ message: "Tous les champs sont requis." });
+    }
+
+    const newCard = new PokemonModel({
+      name,
+      hp,
+      image: pokemonImage, // Utilisation de l'image fournie ou par défaut
+      type,
+      attack: {
+        name: attack.name,
+        description: attack.description,
+        power: attack.power,
+      },
+      rarity: {
+        level: rarity.level,
+        label: rarity.label,
+      },
+    });
+
     const savedCard = await newCard.save();
-    res.status(201).json(savedCard);
+    res.status(201).json(savedCard); // Retourne la carte sauvegardée
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    res.status(400).json({ message: error.message }); // Erreur dans la création de la carte
   }
 });
 
-// Modifier une carte existante
+// modification cartes existantes
 app.put("/api/pokemons/:id", async (req, res) => {
   try {
+    const { name, hp, image, type, attack, rarity } = req.body;
+
+    // Validation des champs
+    if (!name || !hp || !type || !attack || !rarity) {
+      return res.status(400).json({ message: "Tous les champs sont requis." });
+    }
+
     const updatedCard = await PokemonModel.findByIdAndUpdate(
       req.params.id,
-      req.body,
       {
-        new: true,
-        runValidators: true,
+        name,
+        hp,
+        image: image || "/assets/pokeball.png", // Valeur par défaut
+        type,
+        attack: {
+          name: attack.name,
+          description: attack.description,
+          power: attack.power,
+        },
+        rarity: {
+          level: rarity.level,
+          label: rarity.label,
+        },
+      },
+      {
+        new: true, // Retourne la carte mise à jour
+        runValidators: true, // Applique les validations du schéma
       }
     );
-    if (updatedCard) {
-      res.redirect("/admin"); // Redirige vers la page d'admin après la modification
-    } else {
-      res.status(404).json({ message: "Carte non trouvée" });
+
+    if (!updatedCard) {
+      return res.status(404).json({ message: "Carte non trouvée." });
     }
+
+    res.json({ success: true, updatedCard });
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    res.status(500).json({ message: error.message });
   }
 });
 
@@ -344,7 +391,6 @@ app.get("/admin/edit/:id", authenticateToken, async (req, res) => {
   try {
     const card = await PokemonModel.findById(req.params.id);
     if (card) {
-      console.log(card);
       res.render("editCard", {
         card,
         user: req.user,
@@ -356,43 +402,6 @@ app.get("/admin/edit/:id", authenticateToken, async (req, res) => {
     }
   } catch (error) {
     res.status(500).send("Erreur serveur");
-  }
-});
-
-app.post("/api/pokemons", async (req, res) => {
-  try {
-    const { name, hp, image, type, attack, rarity } = req.body;
-
-    // Validation des données
-    if (!name || !hp || !type || !attack || !rarity) {
-      return res.status(400).json({ message: "Tous les champs sont requis." });
-    }
-
-    // Si l'image n'est pas fournie, attribuer la valeur par défaut
-    const pokemonImage = image || "/assets/pokeballe.png";
-
-    console.log(name, hp, pokemonImage, type, attack, rarity);
-
-    const newCard = new PokemonModel({
-      name,
-      hp,
-      image: pokemonImage, // Utilisation de l'image fournie ou de l'image par défaut
-      type,
-      attack: {
-        name: attack.name,
-        description: attack.description,
-        power: attack.power,
-      },
-      rarity: {
-        level: rarity.level,
-        label: rarity.label,
-      },
-    });
-
-    const savedCard = await newCard.save();
-    res.status(201).json(savedCard);
-  } catch (error) {
-    res.status(400).json({ message: error.message });
   }
 });
 
