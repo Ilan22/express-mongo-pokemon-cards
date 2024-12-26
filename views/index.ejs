@@ -47,7 +47,7 @@
     <div id="boosterModal" class="modal">
       <div class="modal-content">
         <span class="close-modal">&times;</span>
-        <h2>Vos nouvelles cartes !</h2>
+        <h2 class="title-modal">Vos nouvelles cartes !</h2>
         <div class="booster-cards-container"></div>
       </div>
     </div>
@@ -66,42 +66,42 @@
 
             data.randomPokemons.forEach((pokemon, index) => {
               const card = `
-                          <div class="pokemon-card ${
-                            pokemon.type
-                          }" style="opacity: 0;" id="card-${index}">
-                              ${
-                                pokemon.isNew
-                                  ? '<div class="new-badge">NOUVEAU !</div>'
-                                  : ""
-                              }
-                              <div class="pokemon-name">${pokemon.name}</div>
-                              <div class="hp-display">${pokemon.hp} HP</div>
-                              <img src="${pokemon.image}" alt="${pokemon.name}">
-                              <div class="pokemon-info">
-                                  <div class="attack-info">
-                                      <div class="attack-name-desc">
-                                          <strong>${
-                                            pokemon.attack.name
-                                          }</strong>
-                                          <span class="description">${
-                                            pokemon.attack.description
-                                          }</span>
-                                      </div>
-                                      <div class="attack-power">
-                                          ${pokemon.attack.power}
-                                      </div>
-                                  </div>
-                                  <div class="rarity-info">
-                                      <p>${
-                                        pokemon.rarity.label
-                                          .charAt(0)
-                                          .toUpperCase() +
-                                        pokemon.rarity.label.slice(1)
-                                      }</p>
-                                  </div>
-                              </div>
-                          </div>
-                      `;
+        <div class="pokemon-card-booster ${
+          pokemon.type
+        }" style="opacity: 0;" id="card-${index}">
+          ${pokemon.isNew ? '<div class="new-badge">NOUVEAU !</div>' : ""}
+          <div class="pokemon-card-header">
+            <div class="pokemon-name">${pokemon.name}</div>
+            <div class="header-wrapper">
+              <div class="hp-display"><span>PV ${pokemon.hp}</div>
+              <img
+                class="img-type"
+                src="/assets/type_${pokemon.type}.png"
+                alt="${pokemon.name}"
+              />
+            </div>
+          </div>
+          <img src="${pokemon.image}" alt="${pokemon.name}" class="img-pokemon">
+          <div class="pokemon-info">
+            <div class="attack-info">
+              <div class="attack-info-row">
+                <strong>${pokemon.attack.name}</strong>
+                <div class="attack-power">${pokemon.attack.power}</div>
+              </div>
+              <span class="attack-info-desc">${
+                pokemon.attack.description
+              }</span>
+            </div>
+
+            <div class="rarity-info">
+            ${
+              pokemon.rarity.label.charAt(0).toUpperCase() +
+              pokemon.rarity.label.slice(1)
+            }
+            </div>
+          </div>
+        </div>
+      `;
               boosterContainer.innerHTML += card;
             });
 
@@ -128,11 +128,15 @@
             console.error("Erreur lors de l'ouverture du booster:", error);
           }
         });
-
       document.querySelector(".close-modal").addEventListener("click", () => {
         document.getElementById("boosterModal").style.display = "none";
         document.body.classList.remove("modal-open");
-        location.reload();
+
+        // Réinitialisez ici les cartes si nécessaire pour un nouvel affichage
+        const boosterContainer = document.querySelector(
+          ".booster-cards-container"
+        );
+        boosterContainer.innerHTML = ""; // Réinitialiser les cartes affichées
       });
 
       document

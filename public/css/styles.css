@@ -441,52 +441,6 @@
   transform: translateX(20px);
 }
 
-.modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  z-index: 1000;
-}
-.modal .modal-content {
-  background-color: var(--white-color);
-  margin: 5% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 90%;
-  max-width: 1200px;
-  border-radius: 12px;
-  position: relative;
-  overflow-y: auto;
-  max-height: 90vh;
-}
-.modal .close-modal {
-  position: absolute;
-  right: 20px;
-  top: 10px;
-  font-size: 28px;
-  cursor: pointer;
-}
-
-.new-badge {
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  background: #ff4444;
-  color: var(--white-color);
-  padding: 5px 10px;
-  border-radius: 15px;
-  font-size: 0.8em;
-  font-weight: bold;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  transform: rotate(15deg);
-  z-index: 2;
-  animation: pulseAnimation 2s infinite;
-}
-
 @keyframes pulseAnimation {
   0% {
     transform: scale(1) rotate(15deg);
@@ -514,27 +468,6 @@
     opacity: 1;
   }
 }
-/* Style de la scrollbar */
-::-webkit-scrollbar {
-  width: 10px; /* Largeur de la scrollbar */
-  height: 10px; /* Hauteur pour scrollbar horizontale (facultatif) */
-}
-
-::-webkit-scrollbar-track {
-  background: #f9f9f9; /* Fond neutre pour le track */
-  border-radius: 5px; /* Coins arrondis */
-}
-
-::-webkit-scrollbar-thumb {
-  background: #323232; /* Couleur sombre comme les bordures de vos boutons */
-  border-radius: 5px; /* Coins arrondis similaires aux boutons */
-  border: 2px solid #f9f9f9; /* Un espace pour rappeler les bordures des inputs */
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #555555; /* Une couleur un peu plus claire pour l'interaction, comme vos boutons au hover */
-}
-
 .auth {
   margin: 0;
   padding: 0;
@@ -960,6 +893,212 @@ input:invalid:focus {
     transform: scale(1);
   }
 }
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  position: absolute;
+  top: 0;
+  background: rgba(0, 0, 0, 0.768627451);
+  width: 100%;
+  z-index: 10000;
+}
+.modal .img-pokemon {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  margin: 5px auto;
+  border: 3px solid var(--light-gray);
+  border-radius: 4px;
+  background: var(--white-color);
+  display: block;
+  flex-shrink: 0;
+}
+.modal .title-modal {
+  font-size: 1.75rem;
+  line-height: 1.4;
+  color: #ffffff;
+  text-shadow: 2px 2px #dfdfdf;
+  margin-bottom: 20px;
+}
+.modal .modal-content {
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+  overflow-y: auto;
+  max-height: 90vh;
+}
+.modal .modal-content .booster-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+}
+.modal .close-modal {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  font-size: 58px;
+  color: white;
+  cursor: pointer;
+}
+
+.new-badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: #ff4444;
+  color: var(--white-color);
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 0.8em;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transform: rotate(15deg);
+  z-index: 2;
+  animation: pulseAnimation 2s infinite;
+}
+
+@keyframes pulseAnimation {
+  0% {
+    transform: scale(1) rotate(15deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(15deg);
+  }
+  100% {
+    transform: scale(1) rotate(15deg);
+  }
+}
+@keyframes newCardAnimation {
+  0% {
+    transform: scale(0.8) translateY(20px);
+    opacity: 0;
+  }
+  40% {
+    transform: scale(1.2) translateY(-10px);
+  }
+  60% {
+    transform: scale(1.2) translateY(-10px);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+.pokemon-card-booster {
+  width: 250px;
+  border-radius: 12px;
+  box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.1);
+  padding: 8px;
+  color: var(--black-color);
+  position: relative;
+  border: 8px solid var(--primary-color);
+  opacity: 0;
+  transition: all 0.5s ease;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+.pokemon-card-booster .pokemon-card-header {
+  display: flex;
+  justify-content: space-between;
+}
+.pokemon-card-booster .pokemon-card-header .pokemon-name {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.pokemon-card-booster .pokemon-card-header .header-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.pokemon-card-booster .pokemon-card-header .header-wrapper .hp-display {
+  font-size: 0.8em;
+}
+.pokemon-card-booster .pokemon-card-header .header-wrapper .hp-display span {
+  font-size: 12px;
+}
+.pokemon-card-booster .pokemon-card-header .header-wrapper .img-type {
+  width: 20px;
+  height: 20px;
+}
+.pokemon-card-booster .pokemon-info {
+  text-align: left;
+  padding: 5px;
+  margin: 5px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+}
+.pokemon-card-booster .pokemon-info .attack-info {
+  padding: 8px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.pokemon-card-booster .pokemon-info .attack-info .attack-info-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.pokemon-card-booster .pokemon-info .attack-info strong {
+  font-size: 1em;
+}
+.pokemon-card-booster .pokemon-info .attack-info .attack-info-desc {
+  font-size: 12px;
+  color: gray;
+}
+.pokemon-card-booster .pokemon-info .attack-info .attack-power {
+  margin-left: 10px;
+  white-space: nowrap;
+}
+.pokemon-card-booster .pokemon-info .rarity-info {
+  margin: 5px 0;
+  padding: 5px;
+  font-size: 0.9em;
+  color: #666;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.pokemon-card.new-card-animation {
+  animation: newCardAnimation 1s ease-out forwards;
+}
+
+.modal-open {
+  overflow: hidden;
+}
+.modal-open body {
+  overflow: hidden;
+}
+
+.new-badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: #ff4444;
+  color: var(--white-color);
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 0.8em;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transform: rotate(15deg);
+  z-index: 2;
+  animation: pulseAnimation 2s infinite;
+}
+
 body {
   font-family: "Press Start 2P", sans-serif;
   background-image: url("/assets/bg-pokemon-art-1.jpg"); /* Chemin correct pour l'image */
@@ -1084,6 +1223,27 @@ h4 {
 }
 .btn-modifier:hover {
   box-shadow: 0px 6px #555280;
+}
+
+/* Style de la scrollbar */
+::-webkit-scrollbar {
+  width: 10px; /* Largeur de la scrollbar */
+  height: 10px; /* Hauteur pour scrollbar horizontale (facultatif) */
+}
+
+::-webkit-scrollbar-track {
+  background: #f9f9f9; /* Fond neutre pour le track */
+  border-radius: 5px; /* Coins arrondis */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #323232; /* Couleur sombre comme les bordures de vos boutons */
+  border-radius: 5px; /* Coins arrondis similaires aux boutons */
+  border: 2px solid #f9f9f9; /* Un espace pour rappeler les bordures des inputs */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555555; /* Une couleur un peu plus claire pour l'interaction, comme vos boutons au hover */
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -8,6 +8,7 @@
 @use "components/auth";
 @use "components/header";
 @use "components/form";
+@use "components/modal";
 
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
@@ -145,4 +146,25 @@ h4 {
 }
 
 .btn-add-card {
+}
+
+/* Style de la scrollbar */
+::-webkit-scrollbar {
+  width: 10px; /* Largeur de la scrollbar */
+  height: 10px; /* Hauteur pour scrollbar horizontale (facultatif) */
+}
+
+::-webkit-scrollbar-track {
+  background: #f9f9f9; /* Fond neutre pour le track */
+  border-radius: 5px; /* Coins arrondis */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #323232; /* Couleur sombre comme les bordures de vos boutons */
+  border-radius: 5px; /* Coins arrondis similaires aux boutons */
+  border: 2px solid #f9f9f9; /* Un espace pour rappeler les bordures des inputs */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555555; /* Une couleur un peu plus claire pour l'interaction, comme vos boutons au hover */
 }
