@@ -121,9 +121,79 @@
       function validateCurrentStep() {
         let isValid = true;
         const currentFields = steps[currentStep].querySelectorAll("[required]");
+
+        // currentFields.forEach((field) => {
+        //   const existingErrorMessage = field
+        //     .closest(".form-group")
+        //     .querySelector(".error-message");
+        //   if (existingErrorMessage) {
+        //     existingErrorMessage.remove(); // Supprime les anciens messages d'erreur
+        //   }
+        // });
+
         for (let field of currentFields) {
           const errorElement = field.nextElementSibling;
-          if (!field.value.trim()) {
+
+          // Validation pour les radios (type de Pokémon)
+          if (field.type === "radio") {
+            // Vérifier si une option a été sélectionnée parmi les radios
+            const radioGroup = document.querySelectorAll(
+              `[name="${field.name}"]`
+            );
+            const isRadioSelected = Array.from(radioGroup).some(
+              (radio) => radio.checked
+            );
+
+            // On sélectionne ou non l'élément d'erreur pour tout le groupe
+            const radioGroupContainer = field.closest(".radio-group"); // Le conteneur du groupe de radios
+            let errorMessage =
+              radioGroupContainer.querySelector(".error-message");
+
+            if (!isRadioSelected) {
+              isValid = false;
+              if (!errorMessage) {
+                // Créer un élément d'erreur si aucun n'existe
+                errorMessage = document.createElement("div");
+                errorMessage.className = "error-message";
+                errorMessage.textContent = "Ce champ est requis.";
+                radioGroupContainer.appendChild(errorMessage); // Ajouter l'erreur juste après le groupe de radios
+              }
+            } else {
+              if (errorMessage) {
+                errorMessage.textContent = ""; // Si sélectionné, supprime l'erreur
+              }
+            }
+          }
+
+          // Validation pour les selects (rarety)
+          else if (field.tagName === "SELECT") {
+            // Vérifier si la valeur sélectionnée est valide
+            if (field.value === "0") {
+              // "Très Commun" est la valeur par défaut à éviter
+              isValid = false;
+              if (
+                errorElement &&
+                errorElement.classList.contains("error-message")
+              ) {
+                errorElement.textContent = "Ce champ est requis.";
+              } else {
+                const error = document.createElement("div");
+                error.className = "error-message";
+                error.textContent = "Ce champ est requis.";
+                field.parentNode.insertBefore(error, field.nextSibling);
+              }
+            } else {
+              if (
+                errorElement &&
+                errorElement.classList.contains("error-message")
+              ) {
+                errorElement.textContent = "";
+              }
+            }
+          }
+
+          // Validation pour les autres champs de type input texte
+          else if (!field.value.trim()) {
             isValid = false;
             if (
               errorElement &&
@@ -145,6 +215,7 @@
             }
           }
         }
+
         return isValid;
       }
 
