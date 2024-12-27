@@ -1,0 +1,170 @@
+@use "components/variables";
+@use "components/navbar";
+@use "components/pokemon";
+@use "components/admin";
+@use "components/admin-editcard";
+@use "components/admin-createcard";
+@use "components/index";
+@use "components/auth";
+@use "components/header";
+@use "components/form";
+@use "components/modal";
+
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+// Ensuite, appliquez la police dans votre SCSS
+body {
+  font-family: "Press Start 2P", sans-serif;
+  background-image: url("/assets/bg-pokemon-art-1.jpg"); /* Chemin correct pour l'image */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+// Global Styles
+* {
+  font-family: "Pokemon Solid", sans-serif;
+}
+
+body {
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Press Start 2P", sans-serif; /* Assurez-vous de charger cette police */
+
+  color: black;
+  text-shadow: 2px 2px #888888;
+  font-weight: bold;
+  letter-spacing: 1.1px;
+  margin: 0;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 2rem;
+  line-height: 1.3;
+}
+
+h3 {
+  font-size: 1.75rem;
+  line-height: 1.4;
+  color: #4caf50; /* Vert naturel */
+  text-shadow: 2px 2px #81c784; /* Effet ombre douce */
+}
+
+h4 {
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+
+.card {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+/* Bouton de style Pokéball */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #ff5252;
+  border: 2px solid #ffffff;
+  color: #fff;
+  font-size: 10px;
+  font-family: "Press Start 2P", sans-serif;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50px;
+  box-shadow: 0px 4px #d32f2f;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+/* Hover effect */
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 6px #c62828;
+}
+
+/* Bouton actif */
+.btn:active {
+  transform: translateY(2px);
+  box-shadow: 0px 2px #b71c1c;
+}
+
+.btn-nav {
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  box-shadow: 0px 4px #323232;
+
+  &:active {
+    box-shadow: 0px 2px #323232;
+  }
+  &:hover {
+    box-shadow: 0px 6px #323232;
+  }
+}
+
+.btn-supp {
+  background: #fd9d9d;
+  border: 2px solid #ffffff;
+  color: #fff;
+  box-shadow: 0px 4px #d77878;
+
+  &:active {
+    box-shadow: 0px 2px #d77878;
+  }
+  &:hover {
+    box-shadow: 0px 6px #d77878;
+  }
+}
+
+.btn-modifier {
+  background: #3d4dc7;
+  border: 2px solid #ffffff;
+  color: #fff;
+  box-shadow: 0px 4px #555280;
+
+  &:active {
+    box-shadow: 0px 2px #555280;
+  }
+  &:hover {
+    box-shadow: 0px 6px #555280;
+  }
+}
+
+.btn-add-card {
+}
+
+/* Style de la scrollbar */
+::-webkit-scrollbar {
+  width: 10px; /* Largeur de la scrollbar */
+  height: 10px; /* Hauteur pour scrollbar horizontale (facultatif) */
+}
+
+::-webkit-scrollbar-track {
+  background: #f9f9f9; /* Fond neutre pour le track */
+  border-radius: 5px; /* Coins arrondis */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #323232; /* Couleur sombre comme les bordures de vos boutons */
+  border-radius: 5px; /* Coins arrondis similaires aux boutons */
+  border: 2px solid #f9f9f9; /* Un espace pour rappeler les bordures des inputs */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555555; /* Une couleur un peu plus claire pour l'interaction, comme vos boutons au hover */
+}

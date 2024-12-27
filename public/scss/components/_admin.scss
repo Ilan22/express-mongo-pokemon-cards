@@ -1,0 +1,95 @@
+/* Section de la liste des Pokémon */
+.section-list-pokemon {
+  .pokemon-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .img-pokemon {
+      width: 150px;
+      height: 150px;
+      object-fit: contain;
+      margin: 5px auto;
+      border-radius: 4px;
+      background: var(--white-color);
+      display: block;
+      flex-shrink: 0;
+      background-color: white;
+    }
+
+    // Pokémon Card
+    .pokemon-card {
+      width: 300px;
+      // height: 300px;
+      border-radius: 12px;
+      box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.1);
+      padding: 8px;
+      color: var(--black-color);
+      position: relative;
+      border: 8px solid var(--primary-color);
+
+      .pokemon-card-header {
+        display: flex;
+        justify-content: space-between;
+
+        .header-wrapper {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 4px;
+
+          .hp-display {
+            span {
+              font-size: 10px;
+            }
+          }
+
+          .img-type {
+            width: 15px;
+            height: 15px;
+            background-color: transparent;
+          }
+        }
+      }
+
+      .card-actions {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        justify-content: center;
+        margin-top: 40px;
+
+        // Formulaire pour supprimer
+        .delete-form {
+          display: inline;
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+/* Responsivité */
+@media (max-width: 768px) {
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
+
+  .pokemon-card {
+    padding: 15px;
+
+    .card-header {
+      h3 {
+        font-size: 1.3rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}

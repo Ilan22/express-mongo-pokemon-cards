@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin - Gestion des cartes Pokémon</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <%- include('partials/header') %>
+
+    <section class="section-create-card">
+      <div class="card create-card">
+        <h2>Créer une nouvelle carte</h2>
+
+        <form id="createCardForm" method="POST" action="/api/pokemons">
+          <div class="stepper-container">
+            <div class="step step-1 active">
+              <div class="step-title">Étape 1 : Informations de la carte</div>
+              <div class="form-group">
+                <label for="name">Nom :*</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+              <div class="form-group">
+                <label for="hp">PV :*</label>
+                <input type="number" id="hp" name="hp" required />
+              </div>
+              <div class="form-group">
+                <label for="image">Image URL :</label>
+                <input type="text" id="image" name="image" />
+              </div>
+            </div>
+
+            <div class="step step-2">
+              <div class="step-title">Étape 2 : Type et Rareté</div>
+              <div class="radio-group">
+                <label class="radio-group-title">Type de Pokémon :*</label>
+                <% typesPokemons.forEach((type) => { %>
+                <input
+                  type="radio"
+                  id="type-<%= type.toLowerCase() %>"
+                  name="type"
+                  value="<%= type%>"
+                  class="radio-input"
+                  required
+                />
+                <label for="type-<%= type.toLowerCase() %>" class="radio-label"
+                  ><%= type %></label
+                >
+                <% }); %>
+              </div>
+
+              <div class="form-group">
+                <label for="rarity_level">Rareté :*</label>
+                <select id="rarity_level" name="rarity_level" required>
+                  <option value="0">Très Commun</option>
+                  <option value="1">Commun</option>
+                  <option value="2">Peu Commun</option>
+                  <option value="3">Rare</option>
+                  <option value="4">Très Rare</option>
+                </select>
+                <input type="hidden" id="rarity_label" name="rarity_label" />
+              </div>
+            </div>
+
+            <div class="step step-3">
+              <div class="step-title">Étape 3 : Attaque</div>
+              <div class="form-group">
+                <label for="attack_name">Nom de l'attaque :*</label>
+                <input
+                  type="text"
+                  id="attack_name"
+                  name="attack_name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="attack_power">Puissance :*</label>
+                <input
+                  type="number"
+                  id="attack_power"
+                  name="attack_power"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="attack_description"
+                  >Description de l'attaque :*</label
+                >
+                <input
+                  type="text"
+                  id="attack_description"
+                  name="attack_description"
+                  required
+                />
+              </div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="btn-container stepper-nav">
+              <button type="button" id="prevBtn" class="btn" disabled>
+                Précédent
+              </button>
+              <button type="button" id="nextBtn" class="btn">Suivant</button>
+              <button
+                class="btn"
+                type="submit"
+                id="submitBtn"
+                style="display: none"
+              >
+                Créer la carte
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <script src="/js/admin.js"></script>
+    <script>
+      function validateCurrentStep() {
+        let isValid = true;
+        const currentFields = steps[currentStep].querySelectorAll("[required]");
+
+        // currentFields.forEach((field) => {
+        //   const existingErrorMessage = field
+        //     .closest(".form-group")
+        //     .querySelector(".error-message");
+        //   if (existingErrorMessage) {
+        //     existingErrorMessage.remove(); // Supprime les anciens messages d'erreur
+        //   }
+        // });
+
+        for (let field of currentFields) {
+          const errorElement = field.nextElementSibling;
+
+          // Validation pour les radios (type de Pokémon)
+          if (field.type === "radio") {
+            // Vérifier si une option a été sélectionnée parmi les radios
+            const radioGroup = document.querySelectorAll(
+              `[name="${field.name}"]`
+            );
+            const isRadioSelected = Array.from(radioGroup).some(
+              (radio) => radio.checked
+            );
+
+            // On sélectionne ou non l'élément d'erreur pour tout le groupe
+            const radioGroupContainer = field.closest(".radio-group"); // Le conteneur du groupe de radios
+            let errorMessage =
+              radioGroupContainer.querySelector(".error-message");
+
+            if (!isRadioSelected) {
+              isValid = false;
+              if (!errorMessage) {
+                // Créer un élément d'erreur si aucun n'existe
+                errorMessage = document.createElement("div");
+                errorMessage.className = "error-message";
+                errorMessage.textContent = "Ce champ est requis.";
+                radioGroupContainer.appendChild(errorMessage); // Ajouter l'erreur juste après le groupe de radios
+              }
+            } else {
+              if (errorMessage) {
+                errorMessage.textContent = ""; // Si sélectionné, supprime l'erreur
+              }
+            }
+          }
+
+          // Validation pour les selects (rarety)
+          else if (field.tagName === "SELECT") {
+            // Vérifier si la valeur sélectionnée est valide
+            if (field.value === "0") {
+              // "Très Commun" est la valeur par défaut à éviter
+              isValid = false;
+              if (
+                errorElement &&
+                errorElement.classList.contains("error-message")
+              ) {
+                errorElement.textContent = "Ce champ est requis.";
+              } else {
+                const error = document.createElement("div");
+                error.className = "error-message";
+                error.textContent = "Ce champ est requis.";
+                field.parentNode.insertBefore(error, field.nextSibling);
+              }
+            } else {
+              if (
+                errorElement &&
+                errorElement.classList.contains("error-message")
+              ) {
+                errorElement.textContent = "";
+              }
+            }
+          }
+
+          // Validation pour les autres champs de type input texte
+          else if (!field.value.trim()) {
+            isValid = false;
+            if (
+              errorElement &&
+              errorElement.classList.contains("error-message")
+            ) {
+              errorElement.textContent = "Ce champ est requis.";
+            } else {
+              const error = document.createElement("div");
+              error.className = "error-message";
+              error.textContent = "Ce champ est requis.";
+              field.parentNode.insertBefore(error, field.nextSibling);
+            }
+          } else {
+            if (
+              errorElement &&
+              errorElement.classList.contains("error-message")
+            ) {
+              errorElement.textContent = "";
+            }
+          }
+        }
+
+        return isValid;
+      }
+
+      let currentStep = 0;
+      const steps = document.querySelectorAll(".step");
+      const nextBtn = document.getElementById("nextBtn");
+      const prevBtn = document.getElementById("prevBtn");
+      const submitBtn = document.getElementById("submitBtn");
+
+      function showStep(stepIndex) {
+        steps.forEach((step, index) => {
+          step.classList.remove("active");
+        });
+
+        steps[stepIndex].classList.add("active");
+
+        // Activer ou désactiver le bouton "Précédent"
+        prevBtn.disabled = stepIndex === 0;
+
+        // Mettre à jour le bouton "Suivant" ou "Créer la carte"
+        if (stepIndex === steps.length - 1) {
+          nextBtn.style.display = "none"; // Cacher le bouton "Suivant"
+          submitBtn.style.display = "inline-block"; // Afficher le bouton "Créer la carte"
+        } else {
+          nextBtn.style.display = "inline-block"; // Afficher le bouton "Suivant"
+          nextBtn.textContent = "Suivant";
+          submitBtn.style.display = "none"; // Cacher le bouton "Créer la carte"
+        }
+      }
+
+      nextBtn.addEventListener("click", () => {
+        if (validateCurrentStep()) {
+          if (currentStep < steps.length - 1) {
+            currentStep++;
+            showStep(currentStep);
+          }
+        }
+      });
+
+      prevBtn.addEventListener("click", () => {
+        if (currentStep > 0) {
+          currentStep--;
+          showStep(currentStep);
+        }
+      });
+
+      showStep(currentStep);
+
+      document
+        .getElementById("createCardForm")
+        .addEventListener("submit", async (event) => {
+          event.preventDefault(); // Empêche le rechargement de la page
+
+          const formData = new FormData(event.target);
+          const cardData = Object.fromEntries(formData.entries());
+
+          // Récupérer la rareté et l'étiquette correspondante
+          const rarityLevels = [
+            "Très Commun",
+            "Commun",
+            "Peu Commun",
+            "Rare",
+            "Très Rare",
+          ];
+          cardData.rarity_label = rarityLevels[parseInt(cardData.rarity_level)];
+
+          // Adapter la structure des données envoyées au serveur
+          cardData.attack = {
+            name: cardData.attack_name,
+            description: cardData.attack_description,
+            power: parseInt(cardData.attack_power, 10),
+          };
+          delete cardData.attack_name;
+          delete cardData.attack_description;
+          delete cardData.attack_power;
+
+          cardData.hp = parseInt(cardData.hp, 10);
+          cardData.rarity = {
+            level: parseInt(cardData.rarity_level, 10),
+            label: cardData.rarity_label,
+          };
+          delete cardData.rarity_level;
+          delete cardData.rarity_label;
+
+          // Si l'image n'est pas définie, utiliser l'image par défaut
+          if (!formData.has("image")) {
+            cardData.image = "/assets/pokeballe.png"; // Image par défaut si aucune image n'est fournie
+          }
+
+          try {
+            const response = await fetch("/api/pokemons", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(cardData), // Envoi des données JSON au serveur
+            });
+
+            if (response.ok) {
+              const result = await response.json();
+              alert("Carte créée avec succès !");
+              currentStep = 0;
+              showStep(currentStep);
+
+              // Réinitialiser le formulaire
+              event.target.reset();
+            } else {
+              const error = await response.json();
+              alert("Erreur : " + error.message);
+            }
+          } catch (error) {
+            console.error("Erreur lors de l'envoi des données :", error);
+            alert("Une erreur s'est produite.");
+          }
+        });
+    </script>
+  </body>
+</html>

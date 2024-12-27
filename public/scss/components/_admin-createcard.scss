@@ -1,0 +1,82 @@
+.section-create-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .create-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    background-color: white;
+    width: 80%;
+    margin-top: 20px;
+    padding: 48px 32px;
+    border-radius: 12px;
+
+    .card {
+      max-width: 80%;
+      padding: 40px;
+    }
+
+    form {
+      width: 100%;
+    }
+  }
+
+  // Basic styling for the stepper and form
+  .stepper-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .step-title {
+      font-family: "Press Start 2P", sans-serif; /* Assurez-vous de charger cette police */
+      font-weight: bold;
+      letter-spacing: 1.1px;
+      font-size: 1rem;
+      line-height: 1.4;
+      color: #4caf50; /* Vert naturel */
+      text-shadow: 2px 2px #81c784; /* Effet ombre douce */
+      margin-bottom: 30px;
+    }
+  }
+
+  .step {
+    display: none;
+  }
+
+  .step.active {
+    display: block;
+  }
+
+  .btn-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .stepper-nav {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .stepper-nav button {
+    width: 48%;
+  }
+
+  .stepper-nav .btn:last-child {
+    background-color: #28a745;
+  }
+
+  .stepper-nav .btn:last-child:hover {
+    background-color: #218838;
+  }
+
+  .stepper-nav .btn:disabled {
+    background-color: #6c757d;
+  }
+}

@@ -1,0 +1,37 @@
+.header {
+  background-color: #1f1f1f; /* Couleur unie sombre */
+  color: #fff;
+  padding: 10px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombre subtile */
+
+  /* Ajout d'une bordure en bas pour séparer visuellement */
+  border-bottom: 3px solid #ff5252;
+
+  .wrapper-header {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+
+    .header-logo {
+      img {
+        height: 50px;
+        object-fit: contain;
+      }
+    }
+
+    .header-user {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #fff;
+    }
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+}

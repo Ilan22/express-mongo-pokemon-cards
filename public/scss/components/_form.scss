@@ -1,0 +1,285 @@
+select {
+  // Style de base
+  width: 100%;
+  padding: 12px 15px;
+  background: #ffffff;
+  border: 3px solid #4caf50;
+  color: #333333;
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 12px;
+  border-radius: 8px;
+  box-shadow: inset 0 0 0 2px #ffffff, 0 4px #388e3c;
+  transition: all 0.2s ease;
+  outline: none;
+  cursor: pointer;
+
+  // Suppression de l'apparence par défaut
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  // Ajout d'une flèche personnalisée
+  background-image: linear-gradient(45deg, transparent 50%, #4caf50 50%),
+    linear-gradient(135deg, #4caf50 50%, transparent 50%);
+  background-position: calc(100% - 20px) calc(50% + 2px),
+    calc(100% - 15px) calc(50% + 2px);
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  padding-right: 30px;
+
+  // États au survol
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: inset 0 0 0 2px #ffffff, 0 6px #388e3c;
+  }
+
+  // État focus
+  &:focus {
+    transform: translateY(-2px);
+    box-shadow: inset 0 0 0 2px #ffffff, 0 6px #388e3c;
+    border-color: #66bb6a;
+  }
+
+  // État actif
+  &:active {
+    transform: translateY(2px);
+    box-shadow: inset 0 0 0 2px #ffffff, 0 2px #388e3c;
+  }
+
+  // Style des options
+  option {
+    font-family: "Press Start 2P", sans-serif;
+    padding: 10px;
+    background: #ffffff;
+    color: #333333;
+  }
+}
+
+// Support pour Firefox
+@-moz-document url-prefix() {
+  select {
+    color: #333333;
+    text-shadow: none;
+  }
+}
+
+// Support pour IE
+select::-ms-expand {
+  display: none;
+}
+
+// Style disabled
+select:disabled {
+  background-color: #f5f5f5;
+  border-color: #cccccc;
+  color: #888888;
+  cursor: not-allowed;
+  box-shadow: inset 0 0 0 2px #ffffff, 0 4px #cccccc;
+}
+
+// Styles des inputs rétro Pokémon
+
+label {
+  display: block;
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 12px;
+  color: #4caf50;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px #81c784;
+}
+
+input {
+  //   margin-bottom: 30px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 15px;
+  background: #ffffff;
+  border: 3px solid #4caf50;
+  color: #333333;
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 12px;
+  border-radius: 8px;
+  box-shadow: inset 0 0 0 2px #ffffff, 0 4px #388e3c;
+  transition: all 0.2s ease;
+  outline: none;
+
+  // Placeholder style
+  &::placeholder {
+    color: #a5d6a7;
+    opacity: 0.8;
+  }
+
+  // Focus state
+  &:focus {
+    transform: translateY(-2px);
+    box-shadow: inset 0 0 0 2px #ffffff, 0 6px #388e3c;
+    border-color: #66bb6a;
+  }
+
+  // Active state (when pressed)
+  &:active {
+    transform: translateY(2px);
+    box-shadow: inset 0 0 0 2px #ffffff, 0 2px #388e3c;
+  }
+}
+
+// Style spécifique pour les inputs invalides
+input:invalid {
+  border-color: #ff5252;
+  box-shadow: inset 0 0 0 2px #ffffff, 0 4px #d32f2f;
+
+  &:focus {
+    box-shadow: inset 0 0 0 2px #ffffff, 0 6px #d32f2f;
+  }
+}
+
+// Animation pour le focus
+@keyframes pixelate {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+// Style des messages d'erreur
+.error-message {
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 10px;
+  color: #ff5252;
+  background: rgba(255, 82, 82, 0.1);
+  padding: 8px;
+  margin-top: 5px;
+  border: 2px solid #ff5252;
+  border-radius: 4px;
+  animation: pixelate 0.3s ease;
+}
+
+// Style spécifique pour les champs requis
+.required::after {
+  content: "*";
+  color: #ff5252;
+  margin-left: 4px;
+  font-family: "Press Start 2P", sans-serif;
+}
+
+// Animation pour le focus
+@keyframes selectPulse {
+  0% {
+    border-color: #4caf50;
+  }
+  50% {
+    border-color: #66bb6a;
+  }
+  100% {
+    border-color: #4caf50;
+  }
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 0px;
+  position: relative;
+
+  input {
+    margin: 0;
+  }
+
+  .search-button {
+    background-color: transparent;
+    position: absolute;
+    z-index: 1000;
+    right: 0;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    color: black;
+    height: 100%;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+
+  .radio-label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    background: #ffffff;
+    border: 3px solid #4caf50;
+    border-radius: 8px;
+    font-family: "Press Start 2P", sans-serif;
+    font-size: 12px;
+    color: #333333;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 2px #ffffff, 0 4px #388e3c;
+    transition: all 0.2s ease;
+
+    // Interaction hover
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: inset 0 0 0 2px #ffffff, 0 6px #388e3c;
+    }
+  }
+
+  .radio-input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+
+    &:checked + .radio-label {
+      background: #4caf50;
+      color: #ffffff;
+      border-color: #66bb6a;
+      box-shadow: inset 0 0 0 2px #ffffff, 0 6px #388e3c;
+
+      // Animation au clic
+      animation: pixelate 0.3s ease;
+    }
+
+    &:focus + .radio-label {
+      border-color: #66bb6a;
+      box-shadow: inset 0 0 0 2px #ffffff, 0 6px #66bb6a;
+    }
+
+    &:active + .radio-label {
+      transform: translateY(2px);
+      box-shadow: inset 0 0 0 2px #ffffff, 0 2px #388e3c;
+    }
+  }
+}
+
+.radio-group-title {
+  width: 100%;
+}
+
+// Animation pour le focus (optionnelle, pour le style pixel rétro)
+@keyframes pixelate {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Authentification</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <div class="auth">
+      <img
+        class="background-image"
+        src="/assets/bg-pokemon-art-<%= randomNumber %>.jpg"
+      />
+      <div class="container">
+        <div class="tabs">
+          <div class="btn btn-tabs tab active" onclick="switchTab('login')">
+            Connexion
+          </div>
+          <div class="btn btn-tabs tab" onclick="switchTab('register')">
+            Inscription
+          </div>
+        </div>
+
+        <!-- Formulaire de connexion -->
+        <div id="loginForm" class="form-container active">
+          <form onsubmit="handleLogin(event)">
+            <div class="form-group">
+              <label for="loginEmail">Email</label>
+              <input type="email" id="loginEmail" required />
+            </div>
+            <div class="form-group">
+              <label for="loginPassword">Mot de passe</label>
+              <input type="password" id="loginPassword" required />
+            </div>
+            <button class="btn" type="submit">Se connecter</button>
+            <div id="loginError" class="error-message"></div>
+          </form>
+        </div>
+
+        <!-- Formulaire d'inscription -->
+        <div id="registerForm" class="form-container">
+          <form onsubmit="handleRegister(event)">
+            <div class="form-group">
+              <label for="registerName">Nom</label>
+              <input type="text" id="registerName" required />
+            </div>
+            <div class="form-group">
+              <label for="registerEmail">Email</label>
+              <input type="email" id="registerEmail" required />
+            </div>
+            <div class="form-group">
+              <label for="registerPassword">Mot de passe</label>
+              <input type="password" id="registerPassword" required />
+            </div>
+            <button class="btn" type="submit">S'inscrire</button>
+            <div id="registerError" class="error-message"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function switchTab(tab) {
+        document
+          .querySelectorAll(".tab")
+          .forEach((t) => t.classList.remove("active"));
+        document
+          .querySelectorAll(".form-container")
+          .forEach((f) => f.classList.remove("active"));
+
+        if (tab === "login") {
+          document.querySelector(".tab:first-child").classList.add("active");
+          document.getElementById("loginForm").classList.add("active");
+        } else {
+          document.querySelector(".tab:last-child").classList.add("active");
+          document.getElementById("registerForm").classList.add("active");
+        }
+      }
+
+      async function handleLogin(event) {
+        event.preventDefault();
+        const email = document.getElementById("loginEmail").value;
+        const password = document.getElementById("loginPassword").value;
+
+        try {
+          const response = await fetch("/api/login", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ email, password }),
+          });
+
+          const data = await response.json();
+
+          if (response.ok) {
+            window.location.href = "/"; // Redirection vers la page d'accueil
+          } else {
+            document.getElementById("loginError").style.display = "block";
+            document.getElementById("loginError").textContent = data.message;
+          }
+        } catch (error) {
+          document.getElementById("loginError").style.display = "block";
+          document.getElementById("loginError").textContent =
+            "Une erreur est survenue";
+        }
+      }
+
+      async function handleRegister(event) {
+        event.preventDefault();
+        const name = document.getElementById("registerName").value;
+        const email = document.getElementById("registerEmail").value;
+        const password = document.getElementById("registerPassword").value;
+
+        try {
+          const response = await fetch("/api/register", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ name, email, password }),
+          });
+
+          const data = await response.json();
+
+          if (response.ok) {
+            switchTab("login"); // Basculer vers l'onglet de connexion
+            document.getElementById("loginEmail").value = email;
+          } else {
+            document.getElementById("registerError").style.display = "block";
+            document.getElementById("registerError").textContent = data.message;
+          }
+        } catch (error) {
+          document.getElementById("registerError").style.display = "block";
+          document.getElementById("registerError").textContent =
+            "Une erreur est survenue";
+        }
+      }
+    </script>
+  </body>
+</html>

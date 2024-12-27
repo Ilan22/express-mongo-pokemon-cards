@@ -1,0 +1,19 @@
+<div class="header">
+  <div class="wrapper-header">
+    <div class="header-logo">
+      <img src="/assets/pokedex.jpg" alt="Pokémon" />
+    </div>
+    <div class="header-user">
+      <span>Bienvenue, <%= user.name %></span>
+    </div>
+  </div>
+
+  <div class="header-actions">
+    <% if (user.role === 0) { %>
+    <a href="/admin" class="btn btn-nav">Administration</a>
+    <% } %>
+    <a href="/" class="btn btn-nav">Mes cartes</a>
+    <a id="openBoosterBtn" class="btn btn-nav">Ouvrir un Booster</a>
+    <a href="/api/logout" class="btn btn-nav">Déconnexion</a>
+  </div>
+</div>

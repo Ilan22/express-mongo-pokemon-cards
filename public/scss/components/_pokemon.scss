@@ -1,0 +1,174 @@
+// Pokémon Container
+.pokemon-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .img-pokemon {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    margin: 5px auto;
+    border: 3px solid var(--light-gray);
+    border-radius: 4px;
+    background: var(--white-color);
+    display: block;
+    flex-shrink: 0;
+  }
+
+  // Pokémon Card
+  .pokemon-card {
+    width: 250px;
+    border-radius: 12px;
+    box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.1);
+    padding: 8px;
+    color: var(--black-color);
+    position: relative;
+    border: 8px solid var(--primary-color);
+
+    .pokemon-card-header {
+      display: flex;
+      justify-content: space-between;
+
+      .header-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 4px;
+
+        .hp-display {
+          span {
+            font-size: 10px;
+          }
+        }
+
+        .img-type {
+          width: 15px;
+          height: 15px;
+          background-color: transparent;
+        }
+      }
+    }
+
+    .pokemon-info {
+      text-align: left;
+      padding: 5px;
+      margin: 5px;
+      background-color: rgba(255, 255, 255, 0.3);
+      border-radius: 4px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .attack-info {
+        padding: 8px;
+        background-color: rgba(255, 255, 255, 0.3);
+        border-radius: 4px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+
+        .attack-info-row {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+        }
+
+        strong {
+          font-size: 1em;
+        }
+
+        .attack-info-desc {
+          font-size: 12px;
+          color: gray;
+        }
+
+        .attack-power {
+          margin-left: 10px;
+          white-space: nowrap;
+        }
+      }
+
+      .rarity-info {
+        margin: 5px 0;
+        padding: 5px;
+        font-size: 0.9em;
+        color: #666;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+
+  .empty-card {
+    min-height: 300px;
+    opacity: 0.7;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 250px;
+    border-radius: 12px;
+    box-shadow: inset 2px 3px 3px rgba(0, 0, 0, 0.1);
+    padding: 8px;
+
+    .empty-card-content {
+      text-align: center;
+      color: #666;
+      padding: 20px;
+    }
+  }
+}
+
+// Types
+.Normal {
+  background: #a9a979; /* Gris clair avec une teinte verte */
+}
+.Feu {
+  background: #f08030; /* Orange pour représenter le feu */
+}
+.Eau {
+  background: #6890f0; /* Bleu pour représenter l'eau */
+}
+.Plante {
+  background: #78c850; /* Vert clair pour représenter la nature */
+}
+.Électrik {
+  background: #f8d030; /* Jaune vif pour représenter l'électricité */
+}
+.Glace {
+  background: #98d8d8; /* Bleu glacier pour représenter la glace */
+}
+.Combat {
+  background: #c03028; /* Rouge foncé pour représenter l'énergie du combat */
+}
+.Poison {
+  background: #a040a0; /* Violet pour représenter le poison */
+}
+.Sol {
+  background: #e0c068; /* Beige pour représenter la terre */
+}
+.Fée {
+  background: #efa1af; /* Rose pastel pour représenter la magie des fées */
+}
+.Psy {
+  background: #f85888; /* Rose intense pour représenter le psychisme */
+}
+.Insecte {
+  background: #a8b820; /* Vert olive pour représenter les insectes */
+}
+.Roche {
+  background: #b8a038; /* Marron clair pour représenter les rochers */
+}
+.Spectre {
+  background: #705898; /* Violet foncé pour représenter les spectres */
+}
+.Dragon {
+  background: #7038f8; /* Violet intense pour représenter les dragons */
+}

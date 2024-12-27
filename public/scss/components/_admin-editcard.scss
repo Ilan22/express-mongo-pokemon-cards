@@ -1,0 +1,112 @@
+.edit-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 20px;
+
+  .edit-form {
+    width: 80%;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 3px solid #4caf50;
+    border-radius: 12px;
+    box-shadow: 0 4px #388e3c;
+
+    h2 {
+      margin-bottom: 30px;
+    }
+
+    .row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 10px;
+
+      .form-group {
+        width: 50%;
+      }
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .submit-button {
+      display: block;
+      width: 100%;
+      padding: 12px 15px;
+      background-color: #4caf50;
+      border: 3px solid #ffffff;
+      color: #ffffff;
+      font-family: "Press Start 2P", sans-serif;
+      font-size: 12px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 4px #388e3c;
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px #388e3c;
+      }
+
+      &:active {
+        transform: translateY(2px);
+        box-shadow: 0 2px #388e3c;
+      }
+    }
+  }
+
+  // .pokemon-card {
+  //   width: 40%;
+  //   background-color: #ffffff;
+  //   border: 3px solid #4caf50;
+  //   border-radius: 12px;
+  //   box-shadow: 0 4px #388e3c;
+
+  //   .card-header {
+  //     background-color: #4caf50;
+  //     color: #ffffff;
+  //     padding: 15px;
+  //     text-align: center;
+
+  //     h2 {
+  //       margin: 0;
+  //       font-size: 16px;
+  //     }
+
+  //     .card-type {
+  //       font-size: 14px;
+  //       margin-top: 5px;
+  //       display: block;
+  //     }
+
+  //     .card-hp {
+  //       font-size: 12px;
+  //       margin-top: 5px;
+  //     }
+  //   }
+
+  //   .card-image {
+  //     text-align: center;
+  //     padding: 15px;
+
+  //     img {
+  //       width: 100%;
+  //       max-width: 200px;
+  //       object-fit: contain;
+  //     }
+  //   }
+
+  //   .card-body {
+  //     padding: 15px;
+
+  //     p {
+  //       font-size: 12px;
+  //       margin-bottom: 10px;
+  //     }
+  //   }
+  // }
+}

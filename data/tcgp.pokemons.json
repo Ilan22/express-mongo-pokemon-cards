@@ -1,0 +1,2869 @@
+[{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cb3"
+  },
+  "name": "Bulbizarre",
+  "hp": 45,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+  "type": "Plante",
+  "attack": {
+    "name": "Ball’Météo",
+    "power": 50,
+    "description": "Une attaque dont la puissance et le type\nvarient en fonction du temps qu’il fait."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cb4"
+  },
+  "name": "Herbizarre",
+  "hp": 60,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png",
+  "type": "Plante",
+  "attack": {
+    "name": "Canon Graine",
+    "power": 80,
+    "description": "Le lanceur fait pleuvoir un déluge\nde graines solides sur l’ennemi."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cb5"
+  },
+  "name": "Florizarre",
+  "hp": 80,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png",
+  "type": "Plante",
+  "attack": {
+    "name": "Frénésie",
+    "power": 20,
+    "description": "Une fois activée, cette capacité augmente\nl’Attaque du lanceur à mesure que celui-ci\nsubit des attaques."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cb6"
+  },
+  "name": "Salamèche",
+  "hp": 39,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
+  "type": "Feu",
+  "attack": {
+    "name": "Coud’Boue",
+    "power": 20,
+    "description": "Le lanceur envoie de la boue au visage\nde l’ennemi pour infliger des dégâts\net baisser sa Précision."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cb7"
+  },
+  "name": "Reptincel",
+  "hp": 58,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.png",
+  "type": "Feu",
+  "attack": {
+    "name": "Éclate-Roc",
+    "power": 40,
+    "description": "Porte un coup dévastateur à l’ennemi.\nPeut briser des rochers fissurés.\nPeut baisser la Défense."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cb8"
+  },
+  "name": "Dracaufeu",
+  "hp": 78,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png",
+  "type": "Feu",
+  "attack": {
+    "name": "Ball’Météo",
+    "power": 50,
+    "description": "Une attaque dont la puissance et le type\nvarient en fonction du temps qu’il fait."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cb9"
+  },
+  "name": "Carapuce",
+  "hp": 44,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
+  "type": "Eau",
+  "attack": {
+    "name": "Aqua-Jet",
+    "power": 40,
+    "description": "Le lanceur fonce sur l’ennemi si\nrapidement qu’on parvient à peine\nà le discerner. Frappe en premier."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cba"
+  },
+  "name": "Carabaffe",
+  "hp": 59,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/8.png",
+  "type": "Eau",
+  "attack": {
+    "name": "Aire d’Eau",
+    "power": 80,
+    "description": "Une masse d’eau s’abat sur l’ennemi.\nEn l’utilisant avec Aire de Feu, l’effet\naugmente et un arc-en-ciel apparaît."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cbb"
+  },
+  "name": "Tortank",
+  "hp": 79,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png",
+  "type": "Eau",
+  "attack": {
+    "name": "Saumure",
+    "power": 65,
+    "description": "Cette attaque est deux fois plus\npuissante lorsque l’ennemi a moins\nde la moitié de ses PV."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cbc"
+  },
+  "name": "Chenipan",
+  "hp": 45,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10.png",
+  "type": "Insecte",
+  "attack": {
+    "name": "Toile Élek",
+    "power": 55,
+    "description": "Attrape l’ennemi dans un filet électrique.\nBaisse aussi la Vitesse de l’ennemi."
+  },
+  "rarity": {
+    "level": 0,
+    "label": "très commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cbd"
+  },
+  "name": "Chrysacier",
+  "hp": 50,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/11.png",
+  "type": "Insecte",
+  "attack": {
+    "name": "Piqûre",
+    "power": 60,
+    "description": "Le lanceur pique l’ennemi. Si ce dernier\ntient une Baie, le lanceur la dévore et\nobtient son effet."
+  },
+  "rarity": {
+    "level": 1,
+    "label": "commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cbe"
+  },
+  "name": "Papilusion",
+  "hp": 60,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/12.png",
+  "type": "Insecte",
+  "attack": {
+    "name": "Survinsecte",
+    "power": 50,
+    "description": "Le lanceur se débat de toutes ses forces,\net baisse l’Attaque Spéciale de l’ennemi."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cbf"
+  },
+  "name": "Aspicot",
+  "hp": 40,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/13.png",
+  "type": "Insecte",
+  "attack": {
+    "name": "Dard-Venin",
+    "power": 15,
+    "description": "Un dard toxique qui transperce l’ennemi.\nPeut aussi l’empoisonner."
+  },
+  "rarity": {
+    "level": 0,
+    "label": "très commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cc0"
+  },
+  "name": "Coconfort",
+  "hp": 45,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/14.png",
+  "type": "Insecte",
+  "attack": {
+    "name": "Toile Élek",
+    "power": 55,
+    "description": "Attrape l’ennemi dans un filet électrique.\nBaisse aussi la Vitesse de l’ennemi."
+  },
+  "rarity": {
+    "level": 1,
+    "label": "commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cc1"
+  },
+  "name": "Dardargnan",
+  "hp": 65,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/15.png",
+  "type": "Insecte",
+  "attack": {
+    "name": "Colère",
+    "power": 120,
+    "description": "Le lanceur laisse éclater sa rage et\nattaque pendant 2 à 3 tours avant de\ncéder à la confusion."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cc2"
+  },
+  "name": "Roucool",
+  "hp": 40,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/16.png",
+  "type": "Normal",
+  "attack": {
+    "name": "Cru-Ailes",
+    "power": 60,
+    "description": "L’ennemi est frappé par de larges ailes\ndéployées pour infliger des dégâts."
+  },
+  "rarity": {
+    "level": 0,
+    "label": "très commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cc3"
+  },
+  "name": "Roucoups",
+  "hp": 63,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/17.png",
+  "type": "Normal",
+  "attack": {
+    "name": "Ailes d’Acier",
+    "power": 70,
+    "description": "Le lanceur frappe l’ennemi avec des\nailes d’acier. Peut aussi augmenter\nla Défense du lanceur."
+  },
+  "rarity": {
+    "level": 1,
+    "label": "commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cc4"
+  },
+  "name": "Roucarnage",
+  "hp": 83,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/18.png",
+  "type": "Normal",
+  "attack": {
+    "name": "Ultralaser",
+    "power": 150,
+    "description": "Projette un puissant rayon sur l’ennemi.\nLe lanceur doit se reposer\nau tour suivant."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cc5"
+  },
+  "name": "Rattata",
+  "hp": 30,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/19.png",
+  "type": "Normal",
+  "attack": {
+    "name": "Chant Canon",
+    "power": 60,
+    "description": "Le lanceur attaque l’ennemi en chantant.\nSi plusieurs Pokémon déclenchent cette\nattaque à la suite, l’effet augmente."
+  },
+  "rarity": {
+    "level": 0,
+    "label": "très commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cc6"
+  },
+  "name": "Rattatac",
+  "hp": 55,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/20.png",
+  "type": "Normal",
+  "attack": {
+    "name": "Rayon Chargé",
+    "power": 50,
+    "description": "Le lanceur tire un rayon chargé\nd’électricité. Peut aussi augmenter\nson Attaque Spéciale."
+  },
+  "rarity": {
+    "level": 1,
+    "label": "commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cc7"
+  },
+  "name": "Piafabec",
+  "hp": 40,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/21.png",
+  "type": "Normal",
+  "attack": {
+    "name": "Canicule",
+    "power": 95,
+    "description": "Le lanceur provoque une vague de\nchaleur. Peut aussi brûler l’ennemi."
+  },
+  "rarity": {
+    "level": 0,
+    "label": "très commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cc8"
+  },
+  "name": "Rapasdepic",
+  "hp": 65,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/22.png",
+  "type": "Normal",
+  "attack": {
+    "name": "Ronflement",
+    "power": 50,
+    "description": "Une attaque qui ne fonctionne que si le\nlanceur est endormi. Le boucan peut aussi\napeurer l’ennemi."
+  },
+  "rarity": {
+    "level": 2,
+    "label": "peu commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cc9"
+  },
+  "name": "Abo",
+  "hp": 35,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/23.png",
+  "type": "Poison",
+  "attack": {
+    "name": "Boue-Bombe",
+    "power": 65,
+    "description": "Le lanceur attaque à l’aide d’une boule\nde boue solidifiée. Peut aussi baisser\nla Précision de l’ennemi."
+  },
+  "rarity": {
+    "level": 0,
+    "label": "très commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cca"
+  },
+  "name": "Arbok",
+  "hp": 60,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/24.png",
+  "type": "Poison",
+  "attack": {
+    "name": "Frénésie",
+    "power": 20,
+    "description": "Une fois activée, cette capacité augmente\nl’Attaque du lanceur à mesure que celui-ci\nsubit des attaques."
+  },
+  "rarity": {
+    "level": 2,
+    "label": "peu commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55ccb"
+  },
+  "name": "Pikachu",
+  "hp": 35,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
+  "type": "Électrik",
+  "attack": {
+    "name": "Ruse",
+    "power": 30,
+    "description": "Une attaque capable de toucher un ennemi\nqui utilise Détection ou Abri. Annule aussi\nleur effet."
+  },
+  "rarity": {
+    "level": 1,
+    "label": "commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55ccc"
+  },
+  "name": "Raichu",
+  "hp": 60,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/26.png",
+  "type": "Électrik",
+  "attack": {
+    "name": "Damoclès",
+    "power": 120,
+    "description": "Une dangereuse charge. Inflige aussi des\ndégâts assez importants au lanceur."
+  },
+  "rarity": {
+    "level": 2,
+    "label": "peu commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55ccd"
+  },
+  "name": "Sabelette",
+  "hp": 50,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/27.png",
+  "type": "Sol",
+  "attack": {
+    "name": "Coup d’Boule",
+    "power": 70,
+    "description": "Le lanceur donne un coup de tête.\nPeut apeurer l’ennemi.\n"
+  },
+  "rarity": {
+    "level": 0,
+    "label": "très commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cce"
+  },
+  "name": "Sablaireau",
+  "hp": 75,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/28.png",
+  "type": "Sol",
+  "attack": {
+    "name": "Coud’Krâne",
+    "power": 130,
+    "description": "Le lanceur baisse la tête pour augmenter\nsa Défense au 1er tour et percuter\nl’ennemi au 2è."
+  },
+  "rarity": {
+    "level": 2,
+    "label": "peu commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55ccf"
+  },
+  "name": "Nidoran♀",
+  "hp": 55,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/29.png",
+  "type": "Poison",
+  "attack": {
+    "name": "Queue de Fer",
+    "power": 100,
+    "description": "Attaque l’ennemi avec une queue de fer.\nPeut aussi baisser la Défense de l’ennemi."
+  },
+  "rarity": {
+    "level": 0,
+    "label": "très commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cd0"
+  },
+  "name": "Nidorina",
+  "hp": 70,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/30.png",
+  "type": "Poison",
+  "attack": {
+    "name": "Larcin",
+    "power": 60,
+    "description": "Le lanceur attaque la cible et vole\nson objet. Le lanceur ne peut rien\nvoler s’il tient déjà un objet."
+  },
+  "rarity": {
+    "level": 1,
+    "label": "commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cd1"
+  },
+  "name": "Nidoqueen",
+  "hp": 90,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/31.png",
+  "type": "Poison",
+  "attack": {
+    "name": "Poing Feu",
+    "power": 75,
+    "description": "Un coup de poing enflammé vient\nfrapper l’ennemi. Peut le brûler."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cd2"
+  },
+  "name": "Nidoran♂",
+  "hp": 46,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/32.png",
+  "type": "Poison",
+  "attack": {
+    "name": "Bombe Beurk",
+    "power": 90,
+    "description": "Des détritus toxiques sont projetés sur\nl’ennemi. Peut aussi l’empoisonner."
+  },
+  "rarity": {
+    "level": 0,
+    "label": "très commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cd3"
+  },
+  "name": "Nidorino",
+  "hp": 61,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/33.png",
+  "type": "Poison",
+  "attack": {
+    "name": "Pistolet à O",
+    "power": 40,
+    "description": "De l’eau est projetée sur l’ennemi\nen arc de cercle."
+  },
+  "rarity": {
+    "level": 1,
+    "label": "commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cd4"
+  },
+  "name": "Nidoking",
+  "hp": 81,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/34.png",
+  "type": "Poison",
+  "attack": {
+    "name": "Koud’Korne",
+    "power": 65,
+    "description": "Frappe l’ennemi d’un coup de corne\npointue pour infliger des dégâts."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cd5"
+  },
+  "name": "Mélofée",
+  "hp": 70,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/35.png",
+  "type": "Fée",
+  "attack": {
+    "name": "Plaquage",
+    "power": 85,
+    "description": "Le lanceur se laisse tomber sur l’ennemi\nde tout son poids. Peut le paralyser."
+  },
+  "rarity": {
+    "level": 1,
+    "label": "commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cd6"
+  },
+  "name": "Mélodelfe",
+  "hp": 95,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/36.png",
+  "type": "Fée",
+  "attack": {
+    "name": "Pistolet à O",
+    "power": 40,
+    "description": "De l’eau est projetée sur l’ennemi\nen arc de cercle."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cd7"
+  },
+  "name": "Goupix",
+  "hp": 38,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/37.png",
+  "type": "Feu",
+  "attack": {
+    "name": "Tricherie",
+    "power": 95,
+    "description": "Le lanceur utilise la force de l’ennemi.\nPlus l’Attaque de l’ennemi est élevée,\nplus le lanceur inflige de dégâts."
+  },
+  "rarity": {
+    "level": 1,
+    "label": "commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cd8"
+  },
+  "name": "Feunard",
+  "hp": 73,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/38.png",
+  "type": "Feu",
+  "attack": {
+    "name": "Giga Impact",
+    "power": 150,
+    "description": "Le lanceur charge l’ennemi de toute sa\npuissance. Il doit ensuite se reposer\nau tour suivant."
+  },
+  "rarity": {
+    "level": 2,
+    "label": "peu commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cd9"
+  },
+  "name": "Rondoudou",
+  "hp": 115,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/39.png",
+  "type": "Normal",
+  "attack": {
+    "name": "Feuille Magik",
+    "power": 60,
+    "description": "Le lanceur disperse d’étranges feuilles\nqui poursuivent l’ennemi. N’échoue jamais."
+  },
+  "rarity": {
+    "level": 1,
+    "label": "commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cda"
+  },
+  "name": "Grodoudou",
+  "hp": 140,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/40.png",
+  "type": "Normal",
+  "attack": {
+    "name": "Force Ajoutée",
+    "power": 20,
+    "description": "Le lanceur attaque l’ennemi avec une force\naccumulée. Plus les stats du lanceur sont\naugmentées, plus le coup est efficace."
+  },
+  "rarity": {
+    "level": 2,
+    "label": "peu commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cdb"
+  },
+  "name": "Nosferapti",
+  "hp": 40,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/41.png",
+  "type": "Poison",
+  "attack": {
+    "name": "Vent Mauvais",
+    "power": 60,
+    "description": "Le lanceur crée une violente bourrasque.\nPeut aussi augmenter toutes ses stats."
+  },
+  "rarity": {
+    "level": 0,
+    "label": "très commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cdc"
+  },
+  "name": "Nosferalto",
+  "hp": 75,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/42.png",
+  "type": "Poison",
+  "attack": {
+    "name": "Représailles",
+    "power": 50,
+    "description": "Le lanceur charge son énergie, puis\nattaque. La puissance est doublée\nsi le lanceur agit après l’ennemi."
+  },
+  "rarity": {
+    "level": 2,
+    "label": "peu commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cdd"
+  },
+  "name": "Mystherbe",
+  "hp": 45,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/43.png",
+  "type": "Plante",
+  "attack": {
+    "name": "Tranch’Herbe",
+    "power": 55,
+    "description": "Des feuilles aiguisées comme des\nrasoirs entaillent l’ennemi.\nTaux de critiques élevé."
+  },
+  "rarity": {
+    "level": 0,
+    "label": "très commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cde"
+  },
+  "name": "Ortide",
+  "hp": 60,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/44.png",
+  "type": "Plante",
+  "attack": {
+    "name": "Danse Fleurs",
+    "power": 120,
+    "description": "Le lanceur attaque en projetant\ndes pétales pendant 2 à 3 tours\navant de céder à la confusion."
+  },
+  "rarity": {
+    "level": 1,
+    "label": "commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cdf"
+  },
+  "name": "Rafflesia",
+  "hp": 75,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/45.png",
+  "type": "Plante",
+  "attack": {
+    "name": "Vampi-Poing",
+    "power": 75,
+    "description": "Un coup de poing qui draine l’énergie.\nConvertit la moitié des dégâts infligés\nen PV pour le lanceur."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55ce0"
+  },
+  "name": "Paras",
+  "hp": 35,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/46.png",
+  "type": "Insecte",
+  "attack": {
+    "name": "Bombe Beurk",
+    "power": 90,
+    "description": "Des détritus toxiques sont projetés sur\nl’ennemi. Peut aussi l’empoisonner."
+  },
+  "rarity": {
+    "level": 1,
+    "label": "commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55ce1"
+  },
+  "name": "Parasect",
+  "hp": 60,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/47.png",
+  "type": "Insecte",
+  "attack": {
+    "name": "Frénésie",
+    "power": 20,
+    "description": "Une fois activée, cette capacité augmente\nl’Attaque du lanceur à mesure que celui-ci\nsubit des attaques."
+  },
+  "rarity": {
+    "level": 2,
+    "label": "peu commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55ce2"
+  },
+  "name": "Mimitoss",
+  "hp": 60,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/48.png",
+  "type": "Insecte",
+  "attack": {
+    "name": "Ronflement",
+    "power": 50,
+    "description": "Une attaque qui ne fonctionne que si le\nlanceur est endormi. Le boucan peut aussi\napeurer l’ennemi."
+  },
+  "rarity": {
+    "level": 1,
+    "label": "commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55ce3"
+  },
+  "name": "Aéromite",
+  "hp": 70,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/49.png",
+  "type": "Insecte",
+  "attack": {
+    "name": "Puissance Cachée",
+    "power": 60,
+    "description": "Attaque dont la puissance et le type\ndépendent du Pokémon qui l’utilise."
+  },
+  "rarity": {
+    "level": 2,
+    "label": "peu commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55ce4"
+  },
+  "name": "Taupiqueur",
+  "hp": 10,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/50.png",
+  "type": "Sol",
+  "attack": {
+    "name": "Coupe",
+    "power": 50,
+    "description": "Coupe l’ennemi avec des lames\nou des griffes. Hors combat,\npermet de couper des arbres fins."
+  },
+  "rarity": {
+    "level": 0,
+    "label": "très commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55ce5"
+  },
+  "name": "Triopikeur",
+  "hp": 35,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/51.png",
+  "type": "Sol",
+  "attack": {
+    "name": "Coupe",
+    "power": 50,
+    "description": "Coupe l’ennemi avec des lames\nou des griffes. Hors combat,\npermet de couper des arbres fins."
+  },
+  "rarity": {
+    "level": 2,
+    "label": "peu commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55ce6"
+  },
+  "name": "Miaouss",
+  "hp": 40,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/52.png",
+  "type": "Normal",
+  "attack": {
+    "name": "Rayon Gemme",
+    "power": 80,
+    "description": "Le lanceur attaque avec un rayon de\nlumière qui scintille comme s’il était\ncomposé de gemmes."
+  },
+  "rarity": {
+    "level": 0,
+    "label": "très commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55ce7"
+  },
+  "name": "Persian",
+  "hp": 65,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/53.png",
+  "type": "Normal",
+  "attack": {
+    "name": "Exécu-Son",
+    "power": 80,
+    "description": "Inflige une douleur tellement violente à la cible\nqu’elle ne peut plus émettre de sons pendant\ndeux tours."
+  },
+  "rarity": {
+    "level": 2,
+    "label": "peu commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55ce8"
+  },
+  "name": "Psykokwak",
+  "hp": 50,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/54.png",
+  "type": "Eau",
+  "attack": {
+    "name": "Prescience",
+    "power": 120,
+    "description": "De l’énergie psychique vient frapper\nl’ennemi 2 tours après l’utilisation\nde cette capacité."
+  },
+  "rarity": {
+    "level": 1,
+    "label": "commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55ce9"
+  },
+  "name": "Akwakwak",
+  "hp": 80,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/55.png",
+  "type": "Eau",
+  "attack": {
+    "name": "Jackpot",
+    "power": 40,
+    "description": "Des pièces sont lancées sur l’ennemi.\nPermet d’obtenir de l’argent à la fin\ndu combat."
+  },
+  "rarity": {
+    "level": 2,
+    "label": "peu commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cea"
+  },
+  "name": "Férosinge",
+  "hp": 40,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/56.png",
+  "type": "Combat",
+  "attack": {
+    "name": "Mitra-Poing",
+    "power": 150,
+    "description": "Le lanceur se concentre avant\nd’attaquer. Échoue s’il est touché\navant d’avoir frappé."
+  },
+  "rarity": {
+    "level": 1,
+    "label": "commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55ceb"
+  },
+  "name": "Colossinge",
+  "hp": 65,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/57.png",
+  "type": "Combat",
+  "attack": {
+    "name": "Force",
+    "power": 80,
+    "description": "Le lanceur cogne l’ennemi de toutes\nses forces. Permet aussi de déplacer\ndes rochers."
+  },
+  "rarity": {
+    "level": 2,
+    "label": "peu commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cec"
+  },
+  "name": "Caninos",
+  "hp": 55,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/58.png",
+  "type": "Feu",
+  "attack": {
+    "name": "Damoclès",
+    "power": 120,
+    "description": "Une dangereuse charge. Inflige aussi des\ndégâts assez importants au lanceur."
+  },
+  "rarity": {
+    "level": 1,
+    "label": "commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55ced"
+  },
+  "name": "Arcanin",
+  "hp": 90,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/59.png",
+  "type": "Feu",
+  "attack": {
+    "name": "Draco-Choc",
+    "power": 85,
+    "description": "Le lanceur ouvre la bouche pour envoyer\nune onde de choc qui frappe l’ennemi."
+  },
+  "rarity": {
+    "level": 2,
+    "label": "peu commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cee"
+  },
+  "name": "Ptitard",
+  "hp": 40,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/60.png",
+  "type": "Eau",
+  "attack": {
+    "name": "Blizzard",
+    "power": 110,
+    "description": "Une violente tempête de neige\nest déclenchée sur l’ennemi.\nPeut aussi le geler."
+  },
+  "rarity": {
+    "level": 0,
+    "label": "très commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cef"
+  },
+  "name": "Têtarte",
+  "hp": 65,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/61.png",
+  "type": "Eau",
+  "attack": {
+    "name": "Éclate-Roc",
+    "power": 40,
+    "description": "Porte un coup dévastateur à l’ennemi.\nPeut briser des rochers fissurés.\nPeut baisser la Défense."
+  },
+  "rarity": {
+    "level": 1,
+    "label": "commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cf0"
+  },
+  "name": "Tartard",
+  "hp": 90,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/62.png",
+  "type": "Eau",
+  "attack": {
+    "name": "Ultimapoing",
+    "power": 80,
+    "description": "L’ennemi reçoit un coup de poing\nd’une puissance incroyable."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cf1"
+  },
+  "name": "Abra",
+  "hp": 25,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/63.png",
+  "type": "Psy",
+  "attack": {
+    "name": "Dynamo-Poing",
+    "power": 100,
+    "description": "Le lanceur rassemble ses forces et\nenvoie un coup de poing à l’ennemi.\nS’il est touché, il est confus."
+  },
+  "rarity": {
+    "level": 0,
+    "label": "très commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cf2"
+  },
+  "name": "Kadabra",
+  "hp": 40,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/64.png",
+  "type": "Psy",
+  "attack": {
+    "name": "Tunnel",
+    "power": 80,
+    "description": "Le lanceur creuse au 1er tour et\nfrappe au 2è. Permet aussi de\ns’échapper d’un donjon."
+  },
+  "rarity": {
+    "level": 1,
+    "label": "commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cf3"
+  },
+  "name": "Alakazam",
+  "hp": 55,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/65.png",
+  "type": "Psy",
+  "attack": {
+    "name": "Onde de Choc",
+    "power": 60,
+    "description": "Le lanceur envoie un choc électrique\nrapide à l’ennemi. Impossible à esquiver."
+  },
+  "rarity": {
+    "level": 2,
+    "label": "peu commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cf4"
+  },
+  "name": "Machoc",
+  "hp": 70,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/66.png",
+  "type": "Combat",
+  "attack": {
+    "name": "Lance-Flammes",
+    "power": 90,
+    "description": "L’ennemi reçoit un torrent de flammes.\nPeut aussi le brûler."
+  },
+  "rarity": {
+    "level": 1,
+    "label": "commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cf5"
+  },
+  "name": "Machopeur",
+  "hp": 80,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/67.png",
+  "type": "Combat",
+  "attack": {
+    "name": "Frénésie",
+    "power": 20,
+    "description": "Une fois activée, cette capacité augmente\nl’Attaque du lanceur à mesure que celui-ci\nsubit des attaques."
+  },
+  "rarity": {
+    "level": 2,
+    "label": "peu commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cf6"
+  },
+  "name": "Mackogneur",
+  "hp": 90,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/68.png",
+  "type": "Combat",
+  "attack": {
+    "name": "Onde Vide",
+    "power": 40,
+    "description": "Le lanceur agite son poing pour projeter\nune onde de vide. Frappe toujours en\npremier."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cf7"
+  },
+  "name": "Chétiflor",
+  "hp": 50,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/69.png",
+  "type": "Plante",
+  "attack": {
+    "name": "Méga-Sangsue",
+    "power": 40,
+    "description": "Une attaque qui convertit la moitié\ndes dégâts infligés en PV."
+  },
+  "rarity": {
+    "level": 0,
+    "label": "très commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cf8"
+  },
+  "name": "Boustiflor",
+  "hp": 65,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/70.png",
+  "type": "Plante",
+  "attack": {
+    "name": "Balle Graine",
+    "power": 25,
+    "description": "Le lanceur mitraille l’ennemi avec une\nrafale de graines. De 2 à 5 rafales sont\nlancées à la suite."
+  },
+  "rarity": {
+    "level": 1,
+    "label": "commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cf9"
+  },
+  "name": "Empiflor",
+  "hp": 80,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/71.png",
+  "type": "Plante",
+  "attack": {
+    "name": "Coupe",
+    "power": 50,
+    "description": "Coupe l’ennemi avec des lames\nou des griffes. Hors combat,\npermet de couper des arbres fins."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cfa"
+  },
+  "name": "Tentacool",
+  "hp": 40,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/72.png",
+  "type": "Eau",
+  "attack": {
+    "name": "Bulles d’O",
+    "power": 65,
+    "description": "Des bulles sont envoyées avec\npuissance sur l’ennemi. Peut\naussi baisser sa Vitesse."
+  },
+  "rarity": {
+    "level": 1,
+    "label": "commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cfb"
+  },
+  "name": "Tentacruel",
+  "hp": 80,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/73.png",
+  "type": "Eau",
+  "attack": {
+    "name": "Vibraqua",
+    "power": 60,
+    "description": "Le lanceur envoie un puissant\njet d’eau sur l’ennemi. Peut\nrendre l’ennemi confus."
+  },
+  "rarity": {
+    "level": 2,
+    "label": "peu commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cfc"
+  },
+  "name": "Racaillou",
+  "hp": 40,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/74.png",
+  "type": "Roche",
+  "attack": {
+    "name": "Séisme",
+    "power": 100,
+    "description": "Le lanceur provoque un tremblement\nde terre touchant tous les Pokémon\nautour de lui."
+  },
+  "rarity": {
+    "level": 0,
+    "label": "très commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cfd"
+  },
+  "name": "Gravalanch",
+  "hp": 55,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/75.png",
+  "type": "Roche",
+  "attack": {
+    "name": "Séisme",
+    "power": 100,
+    "description": "Le lanceur provoque un tremblement\nde terre touchant tous les Pokémon\nautour de lui."
+  },
+  "rarity": {
+    "level": 1,
+    "label": "commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cfe"
+  },
+  "name": "Grolem",
+  "hp": 80,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/76.png",
+  "type": "Roche",
+  "attack": {
+    "name": "unknown",
+    "power": 80,
+    "description": "Description inconnue"
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55cff"
+  },
+  "name": "Ponyta",
+  "hp": 50,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/77.png",
+  "type": "Feu",
+  "attack": {
+    "name": "Calcination",
+    "power": 60,
+    "description": "Des flammes calcinent l’ennemi.\nS’il tient une Baie, elle est\nbrûlée et devient inutilisable."
+  },
+  "rarity": {
+    "level": 1,
+    "label": "commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d00"
+  },
+  "name": "Galopa",
+  "hp": 65,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/78.png",
+  "type": "Feu",
+  "attack": {
+    "name": "Queue de Fer",
+    "power": 100,
+    "description": "Attaque l’ennemi avec une queue de fer.\nPeut aussi baisser la Défense de l’ennemi."
+  },
+  "rarity": {
+    "level": 2,
+    "label": "peu commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d01"
+  },
+  "name": "Ramoloss",
+  "hp": 90,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/79.png",
+  "type": "Eau",
+  "attack": {
+    "name": "Avalanche",
+    "power": 60,
+    "description": "Une attaque deux fois plus puissante si le\nlanceur a été blessé par l’ennemi durant\nle tour."
+  },
+  "rarity": {
+    "level": 1,
+    "label": "commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d02"
+  },
+  "name": "Flagadoss",
+  "hp": 95,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/80.png",
+  "type": "Eau",
+  "attack": {
+    "name": "Piétisol",
+    "power": 60,
+    "description": "Le lanceur piétine le sol et inflige des\ndégâts à tous les Pokémon autour\nde lui. Baisse aussi la Vitesse."
+  },
+  "rarity": {
+    "level": 2,
+    "label": "peu commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d03"
+  },
+  "name": "Magnéti",
+  "hp": 25,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/81.png",
+  "type": "Électrik",
+  "attack": {
+    "name": "Monte-Tension",
+    "power": 70,
+    "description": "Des éclairs surgissent du sol et frappent l’ennemi.\nLa puissance de cette attaque est doublée si la cible\nest sur un Champ Électrifié."
+  },
+  "rarity": {
+    "level": 1,
+    "label": "commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d04"
+  },
+  "name": "Magnéton",
+  "hp": 50,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/82.png",
+  "type": "Électrik",
+  "attack": {
+    "name": "unknown",
+    "power": 80,
+    "description": "Description inconnue"
+  },
+  "rarity": {
+    "level": 2,
+    "label": "peu commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d05"
+  },
+  "name": "Canarticho",
+  "hp": 52,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/83.png",
+  "type": "Normal",
+  "attack": {
+    "name": "Brouhaha",
+    "power": 90,
+    "description": "Le lanceur attaque en rugissant durant\n3 tours. Pendant ce temps, personne\nne peut s’endormir."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d06"
+  },
+  "name": "Doduo",
+  "hp": 35,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/84.png",
+  "type": "Normal",
+  "attack": {
+    "name": "Picore",
+    "power": 60,
+    "description": "Le lanceur picore la cible. Si cette\ndernière tient une Baie, le lanceur\nla mange et profite de ses effets."
+  },
+  "rarity": {
+    "level": 1,
+    "label": "commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d07"
+  },
+  "name": "Dodrio",
+  "hp": 60,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/85.png",
+  "type": "Normal",
+  "attack": {
+    "name": "Coup d’Boule",
+    "power": 70,
+    "description": "Le lanceur donne un coup de tête.\nPeut apeurer l’ennemi.\n"
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d08"
+  },
+  "name": "Otaria",
+  "hp": 65,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/86.png",
+  "type": "Eau",
+  "attack": {
+    "name": "Force",
+    "power": 80,
+    "description": "Le lanceur cogne l’ennemi de toutes\nses forces. Permet aussi de déplacer\ndes rochers."
+  },
+  "rarity": {
+    "level": 1,
+    "label": "commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d09"
+  },
+  "name": "Lamantine",
+  "hp": 90,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/87.png",
+  "type": "Eau",
+  "attack": {
+    "name": "Stalactite",
+    "power": 25,
+    "description": "Le lanceur jette des pics de glace sur\nl’ennemi, de 2 à 5 fois de suite."
+  },
+  "rarity": {
+    "level": 2,
+    "label": "peu commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d0a"
+  },
+  "name": "Tadmorv",
+  "hp": 80,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/88.png",
+  "type": "Poison",
+  "attack": {
+    "name": "Détritus",
+    "power": 65,
+    "description": "Des détritus toxiques sont projetés sur\nl’ennemi. Peut aussi l’empoisonner."
+  },
+  "rarity": {
+    "level": 1,
+    "label": "commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d0b"
+  },
+  "name": "Grotadmorv",
+  "hp": 105,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/89.png",
+  "type": "Poison",
+  "attack": {
+    "name": "Coud’Boue",
+    "power": 20,
+    "description": "Le lanceur envoie de la boue au visage\nde l’ennemi pour infliger des dégâts\net baisser sa Précision."
+  },
+  "rarity": {
+    "level": 2,
+    "label": "peu commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d0c"
+  },
+  "name": "Kokiyas",
+  "hp": 30,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/90.png",
+  "type": "Eau",
+  "attack": {
+    "name": "Damoclès",
+    "power": 120,
+    "description": "Une dangereuse charge. Inflige aussi des\ndégâts assez importants au lanceur."
+  },
+  "rarity": {
+    "level": 1,
+    "label": "commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d0d"
+  },
+  "name": "Crustabri",
+  "hp": 50,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/91.png",
+  "type": "Eau",
+  "attack": {
+    "name": "Puissance Cachée",
+    "power": 60,
+    "description": "Attaque dont la puissance et le type\ndépendent du Pokémon qui l’utilise."
+  },
+  "rarity": {
+    "level": 2,
+    "label": "peu commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d0e"
+  },
+  "name": "Fantominus",
+  "hp": 30,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/92.png",
+  "type": "Spectre",
+  "attack": {
+    "name": "Dévorêve",
+    "power": 100,
+    "description": "Le lanceur mange le rêve de l’ennemi\nendormi. Le lanceur récupère en PV\nla moitié des dégâts infligés."
+  },
+  "rarity": {
+    "level": 1,
+    "label": "commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d0f"
+  },
+  "name": "Spectrum",
+  "hp": 45,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/93.png",
+  "type": "Spectre",
+  "attack": {
+    "name": "Léchouille",
+    "power": 30,
+    "description": "Un grand coup de langue qui inflige des\ndégâts à l’ennemi. Peut aussi le paralyser."
+  },
+  "rarity": {
+    "level": 2,
+    "label": "peu commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d10"
+  },
+  "name": "Ectoplasma",
+  "hp": 60,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/94.png",
+  "type": "Spectre",
+  "attack": {
+    "name": "Détricanon",
+    "power": 120,
+    "description": "Le lanceur envoie des détritus sur\nl’ennemi. Peut aussi l’empoisonner."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d11"
+  },
+  "name": "Onix",
+  "hp": 35,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/95.png",
+  "type": "Roche",
+  "attack": {
+    "name": "Tête de Fer",
+    "power": 80,
+    "description": "Le lanceur heurte l’ennemi avec sa tête\ndure comme de l’acier. Peut aussi\napeurer l’ennemi."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d12"
+  },
+  "name": "Soporifik",
+  "hp": 60,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/96.png",
+  "type": "Psy",
+  "attack": {
+    "name": "Poing Éclair",
+    "power": 75,
+    "description": "Un coup de poing électrique vient\nfrapper l’ennemi. Peut le paralyser."
+  },
+  "rarity": {
+    "level": 1,
+    "label": "commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d13"
+  },
+  "name": "Hypnomade",
+  "hp": 85,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/97.png",
+  "type": "Psy",
+  "attack": {
+    "name": "Réveil Forcé",
+    "power": 70,
+    "description": "Cette attaque inflige d’importants\ndégâts à un Pokémon endormi.\nMais elle le réveille également."
+  },
+  "rarity": {
+    "level": 2,
+    "label": "peu commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d14"
+  },
+  "name": "Krabby",
+  "hp": 30,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/98.png",
+  "type": "Eau",
+  "attack": {
+    "name": "Tir de Boue",
+    "power": 55,
+    "description": "Le lanceur attaque en projetant\nde la boue sur l’ennemi. Réduit\naussi la Vitesse de la cible."
+  },
+  "rarity": {
+    "level": 0,
+    "label": "très commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d15"
+  },
+  "name": "Krabboss",
+  "hp": 55,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/99.png",
+  "type": "Eau",
+  "attack": {
+    "name": "Force Cachée",
+    "power": 70,
+    "description": "Les effets de cette attaque varient en\nfonction de l’environnement."
+  },
+  "rarity": {
+    "level": 2,
+    "label": "peu commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d16"
+  },
+  "name": "Voltorbe",
+  "hp": 40,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/100.png",
+  "type": "Électrik",
+  "attack": {
+    "name": "Météores",
+    "power": 60,
+    "description": "Le lanceur envoie des rayons d’étoiles.\nTouche toujours l’ennemi."
+  },
+  "rarity": {
+    "level": 1,
+    "label": "commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d17"
+  },
+  "name": "Électrode",
+  "hp": 60,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/101.png",
+  "type": "Électrik",
+  "attack": {
+    "name": "Fatal-Foudre",
+    "power": 110,
+    "description": "La foudre tombe sur l’ennemi\npour lui infliger des dégâts.\nPeut aussi le paralyser."
+  },
+  "rarity": {
+    "level": 2,
+    "label": "peu commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d18"
+  },
+  "name": "Noeunoeuf",
+  "hp": 60,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/102.png",
+  "type": "Plante",
+  "attack": {
+    "name": "Éco-Sphère",
+    "power": 90,
+    "description": "Utilise les pouvoirs de la nature pour\nattaquer l’ennemi. Peut aussi baisser\nla Défense Spéciale de l’ennemi."
+  },
+  "rarity": {
+    "level": 2,
+    "label": "peu commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d19"
+  },
+  "name": "Noadkoko",
+  "hp": 95,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/103.png",
+  "type": "Plante",
+  "attack": {
+    "name": "Bélier",
+    "power": 90,
+    "description": "Une charge violente qui blesse aussi\nlégèrement le lanceur."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d1a"
+  },
+  "name": "Osselait",
+  "hp": 50,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/104.png",
+  "type": "Sol",
+  "attack": {
+    "name": "Osmerang",
+    "power": 50,
+    "description": "Le lanceur projette son os comme un\nboomerang. Cette attaque frappe à\nl’aller et au retour."
+  },
+  "rarity": {
+    "level": 1,
+    "label": "commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d1b"
+  },
+  "name": "Ossatueur",
+  "hp": 60,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/105.png",
+  "type": "Sol",
+  "attack": {
+    "name": "Telluriforce",
+    "power": 90,
+    "description": "Des éruptions volcaniques ont lieu\nsous l’ennemi. Peut aussi baisser\nla Défense Spéciale de l’ennemi."
+  },
+  "rarity": {
+    "level": 2,
+    "label": "peu commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d1c"
+  },
+  "name": "Kicklee",
+  "hp": 50,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/106.png",
+  "type": "Combat",
+  "attack": {
+    "name": "Force Cachée",
+    "power": 70,
+    "description": "Les effets de cette attaque varient en\nfonction de l’environnement."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d1d"
+  },
+  "name": "Tygnon",
+  "hp": 50,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/107.png",
+  "type": "Combat",
+  "attack": {
+    "name": "Vendetta",
+    "power": 60,
+    "description": "Une attaque deux fois plus puissante\nsi le lanceur a été blessé par l’ennemi\ndurant ce tour."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d1e"
+  },
+  "name": "Excelangue",
+  "hp": 90,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/108.png",
+  "type": "Normal",
+  "attack": {
+    "name": "Damoclès",
+    "power": 120,
+    "description": "Une dangereuse charge. Inflige aussi des\ndégâts assez importants au lanceur."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d1f"
+  },
+  "name": "Smogo",
+  "hp": 40,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/109.png",
+  "type": "Poison",
+  "attack": {
+    "name": "Déflagration",
+    "power": 110,
+    "description": "Un déluge de flammes ardentes submerge\nl’ennemi. Peut aussi le brûler."
+  },
+  "rarity": {
+    "level": 1,
+    "label": "commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d20"
+  },
+  "name": "Smogogo",
+  "hp": 65,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/110.png",
+  "type": "Poison",
+  "attack": {
+    "name": "Rafale Psy",
+    "power": 65,
+    "description": "Un étrange rayon frappe l’ennemi.\nPeut aussi le rendre confus."
+  },
+  "rarity": {
+    "level": 2,
+    "label": "peu commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d21"
+  },
+  "name": "Rhinocorne",
+  "hp": 80,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/111.png",
+  "type": "Sol",
+  "attack": {
+    "name": "Puissance Cachée",
+    "power": 60,
+    "description": "Attaque dont la puissance et le type\ndépendent du Pokémon qui l’utilise."
+  },
+  "rarity": {
+    "level": 1,
+    "label": "commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d22"
+  },
+  "name": "Rhinoféros",
+  "hp": 105,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/112.png",
+  "type": "Sol",
+  "attack": {
+    "name": "Brouhaha",
+    "power": 90,
+    "description": "Le lanceur attaque en rugissant durant\n3 tours. Pendant ce temps, personne\nne peut s’endormir."
+  },
+  "rarity": {
+    "level": 2,
+    "label": "peu commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d23"
+  },
+  "name": "Leveinard",
+  "hp": 250,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/113.png",
+  "type": "Normal",
+  "attack": {
+    "name": "Larcin",
+    "power": 60,
+    "description": "Le lanceur attaque la cible et vole\nson objet. Le lanceur ne peut rien\nvoler s’il tient déjà un objet."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d24"
+  },
+  "name": "Saquedeneu",
+  "hp": 65,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/114.png",
+  "type": "Plante",
+  "attack": {
+    "name": "Coup d’Boule",
+    "power": 70,
+    "description": "Le lanceur donne un coup de tête.\nPeut apeurer l’ennemi.\n"
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d25"
+  },
+  "name": "Kangourex",
+  "hp": 105,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/115.png",
+  "type": "Normal",
+  "attack": {
+    "name": "Poing Boost",
+    "power": 40,
+    "description": "À force de frapper, les poings deviennent plus\ndurs. Augmente l’Attaque du lanceur si l’ennemi\nest touché."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d26"
+  },
+  "name": "Hypotrempe",
+  "hp": 30,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/116.png",
+  "type": "Eau",
+  "attack": {
+    "name": "Force Cachée",
+    "power": 70,
+    "description": "Les effets de cette attaque varient en\nfonction de l’environnement."
+  },
+  "rarity": {
+    "level": 0,
+    "label": "très commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d27"
+  },
+  "name": "Hypocéan",
+  "hp": 55,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/117.png",
+  "type": "Eau",
+  "attack": {
+    "name": "Onde Boréale",
+    "power": 65,
+    "description": "Envoie un rayon arc-en-ciel sur l’ennemi.\nPeut aussi baisser son Attaque."
+  },
+  "rarity": {
+    "level": 2,
+    "label": "peu commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d28"
+  },
+  "name": "Poissirène",
+  "hp": 45,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/118.png",
+  "type": "Eau",
+  "attack": {
+    "name": "Rafale Écailles",
+    "power": 25,
+    "description": "Le lanceur projette des écailles sur la cible de deux à\ncinq fois d’affilée. Augmente la Vitesse, mais diminue\nla Défense."
+  },
+  "rarity": {
+    "level": 0,
+    "label": "très commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d29"
+  },
+  "name": "Poissoroy",
+  "hp": 80,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/119.png",
+  "type": "Eau",
+  "attack": {
+    "name": "Vent Glace",
+    "power": 55,
+    "description": "Une bourrasque de vent froid blesse\nl’ennemi. Réduit aussi sa Vitesse."
+  },
+  "rarity": {
+    "level": 2,
+    "label": "peu commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d2a"
+  },
+  "name": "Stari",
+  "hp": 30,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/120.png",
+  "type": "Eau",
+  "attack": {
+    "name": "Cascade",
+    "power": 80,
+    "description": "Le lanceur charge l’ennemi à une vitesse\nremarquable, ce qui peut l’apeurer.\nPermet aussi de franchir une cascade."
+  },
+  "rarity": {
+    "level": 0,
+    "label": "très commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d2b"
+  },
+  "name": "Staross",
+  "hp": 60,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/121.png",
+  "type": "Eau",
+  "attack": {
+    "name": "Saumure",
+    "power": 65,
+    "description": "Cette attaque est deux fois plus\npuissante lorsque l’ennemi a moins\nde la moitié de ses PV."
+  },
+  "rarity": {
+    "level": 2,
+    "label": "peu commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d2c"
+  },
+  "name": "M. Mime",
+  "hp": 40,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/122.png",
+  "type": "Psy",
+  "attack": {
+    "name": "Ball’Ombre",
+    "power": 80,
+    "description": "Projette une grande ombre sur\nl’ennemi. Peut aussi faire baisser\nsa Défense Spéciale."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d2d"
+  },
+  "name": "Insécateur",
+  "hp": 70,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/123.png",
+  "type": "Insecte",
+  "attack": {
+    "name": "Vent Mauvais",
+    "power": 60,
+    "description": "Le lanceur crée une violente bourrasque.\nPeut aussi augmenter toutes ses stats."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d2e"
+  },
+  "name": "Lippoutou",
+  "hp": 65,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/124.png",
+  "type": "Glace",
+  "attack": {
+    "name": "Bulles d’O",
+    "power": 65,
+    "description": "Des bulles sont envoyées avec\npuissance sur l’ennemi. Peut\naussi baisser sa Vitesse."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d2f"
+  },
+  "name": "Élektek",
+  "hp": 65,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/125.png",
+  "type": "Électrik",
+  "attack": {
+    "name": "Vive-Attaque",
+    "power": 40,
+    "description": "Le lanceur fonce sur l’ennemi si rapidement\nqu’on parvient à peine à le discerner.\nFrappe en premier."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d30"
+  },
+  "name": "Magmar",
+  "hp": 65,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/126.png",
+  "type": "Feu",
+  "attack": {
+    "name": "Nitrocharge",
+    "power": 50,
+    "description": "Le lanceur s’entoure de flammes pour\nattaquer l’ennemi. Il se concentre\net sa Vitesse augmente."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d31"
+  },
+  "name": "Scarabrute",
+  "hp": 65,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/127.png",
+  "type": "Insecte",
+  "attack": {
+    "name": "Plaquage",
+    "power": 85,
+    "description": "Le lanceur se laisse tomber sur l’ennemi\nde tout son poids. Peut le paralyser."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d32"
+  },
+  "name": "Tauros",
+  "hp": 75,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/128.png",
+  "type": "Normal",
+  "attack": {
+    "name": "Queue de Fer",
+    "power": 100,
+    "description": "Attaque l’ennemi avec une queue de fer.\nPeut aussi baisser la Défense de l’ennemi."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d33"
+  },
+  "name": "Magicarpe",
+  "hp": 20,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/129.png",
+  "type": "Eau",
+  "attack": {
+    "name": "Charge",
+    "power": 40,
+    "description": "Le lanceur charge l’ennemi et\nle percute de tout son corps."
+  },
+  "rarity": {
+    "level": 0,
+    "label": "très commun"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d34"
+  },
+  "name": "Léviator",
+  "hp": 95,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/130.png",
+  "type": "Eau",
+  "attack": {
+    "name": "Damoclès",
+    "power": 120,
+    "description": "Une dangereuse charge. Inflige aussi des\ndégâts assez importants au lanceur."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d35"
+  },
+  "name": "Lokhlass",
+  "hp": 130,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/131.png",
+  "type": "Eau",
+  "attack": {
+    "name": "Damoclès",
+    "power": 120,
+    "description": "Une dangereuse charge. Inflige aussi des\ndégâts assez importants au lanceur."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d36"
+  },
+  "name": "Métamorph",
+  "hp": 48,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png",
+  "type": "Normal",
+  "attack": {
+    "name": "inconnu",
+    "power": null,
+    "description": "Description inconnue"
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d37"
+  },
+  "name": "Évoli",
+  "hp": 55,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/133.png",
+  "type": "Normal",
+  "attack": {
+    "name": "Tunnel",
+    "power": 80,
+    "description": "Le lanceur creuse au 1er tour et\nfrappe au 2è. Permet aussi de\ns’échapper d’un donjon."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d38"
+  },
+  "name": "Aquali",
+  "hp": 130,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/134.png",
+  "type": "Eau",
+  "attack": {
+    "name": "Cascade",
+    "power": 80,
+    "description": "Le lanceur charge l’ennemi à une vitesse\nremarquable, ce qui peut l’apeurer.\nPermet aussi de franchir une cascade."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d39"
+  },
+  "name": "Voltali",
+  "hp": 65,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/135.png",
+  "type": "Électrik",
+  "attack": {
+    "name": "Éclair",
+    "power": 40,
+    "description": "Une décharge électrique tombe sur\nl’ennemi. Peut aussi le paralyser."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d3a"
+  },
+  "name": "Pyroli",
+  "hp": 65,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/136.png",
+  "type": "Feu",
+  "attack": {
+    "name": "Mégaphone",
+    "power": 90,
+    "description": "Le lanceur pousse un cri dont l’écho\nterrifiant a le pouvoir d’infliger\ndes dégâts."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d3b"
+  },
+  "name": "Porygon",
+  "hp": 65,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/137.png",
+  "type": "Normal",
+  "attack": {
+    "name": "Aéropique",
+    "power": 60,
+    "description": "Le lanceur prend l’ennemi de vitesse\net le lacère. N’échoue jamais."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d3c"
+  },
+  "name": "Amonita",
+  "hp": 35,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/138.png",
+  "type": "Roche",
+  "attack": {
+    "name": "Éclate-Roc",
+    "power": 40,
+    "description": "Porte un coup dévastateur à l’ennemi.\nPeut briser des rochers fissurés.\nPeut baisser la Défense."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d3d"
+  },
+  "name": "Amonistar",
+  "hp": 70,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/139.png",
+  "type": "Roche",
+  "attack": {
+    "name": "Coup d’Boule",
+    "power": 70,
+    "description": "Le lanceur donne un coup de tête.\nPeut apeurer l’ennemi.\n"
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d3e"
+  },
+  "name": "Kabuto",
+  "hp": 30,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/140.png",
+  "type": "Roche",
+  "attack": {
+    "name": "Plaquage",
+    "power": 85,
+    "description": "Le lanceur se laisse tomber sur l’ennemi\nde tout son poids. Peut le paralyser."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d3f"
+  },
+  "name": "Kabutops",
+  "hp": 60,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/141.png",
+  "type": "Roche",
+  "attack": {
+    "name": "Taillade",
+    "power": 40,
+    "description": "Un coup de faux ou de griffe dont\nla force augmente quand il touche\nplusieurs fois d’affilée."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d40"
+  },
+  "name": "Ptéra",
+  "hp": 80,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/142.png",
+  "type": "Roche",
+  "attack": {
+    "name": "Cru-Ailes",
+    "power": 60,
+    "description": "L’ennemi est frappé par de larges ailes\ndéployées pour infliger des dégâts."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d41"
+  },
+  "name": "Ronflex",
+  "hp": 160,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/143.png",
+  "type": "Normal",
+  "attack": {
+    "name": "Éboulement",
+    "power": 75,
+    "description": "Envoie de gros rochers sur l’ennemi\npour infliger des dégâts.\nPeut aussi l’apeurer."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d42"
+  },
+  "name": "Artikodin",
+  "hp": 90,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/144.png",
+  "type": "Glace",
+  "attack": {
+    "name": "Coup d’Boule",
+    "power": 70,
+    "description": "Le lanceur donne un coup de tête.\nPeut apeurer l’ennemi.\n"
+  },
+  "rarity": {
+    "level": 4,
+    "label": "très rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d43"
+  },
+  "name": "Électhor",
+  "hp": 90,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/145.png",
+  "type": "Électrik",
+  "attack": {
+    "name": "Picore",
+    "power": 60,
+    "description": "Le lanceur picore la cible. Si cette\ndernière tient une Baie, le lanceur\nla mange et profite de ses effets."
+  },
+  "rarity": {
+    "level": 4,
+    "label": "très rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d44"
+  },
+  "name": "Sulfura",
+  "hp": 90,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/146.png",
+  "type": "Feu",
+  "attack": {
+    "name": "Ailes d’Acier",
+    "power": 70,
+    "description": "Le lanceur frappe l’ennemi avec des\nailes d’acier. Peut aussi augmenter\nla Défense du lanceur."
+  },
+  "rarity": {
+    "level": 4,
+    "label": "très rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d45"
+  },
+  "name": "Minidraco",
+  "hp": 41,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/147.png",
+  "type": "Dragon",
+  "attack": {
+    "name": "unknown",
+    "power": 50,
+    "description": "Description inconnue"
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d46"
+  },
+  "name": "Draco",
+  "hp": 61,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/148.png",
+  "type": "Dragon",
+  "attack": {
+    "name": "Bulles d’O",
+    "power": 65,
+    "description": "Des bulles sont envoyées avec\npuissance sur l’ennemi. Peut\naussi baisser sa Vitesse."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d47"
+  },
+  "name": "Dracolosse",
+  "hp": 91,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/149.png",
+  "type": "Dragon",
+  "attack": {
+    "name": "Calcination",
+    "power": 60,
+    "description": "Des flammes calcinent l’ennemi.\nS’il tient une Baie, elle est\nbrûlée et devient inutilisable."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d48"
+  },
+  "name": "Mewtwo",
+  "hp": 106,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/150.png",
+  "type": "Psy",
+  "attack": {
+    "name": "Exploforce",
+    "power": 120,
+    "description": "Le lanceur rassemble ses forces et laisse\néclater son pouvoir. Peut aussi baisser la\nDéfense Spéciale de l’ennemi."
+  },
+  "rarity": {
+    "level": 4,
+    "label": "très rare"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6766bd416ad288e3bdc55d49"
+  },
+  "name": "Mew",
+  "hp": 100,
+  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/151.png",
+  "type": "Psy",
+  "attack": {
+    "name": "Queue de Fer",
+    "power": 100,
+    "description": "Attaque l’ennemi avec une queue de fer.\nPeut aussi baisser la Défense de l’ennemi."
+  },
+  "rarity": {
+    "level": 3,
+    "label": "rare"
+  },
+  "__v": 0
+}]

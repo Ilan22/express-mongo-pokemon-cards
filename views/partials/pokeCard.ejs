@@ -1,0 +1,32 @@
+<div class="pokemon-card <%= pokemon.type %>">
+  <div class="pokemon-card-header">
+    <div class="pokemon-name"><%= pokemon.name %></div>
+    <div class="header-wrapper">
+      <div class="hp-display"><span>PV </span><%= pokemon.hp %></div>
+      <img
+        class="img-type"
+        src="/assets/type_<%= pokemon.type %>.png"
+        alt="<%= pokemon.name %>"
+      />
+    </div>
+  </div>
+  <img
+    class="img-pokemon"
+    src="<%= pokemon.image %>"
+    alt="<%= pokemon.name %>"
+  />
+  <div class="pokemon-info">
+    <div class="attack-info">
+      <div class="attack-info-row">
+        <strong><%= pokemon.attack.name %></strong>
+        <div class="attack-power"><%= pokemon.attack.power %></div>
+      </div>
+      <span class="attack-info-desc"><%= pokemon.attack.description %></span>
+    </div>
+
+    <div class="rarity-info">
+      <%= pokemon.rarity.label.charAt(0).toUpperCase() +
+      pokemon.rarity.label.slice(1) %>
+    </div>
+  </div>
+</div>

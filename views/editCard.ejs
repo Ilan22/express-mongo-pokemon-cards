@@ -4,94 +4,214 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Modifier la carte Pokémon</title>
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
   </head>
   <body>
-    <h1>Modifier la carte : <%= card.name %></h1>
+    <%- include('partials/header') %>
 
-    <!-- Formulaire de modification -->
-    <form
-      id="editCardForm"
-      action="/api/cards/<%= card._id %>?_method=PUT"
-      method="POST"
-    >
-      <label for="name">Nom:</label>
-      <input
-        type="text"
-        id="name"
-        name="name"
-        value="<%= card.name %>"
-        required
-      />
+    <div class="edit-container">
+      <!-- Formulaire -->
+      <div class="edit-form">
+        <h2>Modifier les informations</h2>
+        <form
+          id="editCardForm"
+          method="POST"
+          action="/api/pokemons/<%= card._id %>?_method=PUT"
+        >
+          <div class="row">
+            <div class="form-group">
+              <label for="name">Nom:</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value="<%= card.name %>"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="pv">PV:</label>
+              <input
+                type="number"
+                id="pv"
+                name="pv"
+                value="<%= card.hp %>"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="image">Image URL :</label>
+            <input
+              type="text"
+              id="image"
+              name="image"
+              value="<%= card.image %>"
+            />
+          </div>
+          <div class="radio-group">
+            <label class="radio-group-title">Type de Pokémon :</label>
+            <% typesPokemons.forEach((type) => { %> <input type="radio"
+            id="type-<%= type.toLowerCase() %>" name="type" value="<%= type %>"
+            class="radio-input <%= card.type === type ? 'checked' : '' %>" <%=
+            card.type === type ? 'checked' : '' %> required />
+            <label for="type-<%= type.toLowerCase() %>" class="radio-label"
+              ><%= type %></label
+            >
+            <% }); %>
+          </div>
+          <div class="form-group">
+            <label for="rarity_level">Rareté :</label>
+            <select id="rarity_level" name="rarity_level" required>
+              <% rarities.forEach((rarity) => { %> <% if (card.rarity.level ===
+              rarity.level) { %>
+              <option value="<%= rarity.level %>" selected>
+                <%= rarity.label %>
+              </option>
+              <% } else { %>²
+              <option value="<%= rarity.level %>"><%= rarity.label %></option>
+              <% } %> <% }); %>
+            </select>
+          </div>
 
-      <label for="pv">PV:</label>
-      <input type="number" id="pv" name="pv" value="<%= card.pv %>" required />
+          <div class="row">
+            <div class="form-group">
+              <label for="attack_name">Nom de l'attaque:</label>
+              <input
+                type="text"
+                id="attack_name"
+                name="attack_name"
+                value="<%= card.attack.name %>"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="attack_damage">Dégâts de l'attaque:</label>
+              <input
+                type="number"
+                id="attack_damage"
+                name="attack_damage"
+                value="<%= card.attack.power %>"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="attack_description">Description de l'attaque:</label>
+            <input
+              type="text"
+              id="attack_description"
+              name="attack_description"
+              value="<%= card.attack.description %>"
+              required
+            />
+          </div>
 
-      <label for="type">Type:</label>
-      <input
-        type="text"
-        id="type"
-        name="type"
-        value="<%= card.type %>"
-        required
-      />
+          <button type="submit" id="submitEdit" class="submit-button">
+            Enregistrer les modifications
+          </button>
+        </form>
+      </div>
 
-      <label for="faiblesse">Faiblesse:</label>
-      <input
-        type="text"
-        id="faiblesse"
-        name="faiblesse"
-        value="<%= card.faiblesse %>"
-        required
-      />
+      <!-- Affichage de la carte Pokémon -->
+      <!-- <div class="pokemon-card">
+        <div class="card-header">
+          <h2><%= card.name %></h2>
+          <span class="card-type"><%= card.type %></span>
+          <span class="card-hp">PV: <%= card.pv %></span>
+        </div>
+        <div class="card-image">
+          <img src="/images/default-pokemon.png" alt="Image de Pokémon" />
+        </div>
+        <div class="card-body">
+          <p>
+            <strong>Attaque:</strong> <%= card.attack_name %> (<%=
+            card.attack_damage %> dégâts)
+          </p>
+          <p><strong>Faiblesse:</strong> <%= card.faiblesse %></p>
+          <p><strong>Coût de retraite:</strong> <%= card.retreat_cost %></p>
+          <p><strong>Rareté:</strong> <%= card.rarity %>/5</p>
+        </div>
+      </div> -->
+    </div>
+    <script>
+      document
+        .getElementById("editCardForm")
+        .addEventListener("submit", async (event) => {
+          event.preventDefault(); // Empêche le rechargement de la page
 
-      <label for="attack_name">Nom de l'attaque:</label>
-      <input
-        type="text"
-        id="attack_name"
-        name="attack_name"
-        value="<%= card.attack_name %>"
-        required
-      />
+          const form = event.target;
 
-      <label for="attack_damage">Dégâts de l'attaque:</label>
-      <input
-        type="number"
-        id="attack_damage"
-        name="attack_damage"
-        value="<%= card.attack_damage %>"
-        required
-      />
+          // Récupérer les données du formulaire
+          const formData = new FormData(form);
+          const cardData = Object.fromEntries(formData.entries());
 
-      <label for="attack_cost">Coût de l'attaque:</label>
-      <input
-        type="number"
-        id="attack_cost"
-        name="attack_cost"
-        value="<%= card.attack_cost %>"
-        required
-      />
+          // Structurer les données pour correspondre au backend
+          cardData.hp = parseInt(cardData.pv, 10);
+          cardData.attack = {
+            name: cardData.attack_name,
+            power: parseInt(cardData.attack_damage, 10),
+            description: cardData.attack_description,
+          };
 
-      <label for="retreat_cost">Coût de retraite:</label>
-      <input
-        type="number"
-        id="retreat_cost"
-        name="retreat_cost"
-        value="<%= card.retreat_cost %>"
-        required
-      />
+          // Récupérer la rareté et l'étiquette correspondante
+          const rarityLevels = [
+            "Très Commun",
+            "Commun",
+            "Peu Commun",
+            "Rare",
+            "Très Rare",
+          ];
 
-      <label for="rarity">Rareté:</label>
-      <input
-        type="number"
-        id="rarity"
-        name="rarity"
-        value="<%= card.rarity %>"
-        required
-      />
+          const rarity_label =
+            rarityLevels[parseInt(cardData.rarity_level) - 1]; // -1 car l'index commence à 0
 
-      <button type="submit">Modifier la carte</button>
-    </form>
+          cardData.rarity = {
+            level: parseInt(cardData.rarity_level, 10),
+            label: rarity_label, // Assurez-vous que cette valeur est correctement assignée
+          };
+
+          // Nettoyage des données
+          delete cardData.pv;
+          delete cardData.attack_name;
+          delete cardData.attack_damage;
+          delete cardData.attack_description;
+          delete cardData.rarity_level;
+
+          // Récupérer l'ID de la carte
+          const action = form.getAttribute("action");
+          const cardId = action.split("/").pop().split("?")[0]; // Récupère l'ID de la carte
+
+          cardData._id = cardId;
+
+          try {
+            const response = await fetch(
+              `/api/pokemons/${cardId}?_method=PUT`,
+              {
+                method: "PUT",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(cardData),
+              }
+            );
+
+            if (response.ok) {
+              const result = await response.json();
+              alert("Modifications enregistrées avec succès !");
+
+              // Recharge la page pour refléter les modifications ou mettre à jour dynamiquement si nécessaire
+              window.location.href = `/admin/edit/${cardId}`;
+            } else {
+              const error = await response.json();
+              alert("Erreur : " + error.message);
+            }
+          } catch (error) {
+            console.error("Erreur lors de l'envoi des données :", error);
+            alert("Une erreur s'est produite.");
+          }
+        });
+    </script>
 
     <script src="/js/admin.js"></script>
   </body>
