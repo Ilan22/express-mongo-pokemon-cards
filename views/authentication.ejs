@@ -14,8 +14,12 @@
       />
       <div class="container">
         <div class="tabs">
-          <div class="tab active" onclick="switchTab('login')">Connexion</div>
-          <div class="tab" onclick="switchTab('register')">Inscription</div>
+          <div class="btn btn-tabs tab active" onclick="switchTab('login')">
+            Connexion
+          </div>
+          <div class="btn btn-tabs tab" onclick="switchTab('register')">
+            Inscription
+          </div>
         </div>
 
         <!-- Formulaire de connexion -->
@@ -29,7 +33,7 @@
               <label for="loginPassword">Mot de passe</label>
               <input type="password" id="loginPassword" required />
             </div>
-            <button type="submit">Se connecter</button>
+            <button class="btn" type="submit">Se connecter</button>
             <div id="loginError" class="error-message"></div>
           </form>
         </div>
@@ -49,7 +53,7 @@
               <label for="registerPassword">Mot de passe</label>
               <input type="password" id="registerPassword" required />
             </div>
-            <button type="submit">S'inscrire</button>
+            <button class="btn" type="submit">S'inscrire</button>
             <div id="registerError" class="error-message"></div>
           </form>
         </div>

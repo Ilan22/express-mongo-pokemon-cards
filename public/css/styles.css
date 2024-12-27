@@ -490,7 +490,7 @@
   z-index: -1;
 }
 .auth .container {
-  height: 500px;
+  height: 380px;
   width: 100%;
   max-width: 400px;
   margin: 20px;
@@ -505,9 +505,11 @@
 }
 .auth .tabs {
   display: flex;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   border-radius: 4px 4px 0 0;
   overflow: hidden;
+  gap: 20px;
+  padding: 10px;
 }
 .auth .tabs .tab {
   flex: 1;
@@ -519,37 +521,36 @@
   transition: all 0.3s ease;
 }
 .auth .tabs .tab.active {
-  background: var(--background-color);
-  border-bottom: 3px solid var(--primary-color);
-  font-weight: bold;
+  background-color: black;
+  color: white;
+  border: 2px solid black;
+  box-shadow: 0px 4px #323232;
+}
+.auth .tabs .tab.active:hover {
+  box-shadow: 0px 6px #323232;
 }
 .auth .tabs .tab:hover:not(.active) {
   background: #f0f0f0;
 }
-.auth .form-group {
-  margin-bottom: 15px;
+.auth .tabs .btn-tabs {
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  box-shadow: 0px 4px #323232;
 }
-.auth .form-group label {
-  display: block;
-  margin-bottom: 5px;
-  color: var(--text-color);
-  font-weight: bold;
+.auth .tabs .btn-tabs:active {
+  box-shadow: 0px 2px #323232;
 }
-.auth .form-group input {
-  width: 100%;
-  padding: 12px;
-  border: 2px solid var(--form-border-color);
-  border-radius: 4px;
-  background-color: rgba(255, 255, 255, 0.9);
-  transition: all 0.3s ease;
-}
-.auth .form-group input:focus {
-  outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 5px rgba(255, 203, 5, 0.3);
+.auth .tabs .btn-tabs:hover {
+  box-shadow: 0px 6px #323232;
 }
 .auth .form-container {
   display: none;
+}
+.auth .form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 .auth .form-container.active {
   display: block;
@@ -563,28 +564,6 @@
   border-radius: 4px;
   background-color: rgba(255, 89, 89, 0.1);
   border: 1px solid var(--accent-color);
-}
-.auth button {
-  width: 100%;
-  padding: 12px;
-  background: var(--primary-color);
-  color: var(--text-color);
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-.auth button:hover {
-  background: var(--secondary-color);
-  color: #fff;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(59, 76, 202, 0.2);
-}
-.auth button:active {
-  transform: translateY(0);
 }
 @keyframes fadeIn {
   from {

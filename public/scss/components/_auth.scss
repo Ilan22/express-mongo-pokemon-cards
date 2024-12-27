@@ -37,7 +37,7 @@ $desktop-breakpoint: 1024px;
 
   // Conteneur principal
   .container {
-    height: 500px;
+    height: 380px;
     width: 100%;
     max-width: 400px;
     margin: 20px;
@@ -54,9 +54,11 @@ $desktop-breakpoint: 1024px;
   // Styles des onglets
   .tabs {
     display: flex;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     border-radius: $border-radius $border-radius 0 0;
     overflow: hidden;
+    gap: 20px;
+    padding: 10px;
 
     .tab {
       flex: 1;
@@ -68,40 +70,32 @@ $desktop-breakpoint: 1024px;
       transition: all 0.3s ease;
 
       &.active {
-        background: var(--background-color);
-        border-bottom: 3px solid var(--primary-color);
-        font-weight: bold;
+        background-color: black;
+        color: white;
+        border: 2px solid black;
+        box-shadow: 0px 4px #323232;
+
+        &:hover {
+          box-shadow: 0px 6px #323232;
+        }
       }
 
       &:hover:not(.active) {
         background: $background-light;
       }
     }
-  }
 
-  // Styles des formulaires
-  .form-group {
-    margin-bottom: 15px;
+    .btn-tabs {
+      background-color: white;
+      color: black;
+      border: 2px solid black;
+      box-shadow: 0px 4px #323232;
 
-    label {
-      display: block;
-      margin-bottom: 5px;
-      color: var(--text-color);
-      font-weight: bold;
-    }
-
-    input {
-      width: 100%;
-      padding: 12px;
-      border: 2px solid var(--form-border-color);
-      border-radius: $border-radius;
-      background-color: rgba(255, 255, 255, 0.9);
-      transition: all 0.3s ease;
-
-      &:focus {
-        outline: none;
-        border-color: var(--primary-color);
-        box-shadow: 0 0 5px rgba(255, 203, 5, 0.3);
+      &:active {
+        box-shadow: 0px 2px #323232;
+      }
+      &:hover {
+        box-shadow: 0px 6px #323232;
       }
     }
   }
@@ -109,6 +103,12 @@ $desktop-breakpoint: 1024px;
   // Style des conteneurs de formulaire
   .form-container {
     display: none;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
 
     &.active {
       display: block;
@@ -125,32 +125,6 @@ $desktop-breakpoint: 1024px;
     border-radius: $border-radius;
     background-color: rgba(255, 89, 89, 0.1);
     border: 1px solid var(--accent-color);
-  }
-
-  // Style du bouton
-  button {
-    width: 100%;
-    padding: 12px;
-    background: var(--primary-color);
-    color: var(--text-color);
-    border: none;
-    border-radius: $border-radius;
-    cursor: pointer;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-
-    &:hover {
-      background: var(--secondary-color);
-      color: #fff;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(59, 76, 202, 0.2);
-    }
-
-    &:active {
-      transform: translateY(0);
-    }
   }
 
   // Animation de fade
