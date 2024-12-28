@@ -2,6 +2,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
+const PokemonModel = require("./models/Pokemon");
+const UserModel = require("./models/User");
 
 mongoose
   .connect("mongodb://127.0.0.1:27017/tcgp")
@@ -47,34 +49,6 @@ const rarities = [
   { level: 3, label: "Rare" },
   { level: 4, label: "Très Rare" },
 ]; // 4348462
-
-const pokemon = new mongoose.Schema({
-  name: { type: String, required: true },
-  hp: { type: Number, required: true },
-  image: { type: String, require: false },
-  type: { type: String, required: true },
-  attack: {
-    name: { type: String, required: true },
-    description: { type: String, required: true },
-    power: { type: Number, required: true },
-  },
-  rarity: {
-    level: { type: Number, required: true },
-    label: { type: String, required: true },
-  },
-});
-
-const PokemonModel = mongoose.model("pokemon", pokemon);
-
-const user = new mongoose.Schema({
-  name: { type: String, required: true },
-  email: { type: String, required: true },
-  password: { type: String, required: true },
-  role: { type: Number, required: true },
-  pokemons: [{ type: mongoose.Schema.Types.ObjectId, ref: "pokemon" }],
-});
-
-const UserModel = mongoose.model("user", user);
 
 const JWT_SECRET = "clé_secrète_de_diiiiiiingue";
 
