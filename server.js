@@ -1,9 +1,19 @@
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
-const PokemonModel = require("./models/Pokemon");
-const UserModel = require("./models/User");
+
+// Models
+const PokemonModel = require("./models/pokemon");
+const UserModel = require("./models/user");
+
+// Middlewares
+const authenticateToken = require("./middlewares/authenticateToken");
+const admin = require("./middlewares/admin");
+
+// Importation des types de Pokémon et des rarités
+const { types_pokemons, rarities } = require("./data/pokemon-data");
 
 mongoose
   .connect("mongodb://127.0.0.1:27017/tcgp")
@@ -24,55 +34,9 @@ const methodOverride = require("method-override");
 
 app.use(methodOverride("_method"));
 
-const types_pokemons = [
-  "Normal",
-  "Plante",
-  "Feu",
-  "Eau",
-  "Insecte",
-  "Poison",
-  "Vol",
-  "Électrik",
-  "Sol",
-  "Combat",
-  "Psy",
-  "Roche",
-  "Glace",
-  "Spectre",
-  "Dragon",
-];
-
-const rarities = [
-  { level: 0, label: "Très Commun" },
-  { level: 1, label: "Commun" },
-  { level: 2, label: "Peu Commun" },
-  { level: 3, label: "Rare" },
-  { level: 4, label: "Très Rare" },
-]; // 4348462
-
-const JWT_SECRET = "clé_secrète_de_diiiiiiingue";
-
 const cookieParser = require("cookie-parser");
 
 app.use(cookieParser());
-
-// Middleware d'authentification
-const authenticateToken = (req, res, next) => {
-  const token = req.cookies.token;
-
-  if (!token) {
-    return res.redirect("/authentication");
-  }
-
-  jwt.verify(token, JWT_SECRET, (err, user) => {
-    if (err) {
-      res.clearCookie("token");
-      return res.redirect("/authentication");
-    }
-    req.user = user;
-    next();
-  });
-};
 
 // Inscription
 app.post("/api/register", async (req, res) => {
@@ -122,7 +86,7 @@ app.post("/api/login", async (req, res) => {
 
     const token = jwt.sign(
       { id: user._id, name: user.name, role: user.role },
-      JWT_SECRET,
+      process.env.JWT_SECRET,
       { expiresIn: "24h" }
     );
 
@@ -347,7 +311,7 @@ app.get("/authentication", (req, res) => {
   res.render("authentication", { randomNumber });
 });
 
-app.get("/admin", authenticateToken, async (req, res) => {
+app.get("/admin", authenticateToken, admin, async (req, res) => {
   try {
     const pokemons = await PokemonModel.find();
     res.render("admin", { pokemons, user: req.user });
