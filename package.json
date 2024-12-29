@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run scss-build && nodemon server.js",
+    "start": "npm run scss-build && nodemon index.js",
     "init-db": "node scripts/initDb.js",
     "scss": "sass --watch public/scss:public/css",
-    "scss-build": "sass public/scss:public/css"
+    "scss-build": "sass public/scss:public/css",
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
@@ -16,6 +16,7 @@
     "axios": "^1.7.9",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.7",
+    "dotenv": "^16.4.7",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
     "jsonwebtoken": "^9.0.2",
@@ -26,6 +27,8 @@
   },
   "devDependencies": {
     "concurrently": "^9.1.0",
-    "sass": "^1.83.0"
+    "jest": "^29.7.0",
+    "sass": "^1.83.0",
+    "supertest": "^7.0.0"
   }
 }
