@@ -7,6 +7,7 @@ const authenticateToken = require("../middlewares/authenticateToken");
 const admin = require("../middlewares/admin");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const mongoose = require("mongoose");
 
 const router = express.Router();
 
@@ -93,6 +94,11 @@ router.get("/api/pokemons", async (req, res) => {
 // Récupérer une carte par ID
 router.get("/api/pokemons/:id", async (req, res) => {
   try {
+    // Vérifier si l'ID est un ID MongoDB valide
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+      return res.status(404).json({ message: "Carte non trouvée" });
+    }
+
     const card = await PokemonModel.findById(req.params.id);
     if (card) {
       res.json(card);

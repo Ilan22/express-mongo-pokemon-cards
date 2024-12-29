@@ -12,9 +12,6 @@ const UserModel = require("./models/user");
 const authenticateToken = require("./middlewares/authenticateToken");
 const admin = require("./middlewares/admin");
 
-// // Importation des types de Pokémon et des rarités
-// const { types_pokemons, rarities } = require("./data/pokemon-data");
-
 // Importation des routes API et des routes non-API
 const viewsRoutes = require("./routes/viewsRoutes");
 const apiRoutes = require("./routes/apiRoutes");
@@ -46,7 +43,4 @@ app.use(cookieParser());
 app.use(viewsRoutes);
 app.use(apiRoutes);
 
-const PORT = 3000;
-app.listen(PORT, () => {
-  console.log(`Serveur lancé sur http://localhost:${PORT}`);
-});
+module.exports = app;
