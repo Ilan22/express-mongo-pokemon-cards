@@ -29,6 +29,8 @@
     color: var(--black-color);
     position: relative;
     border: 8px solid var(--primary-color);
+    display: flex;
+    flex-direction: column;
 
     .pokemon-card-header {
       display: flex;
@@ -64,6 +66,8 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      height: 100%;
+      min-height: 0;
 
       .attack-info {
         padding: 8px;
@@ -88,7 +92,7 @@
 
         .attack-info-desc {
           font-size: 12px;
-          color: gray;
+          color: rgb(82, 82, 82);
         }
 
         .attack-power {
@@ -101,7 +105,7 @@
         margin: 5px 0;
         padding: 5px;
         font-size: 0.9em;
-        color: #666;
+        color: rgb(82, 82, 82);
         border-top: 1px solid rgba(0, 0, 0, 0.1);
       }
     }
@@ -117,10 +121,12 @@
     border-radius: 12px;
     box-shadow: inset 2px 3px 3px rgba(0, 0, 0, 0.1);
     padding: 8px;
+    border: 8px solid transparent;
+    background-color: rgba(255, 255, 255, 0.3);
 
     .empty-card-content {
       text-align: center;
-      color: #666;
+      color: #3a3a3a;
       padding: 20px;
     }
   }

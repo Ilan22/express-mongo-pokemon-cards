@@ -116,20 +116,12 @@
       </div>
     </section>
 
+    <script src="/js/snackbar.js"></script>
     <script src="/js/admin.js"></script>
     <script>
       function validateCurrentStep() {
         let isValid = true;
         const currentFields = steps[currentStep].querySelectorAll("[required]");
-
-        // currentFields.forEach((field) => {
-        //   const existingErrorMessage = field
-        //     .closest(".form-group")
-        //     .querySelector(".error-message");
-        //   if (existingErrorMessage) {
-        //     existingErrorMessage.remove(); // Supprime les anciens messages d'erreur
-        //   }
-        // });
 
         for (let field of currentFields) {
           const errorElement = field.nextElementSibling;
@@ -316,7 +308,7 @@
 
             if (response.ok) {
               const result = await response.json();
-              alert("Carte créée avec succès !");
+              showSnackbar("Carte créée avec succès !");
               currentStep = 0;
               showStep(currentStep);
 
@@ -324,13 +316,14 @@
               event.target.reset();
             } else {
               const error = await response.json();
-              alert("Erreur : " + error.message);
+              showSnackbar(error.message, false);
             }
           } catch (error) {
             console.error("Erreur lors de l'envoi des données :", error);
-            alert("Une erreur s'est produite.");
+            showSnackbar("Une erreur s'est produite.", false);
           }
         });
     </script>
+    <div id="snackbar" class="snackbar"></div>
   </body>
 </html>

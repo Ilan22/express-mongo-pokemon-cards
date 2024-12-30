@@ -1432,9 +1432,9 @@
   "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/76.png",
   "type": "Roche",
   "attack": {
-    "name": "unknown",
-    "power": 80,
-    "description": "Description inconnue"
+    "name": "Écrasement",
+    "power": 60,
+    "description": "Le lanceur écrase l’ennemi avec\nune masse de roche."
   },
   "rarity": {
     "level": 3,
@@ -1546,9 +1546,9 @@
   "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/82.png",
   "type": "Électrik",
   "attack": {
-    "name": "unknown",
+    "name": "Élecanon",
     "power": 80,
-    "description": "Description inconnue"
+    "description": "Le lanceur envoie un éclair sur l’ennemi.\nPeut aussi le paralyser."
   },
   "rarity": {
     "level": 2,
@@ -2496,9 +2496,9 @@
   "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png",
   "type": "Normal",
   "attack": {
-    "name": "inconnu",
-    "power": null,
-    "description": "Description inconnue"
+    "name": "Blop",
+    "power": 0,
+    "description": "..."
   },
   "rarity": {
     "level": 3,

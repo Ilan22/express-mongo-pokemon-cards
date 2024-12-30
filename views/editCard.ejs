@@ -113,26 +113,6 @@
         </form>
       </div>
 
-      <!-- Affichage de la carte Pokémon -->
-      <!-- <div class="pokemon-card">
-        <div class="card-header">
-          <h2><%= card.name %></h2>
-          <span class="card-type"><%= card.type %></span>
-          <span class="card-hp">PV: <%= card.pv %></span>
-        </div>
-        <div class="card-image">
-          <img src="/images/default-pokemon.png" alt="Image de Pokémon" />
-        </div>
-        <div class="card-body">
-          <p>
-            <strong>Attaque:</strong> <%= card.attack_name %> (<%=
-            card.attack_damage %> dégâts)
-          </p>
-          <p><strong>Faiblesse:</strong> <%= card.faiblesse %></p>
-          <p><strong>Coût de retraite:</strong> <%= card.retreat_cost %></p>
-          <p><strong>Rareté:</strong> <%= card.rarity %>/5</p>
-        </div>
-      </div> -->
     </div>
     <script>
       document
@@ -198,21 +178,24 @@
 
             if (response.ok) {
               const result = await response.json();
-              alert("Modifications enregistrées avec succès !");
+              showSnackbar("Modifications enregistrées avec succès !");
 
-              // Recharge la page pour refléter les modifications ou mettre à jour dynamiquement si nécessaire
-              window.location.href = `/admin/edit/${cardId}`;
+              // Redirection après un court délai pour voir la snackbar
+              setTimeout(() => {
+                window.location.href = `/admin/edit/${cardId}`;
+              }, 1500);
             } else {
               const error = await response.json();
-              alert("Erreur : " + error.message);
+              showSnackbar(error.message, false);
             }
           } catch (error) {
             console.error("Erreur lors de l'envoi des données :", error);
-            alert("Une erreur s'est produite.");
+            showSnackbar("Une erreur s'est produite.", false);
           }
         });
     </script>
-
+    <script src="/js/snackbar.js"></script>
     <script src="/js/admin.js"></script>
+    <div id="snackbar" class="snackbar"></div>
   </body>
 </html>
