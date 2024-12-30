@@ -28,6 +28,7 @@ router.get("/", authenticateToken, async (req, res) => {
     res.render("index", {
       pokemons: pokemons,
       user: req.user,
+      currentPath: req.path
     });
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -44,7 +45,7 @@ router.get("/authentication", (req, res) => {
 router.get("/admin", authenticateToken, admin, async (req, res) => {
   try {
     const pokemons = await PokemonModel.find();
-    res.render("admin", { pokemons, user: req.user });
+    res.render("admin", { pokemons, user: req.user,currentPath: req.path });
   } catch (error) {
     res.status(500).send("Erreur serveur");
   }
@@ -52,7 +53,7 @@ router.get("/admin", authenticateToken, admin, async (req, res) => {
 
 // Page de création de carte
 router.get("/createCard", authenticateToken, (req, res) => {
-  res.render("createCard", { user: req.user, typesPokemons: types_pokemons });
+  res.render("createCard", { user: req.user, typesPokemons: types_pokemons,currentPath: req.path });
 });
 
 // Formulaire d'édition d'une carte
@@ -65,6 +66,7 @@ router.get("/admin/edit/:id", authenticateToken, async (req, res) => {
         user: req.user,
         typesPokemons: types_pokemons,
         rarities,
+        currentPath: req.path
       });
     } else {
       res.status(404).send("Carte non trouvée");

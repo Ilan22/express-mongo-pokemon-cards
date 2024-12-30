@@ -13,7 +13,9 @@
     <a href="/admin" class="btn btn-nav">Administration</a>
     <% } %>
     <a href="/" class="btn btn-nav">Mes cartes</a>
+    <% if (currentPath === '/') { %>
     <a id="openBoosterBtn" class="btn btn-nav">Ouvrir un Booster</a>
+    <% } %>
     <a href="/api/logout" class="btn btn-nav">Déconnexion</a>
   </div>
 </div>

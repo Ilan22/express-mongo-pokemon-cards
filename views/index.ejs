@@ -35,8 +35,6 @@
           </label>
         </div>
         <img src="/assets/pokedex.jpg" alt="pokedex" class="pokedex-icon" />
-        <!-- <%= pokemons.filter(pokemon => pokemon.isOwned).length %> / <%=
-        pokemons.length %> -->
       </div>
     </div>
     <div class="pokemon-container">
@@ -117,7 +115,7 @@
               if (isNew) {
                 card.style.opacity = "1";
                 card.classList.add("new-card-animation");
-                await new Promise((resolve) => setTimeout(resolve, 1000));
+                await new Promise((resolve) => setTimeout(resolve, 500));
               } else {
                 card.style.transition = "all 0.5s ease";
                 card.style.opacity = "1";
@@ -131,12 +129,9 @@
       document.querySelector(".close-modal").addEventListener("click", () => {
         document.getElementById("boosterModal").style.display = "none";
         document.body.classList.remove("modal-open");
-
-        // Réinitialisez ici les cartes si nécessaire pour un nouvel affichage
-        const boosterContainer = document.querySelector(
-          ".booster-cards-container"
-        );
-        boosterContainer.innerHTML = ""; // Réinitialiser les cartes affichées
+        
+        // Rafraîchir la page après la fermeture de la modal
+        window.location.reload();
       });
 
       document
@@ -157,33 +152,31 @@
           });
         });
 
-      let searchTimeout;
+      const searchInput = document.querySelector(".search-bar input");
 
-      document
-        .querySelector(".search-bar input")
-        .addEventListener("input", function () {
-          clearTimeout(searchTimeout); // Réinitialise le délai précédent
+      // Fonction de recherche
+      const performSearch = () => {
+        const query = searchInput.value.toLowerCase();
+        const allCards = document.querySelectorAll(
+          ".pokemon-container .pokemon-card, .pokemon-container .empty-card"
+        );
 
-          searchTimeout = setTimeout(() => {
-            const query = this.value.toLowerCase(); // Requête utilisateur en minuscule
-            const allCards = document.querySelectorAll(
-              ".pokemon-container .pokemon-card, .pokemon-container .empty-card"
-            );
+        allCards.forEach((card) => {
+          const cardNameElement = card.querySelector(".pokemon-name");
+          const cardName = cardNameElement
+            ? cardNameElement.textContent.toLowerCase()
+            : "";
 
-            allCards.forEach((card) => {
-              const cardNameElement = card.querySelector(".pokemon-name");
-              const cardName = cardNameElement
-                ? cardNameElement.textContent.toLowerCase()
-                : "";
-
-              if (cardName.includes(query)) {
-                card.classList.remove("hidden-search"); // Affiche la carte si elle correspond
-              } else {
-                card.classList.add("hidden-search"); // Masque la carte si elle ne correspond pas
-              }
-            });
-          }, 2000); // Délai de 3 secondes
+          if (cardName.includes(query)) {
+            card.classList.remove("hidden-search");
+          } else {
+            card.classList.add("hidden-search");
+          }
         });
+      };
+
+      // Événement pour la saisie en temps réel
+      searchInput.addEventListener("input", performSearch);
     </script>
   </body>
 </html>

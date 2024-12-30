@@ -1,15 +1,16 @@
 // routes/apiRoutes.js
 const express = require("express");
-const { types_pokemons, rarities } = require("../data/pokemon-data");
-const UserModel = require("../models/user");
-const PokemonModel = require("../models/pokemon");
-const authenticateToken = require("../middlewares/authenticateToken");
-const admin = require("../middlewares/admin");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
-
 const router = express.Router();
+
+// Models
+const PokemonModel = require("../models/pokemon");
+const UserModel = require("../models/user");
+
+// Middlewares
+const authenticateToken = require("../middlewares/authenticateToken");
 
 // Inscription
 router.post("/api/register", async (req, res) => {
@@ -25,9 +26,9 @@ router.post("/api/register", async (req, res) => {
 
     const user = new UserModel({
       name,
-      email,
+      email: email.toLowerCase(),
       password: hashedPassword,
-      role: 0,
+      role: 1
     });
 
     await user.save();
@@ -41,7 +42,8 @@ router.post("/api/register", async (req, res) => {
 // Connexion
 router.post("/api/login", async (req, res) => {
   try {
-    const { email, password } = req.body;
+    let { email, password } = req.body;
+    email = email.toLowerCase();
 
     const user = await UserModel.findOne({ email });
     if (!user) {

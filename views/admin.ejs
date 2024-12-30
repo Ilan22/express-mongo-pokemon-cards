@@ -68,12 +68,12 @@
               id="delete-form-<%= pokemon._id %>"
               action="/api/pokemons/<%= pokemon._id %>?_method=DELETE"
               method="POST"
-              onsubmit="event.preventDefault(); deletePokemon('<%= pokemon._id %>');"
+              onsubmit="event.preventDefault();"
             >
               <button
                 type="submit"
                 class="btn btn-supp"
-                onclick="return confirm('Confirmer la suppression ?')"
+                onclick="showDeleteModal('<%= pokemon._id %>')"
               >
                 Supprimer
               </button>
@@ -84,16 +84,33 @@
         <% }) %>
       </div>
     </section>
+
+    <div id="deleteModal" class="modal-admin">
+      <div class="modal-content">
+        <h2>Confirmation de suppression</h2>
+        <p>Êtes-vous sûr de vouloir supprimer cette carte ?</p>
+        <div class="modal-buttons">
+          <button id="confirmDelete" class="btn btn-supp">Confirmer</button>
+          <button id="cancelDelete" class="btn">Annuler</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="snackbar" class="snackbar"></div>
+    
     <script>
       let searchTimeout;
+      let currentPokemonId = null;
+      const modal = document.getElementById('deleteModal');
+      const snackbar = document.getElementById('snackbar');
 
       document
         .querySelector(".search-bar input")
         .addEventListener("input", function () {
-          clearTimeout(searchTimeout); // Réinitialise le délai précédent
+          clearTimeout(searchTimeout);
 
           searchTimeout = setTimeout(() => {
-            const query = this.value.toLowerCase(); // Requête utilisateur en minuscule
+            const query = this.value.toLowerCase();
             const allCards = document.querySelectorAll(
               ".pokemon-container .pokemon-card, .pokemon-container .empty-card"
             );
@@ -105,16 +122,38 @@
                 : "";
 
               if (cardName.includes(query)) {
-                card.classList.remove("hidden-search"); // Affiche la carte si elle correspond
+                card.classList.remove("hidden-search");
               } else {
-                card.classList.add("hidden-search"); // Masque la carte si elle ne correspond pas
+                card.classList.add("hidden-search");
               }
             });
-          }, 1000);
+          }, 300);
         });
 
+      function showDeleteModal(pokemonId) {
+        currentPokemonId = pokemonId;
+        modal.style.display = 'block';
+      }
+
+      document.getElementById('cancelDelete').onclick = function() {
+        modal.style.display = 'none';
+      }
+
+      document.getElementById('confirmDelete').onclick = function() {
+        if (currentPokemonId) {
+          deletePokemon(currentPokemonId);
+          modal.style.display = 'none';
+        }
+      }
+
+      // Fermer la modale si on clique en dehors
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = 'none';
+        }
+      }
+
       function deletePokemon(pokemonId) {
-        // Crée une requête AJAX pour supprimer la carte
         fetch(`/api/pokemons/${pokemonId}`, {
           method: "DELETE",
           headers: {
@@ -123,27 +162,24 @@
         })
           .then((response) => response.json())
           .then((data) => {
-            // Vérifiez si la suppression a réussi
             if (data.message === "Carte supprimée avec succès") {
-              // Supprimez l'élément de la page sans recharger
-              const cardElement = document.getElementById(
-                `pokemon-card-${pokemonId}`
-              );
+              const cardElement = document.getElementById(`pokemon-card-${pokemonId}`);
               if (cardElement) {
-                cardElement.remove(); // Retirer la carte de l'affichage
+                cardElement.remove();
               }
-              alert("Carte supprimée avec succès");
+              showSnackbar('Carte supprimée avec succès');
             } else {
-              alert("Erreur lors de la suppression de la carte");
+              showSnackbar('Erreur lors de la suppression de la carte', 'error');
             }
           })
           .catch((error) => {
             console.error("Erreur:", error);
-            alert("Une erreur est survenue");
+            showSnackbar('Une erreur est survenue', 'error');
           });
       }
     </script>
 
+    <script src="/js/snackbar.js"></script>
     <script src="/js/admin.js"></script>
   </body>
 </html>
