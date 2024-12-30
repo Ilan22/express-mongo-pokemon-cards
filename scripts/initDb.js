@@ -1,3 +1,8 @@
+require('dotenv').config({
+  path: process.env.NODE_ENV === 'production' 
+    ? '.env' 
+    : '.env.local'
+});
 const mongoose = require('mongoose');
 const fs = require('fs').promises;
 const path = require('path');
@@ -6,7 +11,7 @@ const UserModel = require('../models/user');
 const PokemonModel = require('../models/pokemon');
 
 // URL de connexion MongoDB avec options
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/tcgp';
+const MONGO_URL = process.env.MONGO_URL;
 const mongooseOptions = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -79,7 +84,7 @@ async function createAdmin() {
 async function main() {
   try{
     // Connexion à MongoDB avec options
-    await mongoose.connect(MONGODB_URI, mongooseOptions);
+    await mongoose.connect(MONGO_URL, mongooseOptions);
     console.log('Connecté à MongoDB');
 
     await importData();

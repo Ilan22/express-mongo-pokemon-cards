@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "start": "npm run scss-build && nodemon index.js",
+    "dev": "set NODE_ENV=development && npm run scss-build && nodemon index.js",
+    "start": "NODE_ENV=production node index.js",
     "init-db": "node scripts/initDb.js",
     "scss": "sass --watch public/scss:public/css",
     "scss-build": "sass public/scss:public/css",
