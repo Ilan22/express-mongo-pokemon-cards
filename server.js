@@ -1,4 +1,8 @@
-require("dotenv").config();
+require('dotenv').config({
+  path: process.env.NODE_ENV === 'production' 
+    ? '.env' 
+    : '.env.local'
+});
 const express = require("express");
 const mongoose = require("mongoose");
 const setupMiddlewares = require("./middlewares/globalMiddlewares");
@@ -8,8 +12,10 @@ const { notFoundHandler, errorHandler } = require('./middlewares/errorMiddleware
 const viewsRoutes = require("./routes/viewsRoutes");
 const apiRoutes = require("./routes/apiRoutes");
 
+const MONGO_URL = process.env.MONGO_URL;
+
 mongoose
-  .connect("mongodb://127.0.0.1:27017/tcgp")
+  .connect(MONGO_URL)
   .then(() => console.log("MongoDB connecté"))
   .catch((err) => console.error("Erreur de connexion à MongoDB:", err));
 
